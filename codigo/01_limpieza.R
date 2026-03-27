@@ -5,5 +5,8 @@
 
 library(tidyverse)
 
-informacion_accidentes <- read_csv("C:/Users/HP/OneDrive/Escritorio/Accident_Information.csv")
+informacion_accidentes <- read_csv("datos/originales/Accident_Information.csv")
 View(informacion_accidentes)
+
+accidentes_filtrados <- informacion_accidentes %>%
+  filter(Year >= 2010)
