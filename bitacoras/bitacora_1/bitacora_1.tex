@@ -2,13 +2,144 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{geometry}
+\usepackage{url}
 \geometry{margin=2.5cm}
 
 \title{Bitácora 1}
-\author{}
+\author{
+    \textbf{Integrantes:} \\
+        Debbie Con Ortega \\
+        Ashly Garro Villanueva \\
+        Emily Sanchéz Mancía \\
+        Alessandro Umaña Vega \\ [1cm]
+    \textbf{Profesor:} Maikol Solís \\[1.5cm]
+    \textbf{I Ciclo 2026}
+}
 \date{}
 
 \begin{document}
 \maketitle
+\newpage
+\section{Parte de planificación}
+\subsection{Pregunta de investigación}
+
+\subsubsection{Definición de la idea}
+Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Reino Unido en función de distintos factores en el periodo del 2010 al 2017, utilizando de la base de datos UK Road Safety: Traffic Accidents and Vehicles, con el objetivo de identificar situaciones de riesgo y proponer medidas de prevención que contribuyan a reducir su frecuencia. 
+
+\subsubsection{Conceptualización de la idea}
+\begin{itemize}
+    \item \textbf{Accidentes de tránsito:} Se define como un suceso que ocurre en la vía de manera repentina e inesperada. Generalmente está asociado a diversas condiciones o conductas imprudentes que, aunque pueden anticiparse, terminan provocando el incidente. Estos eventos pueden relacionarse con factores humanos, el funcionamiento de los vehículos, las condiciones climáticas, la señalización o el estado de las carreteras. Como consecuencia, pueden producirse pérdidas de vidas, lesiones, secuelas físicas o psicológicas, así como daños materiales y afectaciones a terceros (INEC Panamá, s.f). 
+    
+    \item \textbf{Factor:} La RAE (s.f) define un factor como un elemento que, en conjunto a otros, influye en la generación de un resultado específico. 
+
+    \item \textbf{Riesgo:} Se refiere a la posibilidad de que ocurra un evento en el futuro cercano o lejano, que puede presentarse en cualquier actividad que se realice y que genera preocupación debido a las posibles consecuencias que podría provocar (Fundación Mapfre, s.f).  
+
+    \item \textbf{Medidas de prevención:} El poder judicial de Costa Rica define las medidas preventivas como un conjunto de medida y acciones orientadas a eliminar o disminuir riesgos que pueden causar daños, mediante la aplicación de técnicas operativas o estrategias organizativas.  
+    
+    \item \textbf{Frecuencia:} Según la RAE (s.f), la frecuencia se define como “el número de veces que se repite un proceso periódico por unidad de tiempo”. 
+\end{itemize}
+
+\subsubsection{Identificación de tensiones}
+\begin{itemize}
+    \item Es posible que al realizar el estudio no se encuentren una o una serie de características que resalten lo suficiente para determinar que son los causantes de los accidentes de tránsito estudiados. Dado que un accidente involucra muchos factores, inclusive algunos no considerados en los datos, puede probar ser difícil saber cuál o cuáles de ellos son los principales. 
+    
+	\item Determinar la causa directa de un accidente automovilístico requiere no solo considerar los factores externos, sea el clima, las condiciones de las vías o del vehículo sino que también requiere estudiar el comportamiento humano. Este factor tan importante puede ser imparcial, no siempre funciona de acuerdo a la lógica y es volátil. Es esencial tener en cuenta que siempre hay cierto error humano dentro de las causas. 
+    
+	\item La posible falta de información y además, la posible inconsistencia que se pueda presentar debido al uso de una base datos compilada por un grupo de personas en cierta cantidad de tiempo presenta una posible dificultad en el tratamiento de la misma. La cantidad de datos nulos, o incorrectamente clasificados puede hacer la diferencia a la hora de determinar la causas o principales causas de los accidentes automovilísticos. 
+\end{itemize}
+
+\subsubsection{Reformulación de la idea en modo pregunta}
+\begin{itemize}
+    \item[1.] ¿Cómo influyen las condiciones de la carretera (seca, mojada, hielo) en la cantidad de accidentes de tránsito que ocurrieron en el Reino Unido entre los años 2010 y 2017? 
+
+    \item[2.] ¿Qué relación existe entre la iluminación y la cantidad de accidentes de tránsito reportados durante el periodo del 2010 al 2017 en el Reino Unido? 
+
+    \item[3.] ¿Cuáles características comparten los accidentes de tránsito de una determinada zona (urbana o rural) del Reino Unido durante el periodo de 2010 al 2017?
+
+    \item[4.] ¿Qué factores explican la variación de la cantidad de accidentes de tránsito en el Reino Unido durante el periodo del 2010 al 2017 y qué situaciones de riesgo se pueden identificar para proponer medidas de prevención que contribuyan a reducir su frecuencia?
+\end{itemize}
+
+\subsubsection{Argumentación de la pregunta}
+
+\begin{itemize}
+    \item[1.] \textbf{¿Cómo influyen las condiciones de la carretera (seca, mojada, hielo) en la cantidad de accidentes de tránsito que ocurrieron en el Reino Unido entre los años 2010 y 2017? } \\
+
+    \item[2.] \textbf{¿Qué relación existe entre la iluminación y la cantidad de accidentes de tránsito reportados durante el periodo del 2010 al 2017 en el Reino Unido?} \\
+    
+    \textbf{Contraargumento }
+    
+    - Lógico: Considerar solamente la iluminación para analizar la frecuencia de accidentes de tránsito podría llevarnos a no explicar en su totalidad la variación en la frecuencia de accidentes automovilísticos, debido a que estos dependen de múltiples factores como el clima y el entorno. Por lo tanto, cualquier relación observada podría estar sesgada si no se controlan otras variables. \\
+    
+    - Emocional: Si se atribuye un peso excesivo a la condición de la iluminación como factor explicativo de los accidentes, se podrían proponer medidas de prevención que no aborden las verdaderas causas del problema. Esto podría llevar a cambios poco efectivos en términos de seguridad vial, manteniendo a los conductores y peatones expuestos a los riesgos que no han sido correctamente identificados. \\
+    
+    - Ética: La variable de iluminación en la base de datos presenta limitaciones en su registro, clasificándolas en “darkness-lights lit” y “daylight”, no reflejando la calidad real de iluminación en cada escenario. Esto podría generar una representación simplificada de las condiciones de visibilidad, conduciendo a posibles sesgos en el análisis si no se reconoce esta limitación en la interpretación de los datos. \\
+
+    \textbf{Argumento} 
+    
+    - Lógico: A pesar de las limitaciones, la iluminación es un factor importante que, analizado en conjunto con otras variables, puede ser estudiado mediante métodos estadísticos para identificar patrones en la ocurrencia de accidentes. Esto permite evaluar si existen diferencias significativas bajo distintas condiciones de visibilidad. \\
+    
+    - Emocional: Analizar la relación entre iluminación y accidentes permite identificar condiciones en las que las personas se encuentran más vulnerables, lo que puede contribuir a la toma de decisiones preventivas concretas. Esto ayuda a mejorar la seguridad vial y a reducir la ocurrencia de accidentes de tránsito. \\
+    
+    - Ética: Reconociendo que la iluminación es solo uno de varios factores, el análisis puede desarrollarse de manera transparente y rigurosa, evitando interpretaciones sesgadas. Además, puede servir como base para estudios que tomen en cuenta múltiples variables y mejoren la comprensión del problema. \\
+    
+    - Conclusión: La iluminación constituye una variable relevante dentro del estudio, aunque insuficiente por si sola para explicar la variación en la frecuencia de accidentes de tránsito, por lo que es necesario analizarse en conjunto con otros factores como el clima y el entorno. Es fundamental reconocer las limitaciones en la calidad y la clasificación de los datos, garantizando así una interpretación transparente y responsable de los resultados. Finalmente, comprender esta relación permite identificar condiciones de riesgo asociadas a la visibilidad y orientar la implementación de medidas preventivas. Por estas razones, se decide considerar la iluminación como un factor relevante dentro del análisis general del proyecto, siempre que se tomen en cuenta otras variables que permitan una explicación más completa del problema. \\ 
+   
+    \item[3.] \textbf{¿Cuáles características comparten los accidentes de tránsito de una determinada zona (urbana o rural) del Reino Unido durante el periodo de 2010 al 2017?}
+    
+    \item[4.] \textbf{¿Qué factores explican la variación de la cantidad de accidentes de tránsito en el Reino Unido durante el periodo del 2010 al 2017 y qué situaciones de riesgo se pueden identificar para proponer medidas de prevención que contribuyan a reducir su frecuencia?}
+\end{itemize}
+
+\subsubsection{Argumentación a través de datos}
+\subsection{Revisión bibliográfica}
+\subsubsection{Construcción de fichas de literatura}
+\textbf{Ficha 1:}
+
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Título:} Traffic Accidents Analysis on Dry and Wet Road Bends Surfaces in Greater Manchester-UK. 
+    
+    \item \textbf{Autores:} Ismael Karzan S, Razzaq Noorance A. 
+    
+    \item \textbf{Año:} 2017 
+    
+    \item \textbf{Nombre del tema:} Accidentes de tránsito en curvas de Greater Manchester en función de condiciones climáticas y factores de entorno como iluminación, velocidad y comportamiento humano. 
+    
+    \item \textbf{Clasificación:} Metodológica. El artículo hace uso de herramientas estadísticas (como la prueba Chi-Cuadrado) y análisis descriptivo para estudiar la relación entre distintas variables, lo cual es directamente aplicable al enfoque de nuestro proyecto.
+    
+    \item \textbf{Resumen en una oración:} Analiza cómo condiciones de carretera afectan accidentes bajo distintas condiciones climáticas y de entorno. 
+    
+    \item \textbf{Argumento central:} Las condiciones de la superficie vial (seca o húmeda), junto a otros factores como la iluminación, velocidad y las decisiones del conductor, influyen significativamente en la ocurrencia de accidentes, y estas relaciones pueden evaluarse mediante análisis descriptivo y métodos estadísticos. 
+    
+    \item \textbf{Problemas con el argumento o el tema:} Se limita a una región específica (Greater Manchester), lo que reduce la generalización de las conclusiones. Por otra parte, considera condiciones climáticas limitadas, dejando por fuera situaciones de alto riesgo como la nevisca. Además, algunas relaciones, como la superficie vial y la severidad de los accidentes, no resultan estadísticamente significativas lo que limita conclusiones fuertes.  \\
+\end{itemize}
+
+\textbf{Nivel analítico}
+
+\begin{itemize}
+    \item \textbf{Conexión con mi proyecto:} El artículo es sumamente relevante ya que analiza, mediante pruebas estadísticas aplicables para nuestro proyecto, variables similares a las consideradas para nuestra investigación, como condiciones climáticas e iluminación, usando datos reales del Reino Unido (STATS19). 
+    
+	\item \textbf{Lo que NO dice el autor:} A diferencia del artículo, nuestro proyecto busca explicar cómo varía la cantidad total de accidentes en el Reino Unido (no solo en curvas de Greater Manchester), utilizando la base de datos UK Road Safety: Traffic Accidents and Vehicles. Además, no solo describiremos factores asociados (como clima o condición de la carretera), sino que buscaremos identificar situaciones de riesgo recurrentes para proponer medidas de prevención. 
+    
+	\item \textbf{Contraste con otra fuente:} *** 
+    
+	\item \textbf{Evaluación de aplicabilidad (1-5):} 4/5. La metodología del artículo es compatible con nuestro proyecto debido a que utiliza pruebas de independencia sobre variables categóricas, que coinciden con la estructura de la base de datos utilizada para nuestro proyecto. Sin embargo, no cumple todos los puntos de aplicabilidad debido a que el enfoque del autor es local y específico a curvas en Greater Manchester mientras que nuestro proyecto abarca todo el Reino Unido y un conjunto de factores más amplio, lo que exige adaptar y ampliar el diseño analítico del artículo.
+    
+	\item \textbf{Pregunta que le haría al autor:} Dado que su análisis se centra en la relación de la superficie vial en curvas de Greater Manchester tomando en cuenta el factor humano para estudiar las causas de estos, ¿cómo ajustaría su metodología si se quisiera estudiar solamente factores ambientales e infraestructurales, excluyendo el comportamiento del conductor, y qué variables consideraría más relevantes para poder aplicar su enfoque a una base más amplia como la utilizada en nuestro proyecto?
+    
+	\item \textbf{Resumen argumentativo:} Los autores buscan identificar los factores que influyen en la ocurrencia de accidentes de tránsito en Greater Manchester, particularmente en curvas, analizando asociaciones entre variables como la superficie de la carretera, iluminación, velocidad y severidad del accidente, utilizando pruebas de independencia como la Chi-Cuadrado. La solución propuesta resulta parcialmente aplicable a nuestro contexto, ya que el enfoque metodológico basado en el análisis de variables categóricas y la identificación de asociaciones entre factores ambientales es coherente con los objetivos de nuestro proyecto. Sin embargo, presenta limitaciones importantes, dado que el estudio se restringe a curvas de Greater Manchester, y considera el comportamiento humano como un factor central, mientras que nuestra investigación se centra en variables climáticas y del entorno, analizando accidentes en todo el Reino Unido. En nuestro trabajo retomaremos el enfoque del análisis asociativo entre variables, por ejemplo, entre condiciones climáticas y cantidad de accidentes, así como la identificación de factores de riesgo, sin embargo, lo aplicaremos a un conjunto de datos más amplio y sin atribuir la causalidad principal al error del conductor. \\
+\end{itemize} 
+
+
+\subsection{Construcción de la UVE de Gowin}
+
+\section{Parte de escritura}
+\subsection{Pregunta seleccionada}
+¿Qué factores explican la variación de la cantidad de accidentes de tránsito en el Reino Unido durante el periodo del 2010 al 2017 y qué situaciones de riesgo se pueden identificar para proponer medidas de prevención que contribuyan a reducir su frecuencia?
+
+\subsection{Resumen}
+
+\section{Arco narrativo del proyecto}
+\section{Diario de aprendizaje}
+Al inicio del proyecto no se contaba con una comprensión clara de los múltiples factores que están asociados a la ocurrencia de accidentes de tránsito. A lo largo del desarrollo del proyecto, se ha reconocido que este problema es multicausal, en el cual intervienen distintos factores de entorno que influyen en su ocurrencia. De la misma forma, se ha comprendido la importancia de estudiar dichos factores en conjunto, con el fin de obtener conclusiones más completas.  Además, de los usos que brinda las distribuciones de probabilidad para demostrar independencia o frecuencia de ciertas variables. 
 
 \end{document}
