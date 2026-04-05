@@ -2,11 +2,12 @@
 
 ## Integrantes del grupo
 
-| Nombre completo | Carné | Correo institucional |
-|-----------------|-------|----------------------|
-|                 |       |                      |
-|                 |       |                      |
-|                 |       |                      |
+| Nombre completo       | Carné | Correo institucional         |
+|-----------------------|-------|------------------------------|
+|Debbie Con Ortega      |C32250 |debbie.con@ucr.ac.cr          |  
+|Ashly Garro Villanueva |C33198 |ashly.garro@ucr.ac.cr         |
+|Emily Sánchez Mancía   |C27260 |emily.sanchezmancia@ucr.ac.cr | 
+|Alessandro Umaña Vega  |C37963 |alessandro.umana@ucr.ac.cr    |
 
 ## Descripción del proyecto
 
