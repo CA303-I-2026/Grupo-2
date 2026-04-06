@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{geometry}
 \usepackage{url}
 \geometry{margin=2.5cm}
@@ -16,7 +18,7 @@
     \textbf{Profesor:} Maikol Solís \\[1.5cm]
     \textbf{I Ciclo 2026}
 }
-
+\date{}
 
 
 \begin{document}
@@ -202,7 +204,7 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
 	
 	\item \textbf{Pregunta que le haría al autor:} Si su estudio se basa en la relación entre la velocidad promedio del tráfico y la frecuencia de accidentes, ¿cómo podría aplicarse este enfoque en investigaciones que solo cuentan con variables indirectas como el límite de velocidad de la vía o el tipo de carretera? 
 	
-	\item \textbf{Resumen argumentativo:} El artículo de M. C. Taylor, D. A. Lynam y A. Baruya intenta resolver el problema de cómo entender y cuantificar la relación entre la velocidad del tráfico y la frecuencia de accidentes. Los autores proponen analizar esta relación utilizando la velocidad promedio de los vehículos en la vía lo cual permite observar cómo cambios pequeños en la velocidad general de una vía pueden afectar el número total de accidentes. Sin embargo, su aplicación puede ser limitada en contextos donde no se dispone de datos sobre la velocidad promedio, ya que estudios como el que se pretende realizar solo cuentan con información como límites de velocidad o características de la carretera. A pesar de esto, el estudio proporciona evidencia clara de que incluso pequeñas reducciones en la velocidad promedio pueden generar disminuciones significativas en la frecuencia de accidentes. En el trabajo se utilizará este documento principalmente como base teórica para justificar la importancia de la velocidad como factor que influye en la frecuencia de accidentes, aunque posiblemente no se pueda aplicar exactamente su metodología ya que los datos disponibles no incluyen medidas de velocidad promedio. Además, servirá para entender cómo la velocidad interactúa con otros factores del entorno vial. 
+	\item \textbf{Resumen argumentativo:} El artículo de M. C. Taylor, D. A. Lynam y A. Baruya intenta resolver el problema de cómo entender y cuantificar la relación entre la velocidad del tráfico y la frecuencia de accidentes. Los autores proponen analizar esta relación utilizando la velocidad promedio de los vehículos en la vía lo cual permite observar cómo cambios pequeños en la velocidad general de una vía pueden afectar el número total de accidentes. Sin embargo, su aplicación puede ser limitada en contextos donde no se dispone de datos sobre la velocidad promedio, ya que estudios como el que se pretende realizar solo cuentan con información como límites de velocidad o características de la carretera. A pesar de esto, el estudio proporciona evidencia clara de que incluso pequeñas reducciones en la velocidad promedio pueden generar disminuciones significativas en la frecuencia de accidentes. En el trabajo se utilizará este documento principalmente como base teórica para justificar la importancia de la velocidad como factor que influye en la frecuencia de accidentes, aunque posiblemente no se pueda aplicar exactamente su metodología ya que los datos disponibles no incluyen medidas de velocidad promedio. Además, servirá para entender cómo la velocidad interactúa con otros factores del entorno vial. \\
 	\end{itemize} 
 	
 	
@@ -242,9 +244,13 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
 	\item \textbf{Resumen argumentativo:} Los autores desean resolver el problema de cuantificar y comparar el riesgo de accidentes de tránsito bajo distintas condiciones meteorológicas y tipos de carretera. Esto lo hace desde la perspectiva de cuánto tiempo pasa el conductor en dichas condiciones. Sus resultados acerca de cómo ciertos factores como las condiciones de nieve intensa y las carreteras resbaladizas elevan el riesgo de accidentes son relaciones que se buscarán dentro de este proyecto con las variables respectivas al Reino Unido. Es decir, estas situaciones identificadas en Finlandia donde ciertas condiciones climáticas y la condición de la carretera afectan la frecuencia de accidentes funcionan como base teórica. Sin embargo, la metodología basada en la distribución de Palm y el análisis del tráfico por trayecto no van a ser aplicadas en el contexto del Reino Unido entre 2010-2017.   
 \end{itemize}
 
-
-
 \subsection{Construcción de la UVE de Gowin}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/UVE_de_Gowin.pdf}
+    \caption{UVE de Gowin}
+\end{figure}
 
 \section{Parte de escritura}
 \subsection{Pregunta seleccionada}
@@ -306,7 +312,7 @@ Estas tablas facilitan la comprensión de frecuencias y proporciones entre categ
 aplicación de la prueba de independencia Chi-Cuadrado. Finalmente, se desea emplear la prueba de homogeneidad como 
 herramienta metodológica para comparar la distribución de la frecuencia de accidentes entre distintos grupos 
 clasificados por las variables de entorno. Esta prueba permite determinar si las proporciones de una variable 
-categórica se mantienen constantes entre distintas poblaciones o si existen diferencias significativas (Montaña et al., 2024) \\
+categórica se mantienen constantes entre distintas poblaciones o si existen diferencias significativas (Montaña et al., 2024). \\
 
 Se pretende que el análisis a realizar complemente los estudios que lo anteceden y contribuya a la construcción del conocimiento 
 acerca de los factores que contribuyen a aumentar el riesgo de que sucedan accidentes de tránsito. Esto para plantear medidas de 
