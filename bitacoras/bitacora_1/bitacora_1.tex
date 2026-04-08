@@ -3,6 +3,9 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{caption}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{../../referencias/referencias.bib}
 \usepackage{geometry}
 \usepackage{url}
 \geometry{margin=2.5cm}
@@ -33,15 +36,17 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
 
 \subsubsection{Conceptualización de la idea}
 \begin{itemize}
-    \item \textbf{Accidentes de tránsito:} Se define como un suceso que ocurre en la vía de manera repentina e inesperada. Generalmente está asociado a diversas condiciones o conductas imprudentes que, aunque pueden anticiparse, terminan provocando el incidente. Estos eventos pueden relacionarse con factores humanos, el funcionamiento de los vehículos, las condiciones climáticas, la señalización o el estado de las carreteras. Como consecuencia, pueden producirse pérdidas de vidas, lesiones, secuelas físicas o psicológicas, así como daños materiales y afectaciones a terceros (INEC Panamá, s.f). 
+    \item \textbf{Accidentes de tránsito:} Se define como un suceso que ocurre en la vía de manera repentina e inesperada. Generalmente está asociado a diversas condiciones o conductas imprudentes que, aunque pueden anticiparse, terminan provocando el incidente. Estos eventos pueden relacionarse con factores humanos, el funcionamiento de los vehículos, las condiciones climáticas, la señalización o el estado de las carreteras. Como consecuencia, pueden producirse pérdidas de vidas, lesiones, secuelas físicas o psicológicas, así como daños materiales y afectaciones a terceros \parencite{accidentes_transito_inec}. 
     
-    \item \textbf{Factor:} La RAE (s.f) define un factor como un elemento que, en conjunto a otros, influye en la generación de un resultado específico. 
+    \item \textbf{Factor:} La \textcite{factor_rae} define un factor como un elemento que, en conjunto a otros, influye en la generación de un resultado específico. 
 
-    \item \textbf{Riesgo:} Se refiere a la posibilidad de que ocurra un evento en el futuro cercano o lejano, que puede presentarse en cualquier actividad que se realice y que genera preocupación debido a las posibles consecuencias que podría provocar (Fundación Mapfre, s.f).  
+    \item \textbf{Riesgo:} Se refiere a la posibilidad de que ocurra un evento en el futuro cercano o lejano, que puede presentarse en cualquier actividad que se realice y que genera preocupación debido a las posibles consecuencias que podría provocar \parencite{riesgo_mapfre}.  
 
-    \item \textbf{Medidas de prevención:} El poder judicial de Costa Rica define las medidas preventivas como un conjunto de medida y acciones orientadas a eliminar o disminuir riesgos que pueden causar daños, mediante la aplicación de técnicas operativas o estrategias organizativas.  
+    \item \textbf{Medidas de prevención:} El \textcite{medidas_prevencion_pj} define las medidas preventivas como un conjunto de medida y acciones orientadas a eliminar o disminuir riesgos que pueden causar daños, mediante la aplicación de técnicas operativas o estrategias organizativas.  
     
-    \item \textbf{Frecuencia:} Según la RAE (s.f), la frecuencia se define como “el número de veces que se repite un proceso periódico por unidad de tiempo”. 
+    \item \textbf{Frecuencia:} Según la \textcite{frecuencia}, la frecuencia se define como “el número de veces que se repite un proceso periódico por unidad de tiempo”. 
+    
+    \item \textbf{Factor de riesgo:} Factor que aumenta, por vía genotípica o fenotípica, el riesgo de morbilidad o de mortalidad, es decir, la probabilidad de que aparezca o empeore una enfermedad, un trastorno u otra variable relacionada con la salud, o de que el sujeto fallezca. De naturaleza biológica, conductual, social o económica, el factor de riesgo carece de connotación causal pero, si se puede corregir, debe prevenirse \parencite{ranm_factor_riesgo}.
 \end{itemize}
 
 \subsubsection{Identificación de tensiones}
@@ -75,7 +80,7 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
     
     - Emocional:  Las personas pueden concretar por intuición que las carreteras mojadas o con hielo son más peligrosas, sin embargo, si los datos no llegan a presentar que esta suposición es correcta puede crear confusión en las personas lectoras, o en su caso contrario alarmar a la población si no se interpreta de manera correcta la información. \\
     
-    - Ética: Los datos puede estar sesgados o presentar errores de registro. Por ejemplo, algunos reportes pueden no distinguir de forma correcta de si la carretera está mojada o con hielo, lo cual puede afectar el análisis si es la única variable que tomamos en cuenta. También al ser por todo el Reino Unido la forma de recolectar los datos puede no ser la misma para todas las zonas. 
+    - Ética: Los datos puede estar sesgados o presentar errores de registro. Por ejemplo, algunos reportes pueden no distinguir de forma correcta de si la carretera está mojada o con hielo, lo cual puede afectar el análisis si es la única variable que tomamos en cuenta. También al ser por todo el Reino Unido la forma de recolectar los datos puede no ser la misma para todas las zonas. \\
     
     \textbf{Argumento} 
     
@@ -83,8 +88,9 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
     
     - Emocional: Entender como influye las condiciones de la carretera puede ayudar a prevenir a evitar los accidentes. También puede lograr generar conciencia a los conductores sobre la manera en la que conducen con las diferentes condiciones en las que puede estar la carretera. \\
     
-    - Ética: Al usar datos oficiales de Reino Unido, se puede garantizar que la información proviene de una fuente confiable y estandarizadas. 
-    o	Conclusión: El análisis de solo las condiciones de la carretera, aunque sea una variable para tomar en cuenta, por sí sola no indica la varianza en la frecuencia de los accidentes, por lo que es mejor incluir otras variables, que juntas puedan dar un mejor análisis de que tanto varia la frecuencia según ciertos parámetros de ciertas variables. \\ 
+    - Ética: Al usar datos oficiales de Reino Unido, se puede garantizar que la información proviene de una fuente confiable y estandarizadas. \\
+    
+    -Conclusión: El análisis de solo las condiciones de la carretera, aunque sea una variable para tomar en cuenta, por sí sola no indica la varianza en la frecuencia de los accidentes, por lo que es mejor incluir otras variables, que juntas puedan dar un mejor análisis de que tanto varia la frecuencia según ciertos parámetros de ciertas variables. \\ 
      
     \item[2.] \textbf{¿Qué relación existe entre la iluminación y la cantidad de accidentes de tránsito reportados durante el periodo del 2010 al 2017 en el Reino Unido?} \\
     
@@ -266,10 +272,11 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
     
 	\item \textbf{Pregunta que le haría al autor:} Dado que su análisis se centra en la relación de la superficie vial en curvas de Greater Manchester tomando en cuenta el factor humano para estudiar las causas de estos, ¿cómo ajustaría su metodología si se quisiera estudiar solamente factores ambientales e infraestructurales, excluyendo el comportamiento del conductor, y qué variables consideraría más relevantes para poder aplicar su enfoque a una base más amplia como la utilizada en nuestro proyecto?
     
-	\item \textbf{Resumen argumentativo:} 
+	\item \textbf{Resumen argumentativo:} Los autores buscan los factores que influyen en la ocurrencia de accidentes de tránsito en Greater Manchester, particularmente en curvas, analizando asociaciones entre variables como la superficie de la carretera, iluminación, velocidad y severidad del accidente, utilizando pruebas de independencia como la Chi-Cuadrado.
+    La solución propuesta resulta parcialmente aplicable a nuestro contexto, ya que el enfoque metodológico basado en el análisis de variables categóricas y la identificación de asociaciones entre factores ambientales es coherente con los objetivos de nuestro proyecto. Sin embargo, presenta limitaciones importantes, dado que el estudio se restringe a curvas de Greater Manchester, y considera el comportamiento humano como un factor central, mientras que en nuestra investigación se centra en variables climáticas y del entorno, analizando accidentes en todo el Reino Unido. En nuestro trabajo retomaremos el enfoque de análisis asociativo entre variables, por ejemplo, entre condiciones climáticas y cantidad de accidentes, así como la identificación de factores de riesgo, sin embargo, lo aplicaremos a un conjunto de datos más amplio y sin atribuir la causalidad principal al error del conductor.\\
 	\end{itemize} 
 	
-	\textbf{Ficha 2:}
+\textbf{Ficha 2:}
 
 \textbf{Nivel descriptivo}
 \begin{itemize}
@@ -287,7 +294,7 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
 
     \item \textbf{Argumento central:} El documento busca demostrar que la velocidad a la que circulan los vehículos está relacionada no solo con la gravedad de los accidentes de tránsito, sino también con su frecuencia. El estudio se enfoca principalmente en la velocidad promedio de los vehículos en una vía determinada, en lugar de la velocidad de un conductor individual. A partir de este enfoque, el estudio analiza información proveniente de carreteras urbanas y rurales e investigaciones sobre el comportamiento de los conductores con el objetivo de identificar patrones claros entre velocidad y accidentes. Los resultados muestran que existe una relación positiva entre aumentos en la velocidad promedio y aumentos en el número de accidentes. Esto se explica porque la velocidad influye en factores clave del proceso de conducción, como el tiempo de reacción del conductor, la distancia de frenado y la capacidad para evitar choques. También, el documento señala que incluso pequeños cambios en la velocidad promedio pueden producir cambios relativamente grandes en la frecuencia de accidentes y que el efecto de estas variaciones depende también del tipo de carretera y de las condiciones de circulación. Por esta razón, los autores concluyen que la regulación  de la velocidad es un elemento fundamental en las políticas de seguridad vial, aunque también reconocen que otros factores, como las condiciones de la carretera, el clima, el diseño de las intersecciones, pueden influir en el riesgo de accidentes. 
  
-    \item \textbf{Problemas con el argumento o el tema:} Los autores mencionan la complejidad de analizar la relación entre la velocidad y la frecuencia de los accidentes, pues reconocen el efecto que otras variables presentan sobre los mismos. Por este motivo, aislar el efecto de la velocidad no es sencillo. Por otro lado, se menciona la dificultad de conocer con precisión la velocidad real del vehículo involucrado en un accidente, por lo que, en su lugar, se toma la velocidad promedio de los vehículos en la vía.  
+    \item \textbf{Problemas con el argumento o el tema:} Los autores mencionan la complejidad de analizar la relación entre la velocidad y la frecuencia de los accidentes, pues reconocen el efecto que otras variables presentan sobre los mismos. Por este motivo, aislar el efecto de la velocidad no es sencillo. Por otro lado, se menciona la dificultad de conocer con precisión la velocidad real del vehículo involucrado en un accidente, por lo que, en su lugar, se toma la velocidad promedio de los vehículos en la vía.  \\
     \end{itemize}
 
 \textbf{Nivel analítico}
@@ -325,7 +332,7 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
 
     \item \textbf{Argumento central:} Se demuestra que el riesgo de accidentes varía significativamente según las condiciones del clima y el tipo de carretera, siendo mayores el riesgo relativo durante lluvias heladas y cuando la calle se encuentra resbaladiza y además, cuando se trata de autopistas bajo estas condiciones. Se utiliza la probabilidad de Palm para evaluar el riesgo desde la perspectiva del conductor.  
  
-    \item \textbf{Problemas con el argumento o el tema:} El periodo de estudio es relativamente muy corto (2 años) y solo basado en los datos de 43 rutas de Finlandia. Además, las categorías de las condiciones del clima se solapan e inclusive algunas de las condiciones son muy extrañas lo que las hace estadísticamente imposible que ocurran.  
+    \item \textbf{Problemas con el argumento o el tema:} El periodo de estudio es relativamente muy corto (2 años) y solo basado en los datos de 43 rutas de Finlandia. Además, las categorías de las condiciones del clima se solapan e inclusive algunas de las condiciones son muy extrañas lo que las hace estadísticamente imposible que ocurran.  \\
 \end{itemize}
 
 \textbf{Nivel analítico }
@@ -340,7 +347,7 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
  
 	\item \textbf{Pregunta que le haría al autor:} ¿Cómo podría adaptarse el análisis relativo de riesgo que ustedes desarrollaron para incluir otras variables como velocidad y además en condiciones climáticas como de infraestructura diferentes (de Finlandia al Reino Unido)?    
  
-	\item \textbf{Resumen argumentativo:} Los autores desean resolver el problema de cuantificar y comparar el riesgo de accidentes de tránsito bajo distintas condiciones meteorológicas y tipos de carretera. Esto lo hace desde la perspectiva de cuánto tiempo pasa el conductor en dichas condiciones. Sus resultados acerca de cómo ciertos factores como las condiciones de nieve intensa y las carreteras resbaladizas elevan el riesgo de accidentes son relaciones que se buscarán dentro de este proyecto con las variables respectivas al Reino Unido. Es decir, estas situaciones identificadas en Finlandia donde ciertas condiciones climáticas y la condición de la carretera afectan la frecuencia de accidentes funcionan como base teórica. Sin embargo, la metodología basada en la distribución de Palm y el análisis del tráfico por trayecto no van a ser aplicadas en el contexto del Reino Unido entre 2010-2017.   
+	\item \textbf{Resumen argumentativo:} Los autores desean resolver el problema de cuantificar y comparar el riesgo de accidentes de tránsito bajo distintas condiciones meteorológicas y tipos de carretera. Esto lo hace desde la perspectiva de cuánto tiempo pasa el conductor en dichas condiciones. Sus resultados acerca de cómo ciertos factores como las condiciones de nieve intensa y las carreteras resbaladizas elevan el riesgo de accidentes son relaciones que se buscarán dentro de este proyecto con las variables respectivas al Reino Unido. Es decir, estas situaciones identificadas en Finlandia donde ciertas condiciones climáticas y la condición de la carretera afectan la frecuencia de accidentes funcionan como base teórica. Sin embargo, la metodología basada en la distribución de Palm y el análisis del tráfico por trayecto no van a ser aplicadas en el contexto del Reino Unido entre 2010-2017. \\  
 \end{itemize}
 
 \textbf{Ficha 4:}
@@ -379,11 +386,11 @@ Se busca estudiar cómo varía la cantidad de accidentes de tránsito en el Rein
     
 	\item \textbf{Resumen argumentativo:} La autora intenta resolver el problema de la siniestralidad vial en la India usando varias teorías y modelos para poder proponer soluciones para que estos disminuya. Además,  se analiza cómo una secuencia de fallos mecánicos y humanos logra desencadenar un accidente inevitable una vez que esta cadena comienza. La solución propuesta a través de la Teoría del Dominó funciona para el contexto en el Reino Unido, ya que permite organizar múltiples variables en una jerarquía de causas directas e indirectas. El elemento que se puede usar es la interrupción de la secuencia causal, utilizando los datos de 2010 a 2017 para identificar cuál es la "ficha" más recurrente en los accidentes, por ejemplo, si es la falla humana o las condiciones ambientales. También, basándose en la Teoría del Dominó, se fundamentará las propuestas de prevención argumentando que la intervención en esa “ficha” específica es la forma más efectiva de detener la frecuencia de los siniestros.
 	\end{itemize}
-\subsection{Construcción de la UVE de Gowin}
 
+\subsection{Construcción de la UVE de Gowin}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{figuras/UVE_de_Gowin.png}
+    \includegraphics[width=1\textwidth]{figuras/UVE_GOWIN.png}
     \caption{UVE de Gowin}
 \end{figure}
 
@@ -408,7 +415,7 @@ o disminuye las probabilidades de que otro suceda, cada uno de ellos sucede por 
 Los accidentes son notorios por ser el resultado de varios factores que juntos son causantes de la tragedia. 
 Esto se profundiza en la Teoría de Causas Múltiples la cual dice que a un accidente no se le puede atribuir 
 la razón a un solo factor, que es un conjunto de factores y causas que en su combinación ocasionaron el accidente. 
-Además, se dividen los factores responsables en dos tipos: de comportamiento y ambiente (Hosseinian et al, 2012). 
+Además, se dividen los factores responsables en dos tipos: de comportamiento y ambiente \parencite{HOSSEINIAN2012}. 
 El comportamiento en este caso, sería referente al conductor y sus condiciones en el momento al igual que las 
 decisiones que este enfrenta. Mientras que el ambiente hace referencia a las condiciones ajenas a él, como el 
 clima, las condiciones y la luz en la carretera, entre otras. Sin embargo, para efectos de nuestra base de datos solo se encuentran factores de ambiente.\\
@@ -420,34 +427,34 @@ uno tras otro derrumbándose entre sí. La secuencia de los factores de un accid
 como primer eslabón o dominó las condiciones sociales y del entorno así como el linaje de la persona
 conductora. En segunda instancia, la culpa del trabajador y los rasgos humanos indeseables, 
 como el estar distraídos o enojados, etc. En tercer lugar, un acto o condición insegura junto
-con peligro mecánico y físico. Finalmente, en nuestro caso el accidente (Saxena, 2017).  \\
+con peligro mecánico y físico. Finalmente, en nuestro caso el accidente \parencite{SAXENA2017}.  \\
 
 Existen ciertos factores que han probado tener un papel en la incidencia de accidentes de tráfico. 
-Estudios como “The effects of drivers' speed on the frequency of road accidents” por Taylor et al,.  
+Estudios como “The effects of drivers' speed on the frequency of road accidents” por \textcite{TAYLOR2000},.  
 busca demostrar que la velocidad a la que circulan los vehículos está relacionada no solo con la gravedad de los accidentes de tránsito,
 sino también con su frecuencia. Su objetivo es identificar patrones claros entre velocidad y accidentes. Los resultados muestran 
 que existe una relación positiva entre aumentos en la velocidad promedio y aumentos en el número de accidentes. \\
 
-Además, el artículo realizado por Malin et al., titulado “Accident risk of road and weather conditions 
+Además, el artículo realizado por \textcite{MALIN2019}, titulado “Accident risk of road and weather conditions 
 on different road types” demuestra que el riesgo de accidentes varía significativamente según las 
 condiciones del clima y el tipo de carretera, siendo mayores el riesgo relativo durante lluvias heladas y cuando la calle se encuentra resbaladiza y además, 
 cuando se trata de autopistas bajo estas condiciones. Asimismo, en relación con accidentes de tráfico directamente en el contexto espacial deseado 
-“Traffic Accidents Analysis on Dry and Wet Road Bends Surfaces in Greater Manchester-UK” realizado por Karzan et al,. 
+“Traffic Accidents Analysis on Dry and Wet Road Bends Surfaces in Greater Manchester-UK” realizado por \textcite{KARZAN2017},
 relatan cómo las condiciones de la superficie vial (seca o húmeda), junto a otros factores como la iluminación, velocidad y 
 las decisiones del conductor, influyen significativamente en la ocurrencia de accidentes, y estas relaciones pueden evaluarse
 mediante análisis descriptivo y métodos estadísticos como la prueba Chi-Cuadrado, la cual será planteada en este proyecto. \\ 
 
 En relación con la metodología, se plantea realizar pruebas de independencia (Chi-cuadrado), 
 tablas de contingencia y pruebas de homogeneidad. La prueba Chi-Cuadrado de independencia, introducida por Karl Pearson, 
-que nos permite determinar si dos variables categóricas están relacionadas mediante el análisis de tablas de frecuencia cruzadas (Lastre et al., 2019).  
+que nos permite determinar si dos variables categóricas están relacionadas mediante el análisis de tablas de frecuencia cruzadas \parencite{LASTRE2019}.  
 Dado que en nuestro estudio se analizan variables cualitativas, esta prueba resulta adecuada para identificar asociaciones 
 significativas entre dichas variables y la frecuencia de accidentes. Las tablas de contingencia se definen como una tabla 
-de distribución de frecuencias conjuntas de dos variables aleatorias clasificadas en categorías (Lastre et al., 2019). 
+de distribución de frecuencias conjuntas de dos variables aleatorias clasificadas en categorías \parencite{LASTRE2019}. 
 Estas tablas facilitan la comprensión de frecuencias y proporciones entre categorías, siendo también la base para la 
 aplicación de la prueba de independencia Chi-Cuadrado. Finalmente, se desea emplear la prueba de homogeneidad como 
 herramienta metodológica para comparar la distribución de la frecuencia de accidentes entre distintos grupos 
 clasificados por las variables de entorno. Esta prueba permite determinar si las proporciones de una variable 
-categórica se mantienen constantes entre distintas poblaciones o si existen diferencias significativas (Montaña et al., 2024). \\
+categórica se mantienen constantes entre distintas poblaciones o si existen diferencias significativas \parencite{MONTANA2025}. \\
 
 Se pretende que el análisis a realizar complemente los estudios que lo anteceden y contribuya a la construcción del conocimiento 
 acerca de los factores que contribuyen a aumentar el riesgo de que sucedan accidentes de tránsito. Esto para plantear medidas de 
@@ -455,8 +462,10 @@ prevención con el objetivo de disminuir la frecuencia con la cual suceden dicho
 del lector acerca de su papel como conductor bajo diferentes condiciones del entorno.   
 
 \section{Arco narrativo del proyecto}
+El problema que nadie ha resuelto aún es como varia la frecuencia de los accidentes de tránsito dependiendo de los distintos factores del entorno que se relacionan y finalmente son responsables de causar en un accidente de tránsito. 
 \section{Diario de aprendizaje}
 Al inicio del proyecto no se contaba con una comprensión clara de los múltiples factores que están asociados a la ocurrencia de accidentes de tránsito. A lo largo del desarrollo del proyecto, se ha reconocido que este problema es multicausal, en el cual intervienen distintos factores de entorno que influyen en su ocurrencia. De la misma forma, se ha comprendido la importancia de estudiar dichos factores en conjunto, con el fin de obtener conclusiones más completas.  Además, de los usos que brinda las distribuciones de probabilidad para demostrar independencia o frecuencia de ciertas variables. 
 
+\printbibliography
 \end{document}
 
