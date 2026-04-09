@@ -11,7 +11,9 @@
 
 ## Descripción del proyecto
 
-<!-- Describa brevemente el tema, la pregunta de investigación y el objetivo general del proyecto. -->
+Este proyecto tiene como objetivo analizar la variación en la cantidad de accidentes de tránsito en el Reino Unido durante el periodo 2010–2017, a partir de la identificación de factores del entorno como las condiciones climáticas, el estado de la carretera, la iluminación y el tipo de zona (urbana o rural).
+
+Mediante el uso de herramientas estadísticas, como tablas de contingencia, pruebas de independencia Chi-cuadrado y de homogeneidad, se busca identificar relaciones significativas entre estas variables y la frecuencia de accidentes. El propósito del análisis es comprender mejor las condiciones en las que ocurren los accidentes y aportar evidencia que pueda servir de base para estudios posteriores en el área de seguridad vial.
 
 ## Estructura del repositorio
 
@@ -50,7 +52,7 @@ proyecto-ca303/
 
 ## Fuente de datos
 
-<!-- Indique el origen de los datos: nombre del conjunto de datos, institución que los publica, URL de descarga, fecha de acceso y licencia de uso. -->
+El conjunto de datos utilizado en este proyecto corresponde a UK Road Safety: Traffic Accidents and Vehicles, el cual contiene información sobre accidentes de tránsito registrados en el Reino Unido. Estos datos son recopilados y publicados por el Department for Transport del gobierno del Reino Unido y se encuentran disponibles a través de la plataforma Kaggle. La base de datos fue obtenida desde: https://www.kaggle.com/datasets/tsiaras/uk-road-safety-accidents-and-vehicles. La fecha de acceso a los datos fue el 17 de marzo de 2026. En cuanto a su uso, se trata de un conjunto de datos público, sujeto a los términos y condiciones establecidos por Kaggle y por la fuente original.
 
 ## Instrucciones de reproducibilidad
 
