@@ -5,7 +5,7 @@
 
 library(tidyverse)
 library(readr)
-Accident_Information <- read_csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/originales/Accident_Information.csv")
+Accident_Information <- read_csv("../datos/originales/Accident_Information.csv")
 View(Accident_Information)
 
 #Delimitamos la base de datos con los datos a partir del 2010
