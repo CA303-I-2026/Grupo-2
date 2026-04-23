@@ -78,3 +78,9 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+#================================================================================
+# No subir datasets para evitar problemas con el espacio
+#================================================================================
+datos/originales/*.csv
+datos/procesados/*.csv
