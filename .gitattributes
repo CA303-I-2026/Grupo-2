@@ -1,1 +1,0 @@
-datos/originales/Accident_Information.csv filter=lfs diff=lfs merge=lfs -text
