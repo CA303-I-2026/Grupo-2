@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{csquotes}
 \usepackage[backend=biber,style=apa]{biblatex}
 \addbibresource{../../referencias/referencias.bib}
 \usepackage{geometry}
@@ -206,18 +207,168 @@ sobre tipos de carretera y zonas urbanas/rurales & The effects of drivers' speed
 Teórica & Marco conceptual para justificar el análisis multifactorial de accidentes mediante la Teoría del Dominó y la Homeostasis
  del Riesgo & Analysis of Road Traffic Accident using Causation Theory with Traffic Safety Model and Measures & 2017 & Dr. Neeta Saxena \\
 \hline
+Metodológica & Marco metodológico para definir pruebas de indepencia Chi-Cuadrado y tablas de contingencia & Análisis estadístico de tablas de contingencia y chi-cuadrado para medir el flujo migratorio de
+origen y destino en el Ecuador año 2018 & 2019 & David Lastre Baquerizo, Melanie Páez Santana, y Olga López Tumbaco. \\
+\hline
 \end{tabular}
 \end{table}
 
 \section{Enlaces de la literatura}
 
+\subsection*{Ficha 1}
+\textbf{Resumen:} El estudio de \textcite{KARZAN2017} analiza la ocurrencia de accidentes
+de tránsito en curvas de Greater Manchester considerando variables como la condición de la superficie
+vial (superficie seca o húmeda), la iluminación, la velocidad y el comportamiento del conductor.
+Mediante herramientas estadísticas como el análisis descriptivo y pruebas de independencia Chi-Cuadrado, los autores 
+concluyen que, aunque no existe una relación significativa entre la superficie de la carretera y el número de víctimas
+bajo distintas condiciones climáticas, alrededor de un 40\% de los accidentes ocurren en superficies húmedas. 
+Además, se identifica que el riesgo de accidentes es mayor durante el día debido al volumen del tráfico, y que 
+el exceso de velocidad es un factor determinante.
+Finalmente, el estudio destaca que más del 95\% de los accidentes se deben a errores humanos, como falta de atención 
+o comportamiento agresivo a la hora de conducir.\\
+
+\textbf{Contraste:} El estudio “Accident risk of road and weather conditions on different road types” por \textcite{MALIN2019}
+analiza el riesgo relativo de accidentes considerando múltiples condiciones climáticas (nieve, hielo, visibilidad, temperatura)
+y distintos tipos de carretera, incorporando además la exposición real al riesgo mediante probabilidad de Palm. En contraste, 
+el estudio de Greater Manchester se enfoca en identificar asociaciones entre variables categóricas (superficie seca y húmeda, 
+iluminación, velocidad) mediante pruebas Chi-Cuadrado en un contexto local. Sin embargo, ambos coinciden en que las 
+condiciones de la vía y el entorno influyen significativamente en la ocurrencia de accidentes, y en que el análisis 
+estadístico de estas variables permite identificar factores de riesgo relevantes, aunque con distintos niveles de profundidad.\\
+
+\textbf{Contribución propia:} A partir de esta comparación, se puede concluir que \\
+
+\subsection*{Ficha 5}
+
+\textbf{Resumen:} El artículo de \textcite{LASTRE2019} busca resolver el problema de cómo analizar la relación 
+entre variables categóricas mediante herramientas estadísticas como las tablas de contingencia y la prueba chi-cuadrado 
+para explicar el flujo migratorio en Ecuador. Su argumento central es que el uso de herramientas estadísticas como las tablas 
+de contingencia y la prueba chi-cuadrado permite analizar de manera objetiva y eficiente la relación entre variables
+categóricas, facilitando la interpretación de relaciones entre variables y apoyando la toma de decisiones basada en datos.\\
+
+\textbf{Contraste:} Este enfoque metodológico se puede contrastar con el estudio de \textcite{MONTANA2025}, quienes utilizan
+la prueba de homogeneidad Chi-Cuadrado en estudios clínicos para comparar distribuciones entre grupos. Mientras \textcite{LASTRE2019}
+se enfocan en identificar relaciones de dependencia entre variables, Montaña et al. analizan si existen diferencias relevantes
+entre poblaciones, lo que amplía el uso de esta familia de pruebas estadísticas. En conjunto, estos trabajos muestran distintos
+usos de una misma técnica estadística en distintos contextos.
+
+\textbf{Contribución propia:} 
+
 
 \section{Análisis estadísticos}
 \subsection{Indentidad visual del proyecto}
-En este proyecto se definió un tema para la visualización de datos denominado estilo_bayesianos, con el objetivo de asegurar coherencia y claridad en todos los gráficos. Para ello, se adoptó un diseño minimalista que elimina elementos innecesarios, como las grillas de fondo, y prioriza la legibilidad de la información mediante ejes bien definidos y tamaños de fuente adecuados para su correcta visualización en el documento final. Asimismo, la leyenda se ubica en la parte superior para facilitar la interpretación de los gráficos sin interferir con el área de datos. En cuanto a la selección de colores, se emplea la paleta BMJ del paquete ggsci, la cual se caracteriza por ofrecer colores contrastantes, armónicos y fácilmente distinguibles. Esta elección resulta especialmente adecuada para representar variables categóricas, ya que mejora la diferenciación visual entre grupos y contribuye a una presentación profesional y consistente de los resultados. \\
+
+En este proyecto se definió un tema para la visualización de datos denominado estilo\_bayesianos,
+con el objetivo de asegurar coherencia y claridad en todos los gráficos. Para ello, se adoptó un
+diseño minimalista que elimina elementos innecesarios, como las grillas de fondo, y prioriza la 
+legibilidad de la información mediante ejes bien definidos y tamaños de fuente adecuados para su 
+correcta visualización en el documento final. Asimismo, la leyenda se ubica en la parte superior 
+para facilitar la interpretación de los gráficos sin interferir con el área de datos. En cuanto a
+ la selección de colores, se emplea la paleta BMJ del paquete ggsci, la cual se caracteriza por 
+ ofrecer colores contrastantes, armónicos y fácilmente distinguibles. Esta elección resulta 
+ especialmente adecuada para representar variables categóricas, ya que mejora la diferenciación 
+ visual entre grupos y contribuye a una presentación profesional y consistente de los resultados.
+
 
 \subsection{Análisis descriptivo}
 \subsection{Construcción de fichas de resultados}
+\subsubsection*{Ficha de resultado 1}
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} Predominan intersecciones sin control en accidentes de tránsito.
+
+    \item \textbf{Nombre del hallazgo:} Distribución de accidentes según control en intersecciones.
+
+    \item \textbf{Resumen en una oración:} La mayor parte de accidentes suceden en intersecciones 
+    sin control o con ceda el paso.
+
+    \item \textbf{Método o análisis que lo produjo:} El hallazgo fue encontrado mediante una 
+    tabla de frecuencias para la variable \textit{Junction Control}.
+
+    \item \textbf{Evidencia:} Cuadro \textit{frecuencia junction control} \\
+\end{itemize}
+
+\textbf{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} El hallazgo puede indicar que
+    el tipo de control vial sirve como posible factor explicativo de la variación de accidentes.
+
+    \item \textbf{Contraste con la literatura:} Este resultado se puede relacionar con lo que
+    indican \textcite{TAYLOR2000}, donde se menciona que las zonas urbanas ocn mayor interacción 
+    (como intersecciones) presentan mayor frecuencia de accidentes, lo que refuerza la idea de que
+    la falta de control vial incrementa el riesgo.
+
+    \item \textbf{Lo que NO explica este resultado:} No permite identificar si el mayor
+    número de accidentes se debe a mayor riesgo, a mayor presencia de estas intersecciones,
+    o a mayor flujo vial en estas zonas.
+
+    \item \textbf{Implicación para el siguiente paso:} 
+\end{itemize}
+
+\subsubsection*{Ficha de resultado 2}
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} Carreteras simples concentran accidentes más severos.
+
+    \item \textbf{Nombre del hallazgo:} Relación entre tipo de vía y severidad.
+
+    \item \textbf{Resumen en una oración:} La mayoría de accidentes, incluyendo fatales y graves
+    ocurre en vías de una sola calzada.
+
+    \item \textbf{Método o análisis que lo produjo:} Tabla de frecuencias cruzadas entre 
+    tipo de vía y severidad del accidente.
+
+    \item \textbf{Evidencia:} Cuadro \textit{severidad vs tipocalle} \\
+\end{itemize}
+
+\textbf{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} El tipo de vía parece ser
+    un factor clave que explica la variación en la frecuencia y severidad de los accidentes.
+
+    \item \textbf{Contraste con la literatura:} Este hallazgo coincide fuertemente con lo concluido
+    por \textcite{MALIN2019}, donde se demuestra que el tipo de carretera influye de gran manera 
+    en el riesgo de accidentes, especialmente bajo ciertas condiciones climáticas.
+
+    \item \textbf{Lo que NO explica este resultado:} No explica si la mayor frecuencia de accidentes
+    se debe a mayor riesgo debido a no haber separación entre carriles o a mayor uso de estas vías.
+
+    \item \textbf{Implicación para el siguiente paso:} 
+\end{itemize}
+
+\subsubsection*{Ficha de resultado 3}
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} Clima favorable domina en distribución de accidentes.
+
+    \item \textbf{Nombre del hallazgo:} Distribución de accidentes según condiciones de clima.
+
+    \item \textbf{Resumen en una oración:} Se encuentra que condiciones climáticas favorables
+    sin viento fuerte representan una mayor frecuencia de accidentes.
+
+    \item \textbf{Método o análisis que lo produjo:} Gráfico de barras de frecuencia de la variable
+    \textit{Weather Conditions}.
+
+    \item \textbf{Evidencia:} Gráfico: \textit{Distribución de Weather Conditons} \\
+\end{itemize} 
+
+\textbf{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Indica que condiciones climáticas
+    no favorables, no explican totalmente una mayor frecuencia de accidentes.
+
+    \item \textbf{Contraste con la literatura:} El hallazgo es consistente con el artículo de
+    \textcite{KARZAN2017} en el sentido de que el clima no actúa de forma aislada, sino en 
+    conjunto con otros factores como la superficie víal o el comportamiento del conductor.\\
+    De igual forma, el estudio de \textcite{TAYLOR2000}, refuerza, de cierta manera, este resultado,
+    al señalar que la velocidad es un factor central en la frecuencia de accidentes, mientras que
+    variables como el clima son consideradas factores secundarios.
+
+    \item \textbf{Lo que NO explica este resultado:} No indica si este resultado se debe a una mayor
+    presencia de automóviles en condiciones favorables de clima.
+
+    \item \textbf{Implicación para el siguiente paso:} 
+\end{itemize}
+
 \subsection{La imagen que cuenta la historia}
 
 
@@ -227,7 +378,6 @@ En este proyecto se definió un tema para la visualización de datos denominado 
 
 \newpage
 \printbibliography
-
 
 \newpage
 \subsection*{Log de contribución}
