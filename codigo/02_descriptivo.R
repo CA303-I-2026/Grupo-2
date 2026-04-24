@@ -28,8 +28,44 @@ estilo_bayesianos <- function() {
 theme_set(estilo_bayesianos())
 
 # Se escoge la paleta BMJ del paquete ggsci (9 colores)
-paleta <- pal_bmj("default")(9)
+paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 # Se establecen los datos depurados que serán utilizados a lo largo del proyecto
 Accidentes <- read.csv("datos/procesados/Accident_Information_clean.csv")
 
+#---------------------------------------------------------------------------
+# Cuadro frecuencia: Junction Control
+#---------------------------------------------------------------------------
+
+tabla <- table(Accidentes$Junction_Control)
+
+frecuencia_junction_control <- data.frame(
+  Categoria = names(tabla),
+  Frecuencia = as.numeric(tabla)
+)
+
+#-------------------------------------------------------------------------
+# Frecuencia cruzada: Condición de calle y severidad
+#-------------------------------------------------------------------------
+tabla_cruzada <- table(
+  Accidentes$Road_Type,
+  Accidentes$Accident_Severity
+)
+
+severidad_vs_tipocalle <- as.data.frame.matrix(tabla_cruzada)
+
+#-------------------------------------------------------------------------
+# Histograma: Frecuencia por Weather_Conditions
+#-------------------------------------------------------------------------
+
+ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
+  geom_bar() +
+  scale_fill_manual(values = paleta) +
+  estilo_bayesianos() +
+  labs(
+    title = "Distribución de Weather Conditions",
+    x = "Condición de calle (clima)", 
+    y = "Frecuencia"
+  ) +
+  coord_flip() +
+  theme(legend.position = "none")
