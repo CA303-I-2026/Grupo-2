@@ -90,7 +90,7 @@ ggplot(Accidentes, aes(x = Road_Type, fill = Light_Conditions)) +
 
 cuadro_zona <- Accidentes %>%
   count(Urban_or_Rural_Area, name = "Cantidad de accidentes") %>%
-  arrange(desc("Cantidad de accidentes"))
+  arrange(desc(`Cantidad de accidentes`))
 
 cuadro_zona
 
