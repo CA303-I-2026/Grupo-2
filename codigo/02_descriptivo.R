@@ -57,15 +57,14 @@ severidad_vs_tipocalle <- as.data.frame.matrix(tabla_cruzada)
 #-------------------------------------------------------------------------
 # Histograma: Frecuencia por Weather_Conditions
 #-------------------------------------------------------------------------
-
 ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
   geom_bar() +
   scale_fill_manual(values = paleta) +
   estilo_bayesianos() +
   labs(
-    title = "Distribución de Weather Conditions",
-    x = "Condición de calle (clima)", 
-    y = "Frecuencia"
+    title = "Distribución de condición climática",
+    x = "Condición climática", 
+    y = "Número de accidentes"
   ) +
   coord_flip() +
   theme(legend.position = "none")
