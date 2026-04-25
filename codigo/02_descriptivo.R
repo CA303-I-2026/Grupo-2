@@ -8,6 +8,7 @@ library(tidyverse)
 library(cowplot)
 library(ggsci)
 library(readr)
+#library(scales)
 
 # Se define el tema que se utilizará para la creación de gráficos
 estilo_bayesianos <- function() {
@@ -160,7 +161,7 @@ print(Mapa_coordenadas)
 
 
 #----------------------------------------------------------------------------------
-# CUadro de frecuencias: Intersección en T y obstáculos
+# Cuadro de frecuencias: Intersección en T y obstáculos
 #----------------------------------------------------------------------------------
 
 
@@ -185,3 +186,107 @@ p12 <- ggplot(Accidentes_frecuencias, aes(x = reorder(Special_Conditions_at_Site
   ) +
   estilo_bayesianos()
 plot_grid(p12)
+
+
+#----------------------------------------------------------------------------------
+# Histograma de conteo de accidentes por tipo de calle 
+#----------------------------------------------------------------------------------
+
+
+histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fill=Road_Surface_Conditions))+geom_bar()+coord_flip()+
+  labs(title = "Conteo de accidentes por condición de carretera",
+       x = "Condición de la carretera",
+       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+ scale_y_continuous(labels=label_number())
+
+
+#----------------------------------------------------------------------------------
+# Frecuencia de accidentes por amo dependiendo del tipo de calle 
+#----------------------------------------------------------------------------------
+
+histograma_amo_condiciones <- ggplot(Accidentes, aes(y=Year, fill=Road_Surface_Conditions))+geom_bar(position = "dodge")+coord_flip()+
+  labs(title = "Conteo de accidentes por condición de carretera",
+       x = "Condición de la carretera",
+       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+ scale_y_continuous(labels=label_number())
+
+
+
+#----------------------------------------------------------------------------------
+# Boxplot de outliers 
+#----------------------------------------------------------------------------------
+
+
+boxplot_num_vehicles<-ggplot(Accidentes, aes(y=Number_of_Vehicles))+geom_boxplot(
+  fill = "#4C78A8", outlier.colour = "red" 
+  )+coord_flip()+
+  labs(title = NULL,
+       y = "Número de vehículos") + estilo_bayesianos()+scale_fill_manual(values = paleta)
+
+boxplot_num_casualties<- ggplot(Accidentes, aes(y=Number_of_Casualties))+geom_boxplot(
+  fill = "#4C78A8", outlier.colour = "red" 
+)+coord_flip()+
+  labs(title = NULL,
+       y = "Número de víctimas") + estilo_bayesianos()+scale_fill_manual(values = paleta)
+
+
+
+boxplot_speed_limit<-ggplot(Accidentes, aes(y=Speed_limit))+geom_boxplot(
+  fill = "#4C78A8", outlier.colour = "red" 
+)+coord_flip()+
+  labs(title = NULL,
+       y = "Límite de velocidad") + estilo_bayesianos()+scale_fill_manual(values = paleta)
+
+
+boxplot_num_vehicles
+boxplot_num_casualties
+boxplot_speed_limit
+
+plots<- plot_grid(boxplot_num_casualties, boxplot_speed_limit, boxplot_num_vehicles, labels = NULL, ncol = 3)
+
+titulo <- ggdraw() +
+  draw_label(
+    "Distribución de variables",
+    fontface = "bold",
+    size = 16
+  )
+plot_grid(titulo, plots, ncol = 1, rel_heights = c(0.1, 1))
+
+#----------------------------------------------------------------------------------
+# Cuadro de variables cuantitativas (min,max,quantiles,media,mediana)
+#----------------------------------------------------------------------------------
+
+tabla_num_vehiculo <- data.frame(
+  Min = min(Accidentes$Number_of_Vehicles),
+  Q1 = as.numeric(quantile(Accidentes$Number_of_Vehicles, 0.25,na.rm = TRUE)),
+  Mediana = median(Accidentes$Number_of_Vehicles),
+  Q3 = as.numeric(quantile(Accidentes$Number_of_Vehicles, 0.75, na.rm = TRUE)),
+  Max = max(Accidentes$Number_of_Vehicles),
+  Media = mean(Accidentes$Number_of_Vehicles)
+)
+
+tabla_num_casualties <- data.frame(
+  Min = min(Accidentes$Number_of_Casualties),
+  Q1 = as.numeric(quantile(Accidentes$Number_of_Casualties, 0.25,na.rm = TRUE)),
+  Mediana = median(Accidentes$Number_of_Casualties),
+  Q3 = as.numeric(quantile(Accidentes$Number_of_Casualties, 0.75, na.rm = TRUE)),
+  Max = max(Accidentes$Number_of_Casualties),
+  Media = mean(Accidentes$Number_of_Casualties)
+)
+
+
+tabla_num_casualties <- data.frame(
+  Min = min(Accidentes$Speed_limit),
+  Q1 = as.numeric(quantile(Accidentes$Speed_limit, 0.25,na.rm = TRUE)),
+  Mediana = median(Accidentes$Speed_limit),
+  Q3 = as.numeric(quantile(Accidentes$Speed_limit, 0.75, na.rm = TRUE)),
+  Max = max(Accidentes$Speed_limit),
+  Media = mean(Accidentes$Speed_limit)
+)
+
+
+
+
+
+
+
+
+
