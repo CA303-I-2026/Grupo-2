@@ -8,7 +8,7 @@ library(tidyverse)
 library(cowplot)
 library(ggsci)
 library(readr)
-#library(scales)
+library(scales)
 
 # Se define el tema que se utilizará para la creación de gráficos
 estilo_bayesianos <- function() {
@@ -71,18 +71,20 @@ ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
   theme(legend.position = "none")
 
 #-----------------------------------------------------------------------------
-# Gráfico de barras: Cantidad de accidentes según Road_Type y Light_Conditions
+# Gráfico de barras: Cantidad de accidentes según ight_Conditions
 #-----------------------------------------------------------------------------
 
-ggplot(Accidentes, aes(x = Road_Type, fill = Light_Conditions)) +
-  geom_bar(position = "dodge") +
+ggplot(Accidentes, aes(x = Light_Conditions, fill = Light_Conditions)) +
+  geom_bar() +
   scale_fill_manual(values = paleta) +
   labs(
-    title = "Cantidad de accidentes según tipo de calle y condiciones de luz",
-    x = "Tipo de calle",
+    title = "Cantidad de accidentes según condiciones de luz",
+    x = "Condiciones de luz",
     y = "Cantidad de accidentes"
   ) +
-  coord_flip()
+  coord_flip() +
+  scale_y_continuous(labels = scales::label_number()) +
+  theme(legend.position = "none")
 
 #-------------------------------------------------------------------------
 # Cuadro: Cantidad de accidentes según Urban_or_Rural_Area 
