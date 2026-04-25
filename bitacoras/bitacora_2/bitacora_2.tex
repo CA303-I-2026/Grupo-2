@@ -5,6 +5,8 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{hyperref}
 \usepackage[backend=biber,style=apa]{biblatex}
 \addbibresource{../../referencias/referencias.bib}
 \usepackage{geometry}
@@ -36,6 +38,7 @@ Alessandro Umaña Vega (C37963)
 
 \vspace*{\fill}
 \end{titlepage}
+\tableofcontents
 \newpage
 \textbf{Audiencia del proyecto:} \\
 \textbf{Respuesta a retroalimentación:} 
@@ -235,7 +238,17 @@ iluminación, velocidad) mediante pruebas Chi-Cuadrado en un contexto local. Sin
 condiciones de la vía y el entorno influyen significativamente en la ocurrencia de accidentes, y en que el análisis 
 estadístico de estas variables permite identificar factores de riesgo relevantes, aunque con distintos niveles de profundidad.\\
 
-\textbf{Contribución propia:} A partir de esta comparación, se puede concluir que \\
+\textbf{Contribución propia:}  A partir de esta comparación, se puede concluir que la ocurrencia
+de accidentes de tránsito puede explicarse en gran medida por la influencia de factores
+del entorno, tales como la condición de la vía, el clima y la iluminación. Si bien vemos que
+el comportamiento humano es un elemento relevante, el contraste evidencia que las condiciones
+extremas permiten identificar patrones consistentes de riesgo, especialmente cuando 
+se analizan en conjunto y no de manera aislada. En este sentido, centrar el análisis en 
+variables del entorno resulta correcto para esta investigación, ya que permite acotar
+el estudio hacia factores observables y medibles que afectan a la frecuencia de accidentes,
+facilitando la identificación de situaciones de riesgo y la formulación de medidas de prevención 
+para reducir este fenómeno.\\
+
 
 \subsection*{Ficha 4}
 \textbf{Resumen:} El articulo de \textcite{SAXENA2017} analiza la siniestralidad vial en la India usando la Teoría del Dominó y 
@@ -250,7 +263,7 @@ logra contrastar acerca de las condiciones climpaticas y tipos de vía, donde Sa
 del conductor, se puede ver cómo el "por qué" humano, Malin et al. ofrece una base empírica que demuestra que ciertos 
 factores ambientales y de infraestructura generan riesgos que sobrepasan la capacidad de adaptación conductual. Así, 
 mientras Saxena sugiere una mejor carretera podría incentivar la imprudencia, Malin et al. demuestra que la infraestructura 
-y el entorno físico imponen límites  absolutos de seguridad, independientemente de la intención  del conductor.
+y el entorno físico imponen límites  absolutos de seguridad, independientemente de la intención  del conductor.\\
 
 \textbf{Contribución propia:} La dualidad entre ambos autores es importante para el análisis de la base de datos, pues 
 nos da dos perspectivas muy valiosas para el proyecto.En el caso de Saxena ilustra el uso de la Teoría del Dominó 
@@ -258,6 +271,7 @@ para poder jerarquizar las variables de la base de datos, sin embargo hay que to
 de infraestructura y el cumplimiento de la ley en la India es diferente que en Reino Unido, por lo cual el modelo debería 
 de ajustarse para identificar cual es el problema que se podría abarcar de primero y así permitir intervenciones que no 
 dependan solo de la educación, sino también de la interrupción mecánica.
+
 \subsection*{Ficha 5}
 
 \textbf{Resumen:} El artículo de \textcite{LASTRE2019} busca resolver el problema de cómo analizar la relación 
@@ -270,9 +284,21 @@ categóricas, facilitando la interpretación de relaciones entre variables y apo
 la prueba de homogeneidad Chi-Cuadrado en estudios clínicos para comparar distribuciones entre grupos. Mientras \textcite{LASTRE2019}
 se enfocan en identificar relaciones de dependencia entre variables, Montaña et al. analizan si existen diferencias relevantes
 entre poblaciones, lo que amplía el uso de esta familia de pruebas estadísticas. En conjunto, estos trabajos muestran distintos
-usos de una misma técnica estadística en distintos contextos.
+usos de una misma técnica estadística en distintos contextos.\\
 
-\textbf{Contribución propia:} 
+\textbf{Contribución propia:}  A partir de esta relación entre métodos, se observa que el conjunto
+de pruebas Chi-Cuadrado ofrece un amplio marco metodológico para abordar distintos objetivos
+dentro del análisis de accidentes de tránsito. Mientras la prueba de independencia nos permite
+evaluar dependencias entre factores y frecuencia, la prueba de homogeneidad nos facilita la 
+comparación de la distribución de estas variables entre distintos grupos o periodos, como los
+años de estudio.
+
+En el contexto de este proyecto, combinar ambas pruebas resulta fundamental
+para responder de manera correcta nuestra pregunta de investigación, permitiéndonos explicar la
+variación en la frecuencia de accidentes entre 2010 y 2017, al igual que identificar patrones 
+comunes de riesgo. De esta manera, se fortalece el análisis estadístico al detectar asociaciones
+y evaluar cambios en el tiempo, contribuyendo a una mejor fundamentación para proponer medidas de
+prevención.
 
 
 \section{Análisis estadísticos}
@@ -291,6 +317,109 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
 
 
 \subsection{Análisis descriptivo}
+
+
+\textbf{Frecuencia de control en intersecciones}
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\hline
+\textbf{Categoría} & \textbf{Frecuencia} \\
+\hline
+Authorised person                  & 2032    \\
+Auto traffic signal                & 121077  \\
+Data missing or out of range       & 446937  \\
+Give way or uncontrolled           & 556276  \\
+Not at junction or within 20 metres & 10832  \\
+Stop sign                          & 5946    \\
+\hline
+\end{tabular}
+\caption{Frecuencia de Junction Control}
+\label{tab: Frec_junctionControl}
+\end{table}
+
+\textbf{Interpretación}
+
+El análisis del control en intersecciones revela una situación de 
+riesgo importante para el período estudiado. Las intersecciones con control de ceda el paso o  sin ningún tipo de control
+(\textit{Give way or uncontrolled}) es la más frecuente con 556,276 
+accidentes (48.65\% del total). Esto indica que casi la 
+mitad de los accidentes ocurrió en intersecciones sin control activo 
+o donde no se respetó la señalización, lo que constituye un factor 
+explicativo relevante de la variación en la frecuencia de accidentes 
+en el Reino Unido.
+
+Un aspecto limitante es que \textit{Data missing or out of range} 
+concentra 446,937 registros (39.1\%), lo que restringe la capacidad 
+de análisis de esta variable. A pesar de ello, \textit{Auto traffic 
+signal} registra 121,077 accidentes (10.59\%), evidenciando que la 
+presencia de semáforos no elimina el riesgo por sí sola.\\
+
+\textbf{Frecuencia cruzada de tipo de calle por severidad}
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Tipo de Calle} & \textbf{Fatal} & \textbf{Serious} & \textbf{Slight} \\
+\hline
+Data missing or out of range & 0    & 0      & 1       \\
+Dual carriageway             & 2656 & 21360  & 142270  \\
+One way street               & 146  & 3297   & 20561   \\
+Roundabout                   & 210  & 7895   & 69606   \\
+Single carriageway           & 10275 & 132331 & 712656 \\
+Slip road                    & 84   & 1203   & 10804   \\
+Unknown                      & 47   & 838    & 6860    \\
+\hline
+\end{tabular}
+\caption{Frecuencia de Severidad por Tipo de Calle}
+\label{tab:severidad_por_tipocalle}
+\end{table}
+
+\textbf{Interpretación} 
+
+En el período 2010 al 2017, los carriles de una calzada, \textit{Single carriageway}, concentra 
+la mayor cantidad de accidentes con 855,262 casos, representando 
+aproximadamente el 74.8\% del total. Esto lo ubica como el 
+principal factor de riesgo asociado al tipo de vía, lo que 
+podría explicarse por su alta frecuencia en calles del Reino Unido 
+y por sus características físicas, siendo estas sentidos compartidos, menor 
+separación entre vehículos y velocidades variables.
+
+Por otro lado, si bien la autovía, \textit{Dual carriageway} registra menos 
+accidentes en términos absolutos (166,286), presenta la mayor 
+tasa de fatalidad (aproximadamente 1.6\% de los accidentes son fatales con respecto a su total), 
+lo que sugiere que los accidentes en estas vías ocurren a velocidades más altas, incrementando 
+su letalidad. En contraste, las rotondas, \textit{Roundabouts},  
+presentan la menor tasa fatal ($\approx$0.27\%).\\
+
+\textbf{Gráfico de barras: Distribución de condición climática}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/Distribucion_Weather_cond.png}
+    \caption{Distribución de Weather Conditions}
+    \label{fig:weather_distrib}
+\end{figure}
+
+\textbf{Interpretación}
+
+Las condiciones climáticas registradas durante los accidentes en el 
+período 2010 al 2017 muestran que la gran mayoría ocurrió bajo clima favorable 
+sin vientos fuertes (\textit{Fine no high winds}), 
+concentrando aproximadamente el 68\% de los casos (+750.000). Este resultado 
+tiene dos interpretaciones importantes para nuestro trabajo.
+Primero, vemos que el clima despejado es el más frecuente en el período, por lo que naturalmente 
+concentra más circulación vehicular y por ende más accidentes. 
+Segundo, puede indicar que los conductores subestiman el 
+riesgo bajo condiciones favorables, reduciendo su nivel de atención 
+y aumentando la velocidad, lo que se convierte en un factor 
+explicativo de la frecuencia de accidentes.
+
+El clima lluvioso sin vientos fuertes (\textit{Raining no high winds}) es la segunda condición más frecuente, 
+lo cual puede interpretarse por la reducción de 
+adherencia al pavimento y menor visibilidad. Condiciones extremas como nieve y 
+niebla son mínimos en el gráfico, lo que puede atribuirse a una menor 
+exposición al tráfico en dichas condiciones.
+
 \subsection{Construcción de fichas de resultados}
 \subsubsection*{Ficha de resultado 1}
 \textbf{Nivel descriptivo}
@@ -305,7 +434,7 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
     \item \textbf{Método o análisis que lo produjo:} El hallazgo fue encontrado mediante una 
     tabla de frecuencias para la variable \textit{Junction Control}.
 
-    \item \textbf{Evidencia:} Cuadro \textit{frecuencia junction control} \\
+    \item \textbf{Evidencia:} Tabla~\ref{tab: Frec_junctionControl}: \textit{frecuencia junction control}\\
 \end{itemize}
 
 \textbf{Nivel analítico}
@@ -314,7 +443,7 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
     el tipo de control vial sirve como posible factor explicativo de la variación de accidentes.
 
     \item \textbf{Contraste con la literatura:} Este resultado se puede relacionar con lo que
-    indican \textcite{TAYLOR2000}, donde se menciona que las zonas urbanas ocn mayor interacción 
+    indican \textcite{TAYLOR2000}, donde se menciona que las zonas urbanas con mayor interacción 
     (como intersecciones) presentan mayor frecuencia de accidentes, lo que refuerza la idea de que
     la falta de control vial incrementa el riesgo.
 
@@ -338,7 +467,7 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
     \item \textbf{Método o análisis que lo produjo:} Tabla de frecuencias cruzadas entre 
     tipo de vía y severidad del accidente.
 
-    \item \textbf{Evidencia:} Cuadro \textit{severidad vs tipocalle} \\
+    \item \textbf{Evidencia:} Tabla~\ref{tab:severidad_por_tipocalle}: \textit{severidad por tipo de calle}\\
 \end{itemize}
 
 \textbf{Nivel analítico}
@@ -369,7 +498,7 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
     \item \textbf{Método o análisis que lo produjo:} Gráfico de barras de frecuencia de la variable
     \textit{Weather Conditions}.
 
-    \item \textbf{Evidencia:} Gráfico: \textit{Distribución de Weather Conditons} \\
+    \item \textbf{Evidencia:} Gráfico~\ref{fig:weather_distrib}: \textit{Distribución de Weather Conditons} \\
 \end{itemize} 
 
 \textbf{Nivel analítico}
@@ -390,6 +519,7 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
     \item \textbf{Implicación para el siguiente paso:} 
 \end{itemize}
 
+
 \subsection{La imagen que cuenta la historia}
 
 
@@ -402,55 +532,6 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
 
 \newpage
 \subsection*{Log de contribución}
-
-\begin{table}[h!]
-\centering
-\small
-\begin{tabular}{|p{3cm}|p{8cm}|}
-\hline
-\textbf{Integrante} & \textbf{Tareas realizadas} \\ \hline
-
-Debbie Con & 
-Definición de la idea \par
-Reformulación de la idea en modo de pregunta \par
-Argumentación de pregunta 4 \par
-Ficha literaria 3 \par
-Construcción de la UVE de Gowin \par
-Redacción del resumen \par
-Arco narrativo del proyecto \par
-Registro del uso de IA \par
-Identificación de tensiones \\ \hline
-
-Ashly Garro & 
-Definición de la idea \par
-Reformulación de la idea en modo de pregunta \par
-Argumentación de pregunta 2 \par
-Ficha literaria 1 \par
-Construcción de la UVE de Gowin \par
-Arco narrativo del proyecto \par
-Rastro de decisiones \par
-Diario de aprendizaje \\ \hline
-
-Emily Sánchez &
-Definición de la idea \par
-Reformulación de la idea en modo de pregunta \par
-Conceptualización de la idea \par
-Argumentación de la pregunta 3 \par
-Construcción de la UVE de Gowin \par
-Arco narrativo del proyecto \par
-Ficha literaria 2 \par
-Diario de aprendizaje \\ \hline
-
-Alessandro Umaña & 
-Argumentación de la pregunta 1 \par
-Argumentación a través de los datos \par
-Construcción de la UVE de Gowin \par
-Ficha literaria 4 \par
-Arco narrativo del proyecto \par
-Diario de aprendizaje \\ \hline
-
-\end{tabular}
-\end{table}
 
 \subsection*{Rastro de decisiones}
 
