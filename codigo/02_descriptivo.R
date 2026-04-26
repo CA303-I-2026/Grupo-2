@@ -195,7 +195,7 @@ plot_grid(p12)
 histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fill=Road_Surface_Conditions))+geom_bar()+coord_flip()+
   labs(title = "Conteo de accidentes por condición de carretera",
        x = "Condición de la carretera",
-       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+ scale_y_continuous(labels=label_number())
+       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+     
 
 
 #----------------------------------------------------------------------------------
