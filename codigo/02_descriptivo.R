@@ -32,7 +32,7 @@ theme_set(estilo_bayesianos())
 paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 # Se establecen los datos depurados que serán utilizados a lo largo del proyecto
-Accidentes <- read.csv("datos/procesados/Accident_Information_clean.csv")
+Accidentes <- read.csv("datos/procesados/Accident_Information_Clean_Espanol.csv")
 View(Accidentes)
 #---------------------------------------------------------------------------
 # Cuadro frecuencia: Junction Control
