@@ -37,6 +37,7 @@ View(Accidentes)
 #---------------------------------------------------------------------------
 # Cuadro frecuencia: Junction Control
 #---------------------------------------------------------------------------
+View(Accidentes)
 
 tabla <- table(Accidentes$Junction_Control)
 
@@ -70,21 +71,20 @@ ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
   coord_flip() +
   theme(legend.position = "none")
 
-#-----------------------------------------------------------------------------
-# Gráfico de barras: Cantidad de accidentes según ight_Conditions
-#-----------------------------------------------------------------------------
-
-ggplot(Accidentes, aes(x = Light_Conditions, fill = Light_Conditions)) +
-  geom_bar() +
+#-------------------------------------------------------------------------------------------
+# Gráfico de barras: Cantidad de accidentes según light_Conditions y Road_Surface_Conditions
+#-------------------------------------------------------------------------------------------
+ggplot(Accidentes, aes(x = Road_Surface_Conditions, fill = Light_Conditions)) +
+  geom_bar(position = "dodge") +
   scale_fill_manual(values = paleta) +
   labs(
-    title = "Cantidad de accidentes según condiciones de luz",
-    x = "Condiciones de luz",
-    y = "Cantidad de accidentes"
+    title = "Cantidad de accidentes según la superficie de la vía y las condiciones de luz",
+    x = "Condiciones de la superficie",
+    y = "Cantidad de accidentes",
+    fill = "Condiciones de luz"
   ) +
   coord_flip() +
-  scale_y_continuous(labels = scales::label_number()) +
-  theme(legend.position = "none")
+  scale_y_continuous(labels = scales::label_number())
 
 #-------------------------------------------------------------------------
 # Cuadro: Cantidad de accidentes según Urban_or_Rural_Area 
