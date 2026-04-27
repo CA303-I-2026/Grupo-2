@@ -268,7 +268,7 @@ Alessandro Umaña Vega (C37963)
     de la base de nuestro proyecto tomando en cuenta cuales variables es mejor o no imputar y saber las consecuencias tanto positivas como negativas del método de imputación que se vaya a escoger para los valores perdidos.
     
 	\item \textbf{Lo que NO dice el autor:} Los autores no explican cómo tratar estos valores perdidos con variables de carácter geográfico o temporales. El documento no tiene información de qué hacer con datos donde el error tal vez no sea por recolección, sino información no disponible, que por sí misma podría ser un factor de riesgo.    
-	\item \textbf{Contraste con otra fuente:} Este documento se complementa con el estudio de \textcite(KARZAN2017) acerca accidentes en Manchester. Mientras que Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre el clima y los choques, Useche explica que esos cálculos solo serán confiables si primero se resuelve el problema de los datos faltantes. Es decir, el primer texto da la herramienta para limpiar la base de datos, asegurando que los valores perdidos no distorsionen el análisis, y el segundo da la técnica estadística para analizar los datos una vez que estén completos. Uno resuelve el problema técnico de la base de datos que el otro da por sentado.
+	\item \textbf{Contraste con otra fuente:} Este documento se complementa con el estudio de \textcite{KARZAN2017} acerca accidentes en Manchester. Mientras que Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre el clima y los choques, Useche explica que esos cálculos solo serán confiables si primero se resuelve el problema de los datos faltantes. Es decir, el primer texto da la herramienta para limpiar la base de datos, asegurando que los valores perdidos no distorsionen el análisis, y el segundo da la técnica estadística para analizar los datos una vez que estén completos. Uno resuelve el problema técnico de la base de datos que el otro da por sentado.
     
 	\item \textbf{Evaluación de aplicabilidad (1-5):} 5/5. La aplicabilidad de estas metodologías es perfecta, pues en la base de datos existen valores perdidos y la forma en la que estos se manejen va a afectar de una u otra manera el análisis estadístico que se hará. Además, el documento advierte que el ignorar totalmente los valores perdidos puede invalidad el análisis de variables multivariantes. Por otro lado, el objetivo del proyecto es identificar situaciones de riesgo, por lo que la imputación que se realice afectará directamente en los resultados que darán los análisis para poder dar las recomendaciones pertinentes.
     
@@ -304,7 +304,7 @@ Alessandro Umaña Vega (C37963)
 \begin{itemize}
     \item \textbf{Conexión con mi proyecto:} En el análisis de la base de datos, esta prueba es importante para comparar si la severidad de los accidentes se distribuye de forma homogénea en diferentes regiones o bajo distintos climas. Por ejemplo, se puede usar esta técnica para probar si la proporción de accidentes fatales es la misma en carreteras secas que en carreteras húmedas, tal como los autores comparan la eficacia de dos analgésicos.    
 	\item \textbf{Lo que NO dice el autor:} El documento se enfoca en muestras pequeñas de estudios clínicos (215 casos). En el caso de la base de datos, se trabajará con una gran cantidad de datos, donde casi cualquier diferencia mínima resulta estadísticamente significativa. Los autores no discuten el tamaño del efecto o la importancia práctica frente a la significancia estadística con una base de datos masiva.
-	\item \textbf{Contraste con otra fuente:} El estudio se relaciona con el estudio de \textcite(USECHE2006), pues Useche nos habla sobre como imputar los datos para que la base de datos esté lo más completa posible, tomando en cuenta diferentes factores, mientras que Montaña et al. (2024) nos da un manual técnico para procesar los datos ya corregidos usando la prueba de Chi-Cuadrado. Entonces Useche(2016) garantiza que la información no esté sesgada para con Montaña et al. (2025) se pueda llegar conclusiones significativas de la información extraída.
+	\item \textbf{Contraste con otra fuente:} El estudio se relaciona con el estudio de \textcite{USECHE2006}, pues Useche nos habla sobre como imputar los datos para que la base de datos esté lo más completa posible, tomando en cuenta diferentes factores, mientras que \textcite{MONTANA2025} nos da un manual técnico para procesar los datos ya corregidos usando la prueba de Chi-Cuadrado. Entonces \textcite{USECHE2006} garantiza que la información no esté sesgada para con \textcite{MONTANA2025} se pueda llegar conclusiones significativas de la información extraída.
     
 	\item \textbf{Evaluación de aplicabilidad (1-5):} 4/5.  El método es bastante aplicable para la base de datos en la que se trabajará, pues se puede usar para variables categóricas como el clima e iluminación. Además de que da un paso a paso de como se puede analizar ese tipo de datos. Una desventaja es que el enfoque de ambos estudios es muy diferente y no se centra en los datos masivos, por lo que la eficacia de este no se puede verificar al máximo.
     
@@ -356,44 +356,48 @@ Alessandro Umaña Vega (C37963)
 \subsection{Ordenamiento de la literatura}
 \begin{table}[H]
 \centering
-\renewcommand{\arraystretch}{1.5}
+\resizebox{\textwidth}{!}{
 
 \begin{tabular}{|p{2.5cm}|p{5cm}|p{4.5cm}|p{1cm}|p{3cm}|}
 \hline
 \textbf{Clasificación} & \textbf{Justificación breve} & \textbf{Título} & \textbf{Año} & \textbf{Autor(es)} \\
 \hline
 Temático & Análisis estadístico (Chi-Cuadrado) de variables categóricas como clima, iluminación y 
-superficie vial sobre accidentes en curvas & Traffic Accidents Analysis on Dry and Wet Road Bends Surfaces in Greater 
+superficie vial sobre accidentes en curvas. & Traffic Accidents Analysis on Dry and Wet Road Bends Surfaces in Greater 
 Manchester-UK & 2017 & Ismael Karzan S., Razzaq Noorance A. \\
 \hline
 Temático & Extensión del enfoque anterior: cuantifica el riesgo relativo según condiciones climáticas y tipo de 
-carretera usando distribución de Palm & Accident risk of road and weather conditions on different road types & 2019 & 
+carretera usando distribución de Palm. & Accident risk of road and weather conditions on different road types & 2019 & 
 Fanny Malin, Ilkka Norros, Saty Innamaa \\
 \hline
 Teórica & Marco conceptual para justificar la velocidad como factor en la frecuencia de accidentes; sustenta hipótesis 
-sobre tipos de carretera y zonas urbanas/rurales & The effects of drivers' speed on the frequency of road accidents & 2000 
+sobre tipos de carretera y zonas urbanas/rurales. & The effects of drivers' speed on the frequency of road accidents & 2000 
 & M. C. Taylor, D. A. Lynam, A. Baruya \\
 \hline
-Teórica & Marco conceptual para justificar el análisis multifactorial de accidentes mediante la Teoría del Dominó y la Homeostasis
- del Riesgo & Analysis of Road Traffic Accident using Causation Theory with Traffic Safety Model and Measures & 2017 & Dr. Neeta Saxena \\
+Teórica & Marco conceptual para justificar el análisis multifactorial de accidentes 
+mediante la Teoría del Dominó y la Homeostasis del Riesgo. & Analysis of Road Traffic Accident using Causation Theory with Traffic Safety Model and Measures & 2017 & Dr. Neeta Saxena \\
 \hline
- Teórica & El documento revisa y analiza diversas teorías y modelos de causalidad de accidentes como el Modelo de Múltiples Causas y la Teoría de DOminó actualizada para explicar cómo y por qué ocurren.&  Major theories of construction accident causation models: a literature review 
+ Teórica & Análisis de teorías y modelos de causalidad de accidentes como: Modelo de Múltiples
+  Causas y la Teoría de Dominó actualizada para explicar cómo y por qué ocurren. &  Major theories of construction accident causation models: a literature review 
 &2012&Seyyed Shahab, Zahra Jabbarani Torghabeh\\
 \hline
-Metodológica & Marco metodológico para definir pruebas de indepencia Chi-Cuadrado y tablas de contingencia & Análisis estadístico de tablas de contingencia y chi-cuadrado para medir el flujo migratorio de
-origen y destino en el Ecuador año 2018 & 2019 & David Lastre Baquerizo, Melanie Páez Santana, y Olga López Tumbaco. \\
-\hline
-Metodológica & Marco metodológico para definir el método de imputación para 
-tratar los valores faltantes & UNA INTRODUCCIÓN A LA IMPUTACIÓN DE VALORES 
-PERDIDOS & 2006 & Lelly Useche y Dulce Mesa. \\
+Metodológica & Marco metodológico para definir pruebas de indepencia Chi-Cuadrado y tablas 
+de contingencia. & Análisis estadístico de tablas de contingencia y chi-cuadrado para medir 
+el flujo migratorio de origen y destino en el Ecuador año 2018 & 2019 & David Lastre Baquerizo, 
+Melanie Páez Santana, y Olga López Tumbaco. \\
 \hline
 Metodológica & Marco metodológico para definir un método para analizar variables
 categóricas & Prueba de Chi cuadrado de homogeneidad en estudios clínicos: una 
-herramienta para analizar diferencias entre tratamientos & 2024 & R.M. Montaña, 
+herramienta para analizar diferencias entre tratamientos. & 2024 & R.M. Montaña, 
 Á. Roco-Videla, A.R. Nieves y S.V. Flores. \\
+\hline
+Metodológica & Marco metodológico para definir el método de imputación para 
+tratar los valores faltantes. & UNA INTRODUCCIÓN A LA IMPUTACIÓN DE VALORES 
+PERDIDOS & 2006 & Lelly Useche y Dulce Mesa. \\
 \hline
 
 \end{tabular}
+}
 \end{table}
 
 \section{Enlaces de la literatura}
@@ -488,7 +492,7 @@ prevención. \\
 
 \subsection*{Ficha 6}
 
-\textbf{Resumen:} El artículo de \textcite(USECHE2006)) analiza la problemática
+\textbf{Resumen:} El artículo de \textcite{USECHE2006} analiza la problemática
 de los datos faltantes en investigaciones estadísticas, argumentando que su ausencia
 genera sesgos significativos y pérdida de eficiencia. El documento propone la
 imputación como una solución metodológica para rellenar los datos faltantes con 
@@ -498,7 +502,7 @@ es infalible, ya que pueden alterar la varianza o las relaciones entre variables
 si no se seleccionan con cuidado.\\
 
 \textbf{Contraste:} Este documento se complementa con el estudio de 
-\textcite(KARZAN2017) acerca accidentes en Manchester. Mientras que
+\textcite{KARZAN2017} acerca accidentes en Manchester. Mientras que
 Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre
 el clima y los choques, Useche explica que esos cálculos solo serán 
 confiables si primero se resuelve el problema de los datos faltantes. 
@@ -520,7 +524,7 @@ en la base de datos para el proyecto. \\
 
 \subsection*{Ficha 7}
 
-\textbf{Resumen:} El artículo de \textcite(MONTANA2025) presenta una guía 
+\textbf{Resumen:} El artículo de \textcite{MONTANA2025} presenta una guía 
 metodológica sobre la prueba de Chi-cuadrado de homogeneidad, donde destaca 
 como una herramienta esencial para determinar si existen diferencias significativas 
 en la distribución de frecuencias entre grupos independientes. En el documento 
@@ -530,7 +534,7 @@ decisiones basada en evidencia estadística, siempre que se cumplan supuestos de
 independencia y frecuencias esperadas mínimas.\\
 
 \textbf{Contraste:} Este texto se vincula directamente con el trabajo de 
-\textcite(USECHE2006) en una relación de dependencia técnica. Mientras 
+\textcite{USECHE2006} en una relación de dependencia técnica. Mientras 
 que Useche se enfoca en la etapa previa de la limpieza de los datos 
 mediante la imputación de valores perdidos para evitar sesgos, este 
 artículo proporciona el marco analítico para procesar los datos una 
@@ -576,166 +580,60 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
 \hline
 \textbf{Categoría} & \textbf{Frecuencia} \\
 \hline
-Authorised person                  & 2032    \\
-Auto traffic signal                & 121077  \\
-Data missing or out of range       & 446937  \\
-Give way or uncontrolled           & 556276  \\
-Not at junction or within 20 metres & 10832  \\
-Stop sign                          & 5946    \\
+Ceda el paso / sin control           & 556276  \\
+Control por persona autorizada       & 2032    \\
+Datos faltantes                      & 446937  \\
+No aplica (no intersección)          & 10832  \\
+Semáforo automático                  & 121077  \\
+Señal de alto                        & 5946    \\
 \hline
 \end{tabular}
 \caption{Frecuencia de Junction Control}
 \label{tab: Frec_junctionControl}
 \end{table}
 
-\textbf{Interpretación}
-
 El análisis del control en intersecciones revela una situación de 
-riesgo importante para el período estudiado. Las intersecciones con control de ceda el paso o  sin ningún tipo de control
-(\textit{Give way or uncontrolled}) es la más frecuente con 556,276 
-accidentes (48.65\% del total). Esto indica que casi la 
+riesgo importante para el período estudiado. Las intersecciones con 
+control de ceda el paso o  sin ningún tipo de control son las más frecuentes
+con 556,276 accidentes (48.65\% del total). Esto indica que casi la 
 mitad de los accidentes ocurrió en intersecciones sin control activo 
 o donde no se respetó la señalización, lo que constituye un factor 
 explicativo relevante de la variación en la frecuencia de accidentes 
 en el Reino Unido.
 
-Un aspecto limitante es que \textit{Data missing or out of range} 
-concentra 446,937 registros (39.1\%), lo que restringe la capacidad 
-de análisis de esta variable. A pesar de ello, \textit{Auto traffic 
-signal} registra 121,077 accidentes (10.59\%), evidenciando que la 
+Un aspecto limitante es que los datos clasificados como faltantes (no NA), 
+concentran 446,937 registros (39.1\%), lo que restringe la capacidad 
+de análisis de esta variable. A pesar de ello, las intersección con semáfor automático 
+registran 121,077 accidentes (10.59\%), evidenciando que la 
 presencia de semáforos no elimina el riesgo por sí sola.\\
-
-\textbf{Frecuencia cruzada de tipo de calle por severidad}
-\begin{table}[h]
-\centering
-\begin{tabular}{lccc}
-\hline
-\textbf{Tipo de Calle} & \textbf{Fatal} & \textbf{Serious} & \textbf{Slight} \\
-\hline
-Data missing or out of range & 0    & 0      & 1       \\
-Dual carriageway             & 2656 & 21360  & 142270  \\
-One way street               & 146  & 3297   & 20561   \\
-Roundabout                   & 210  & 7895   & 69606   \\
-Single carriageway           & 10275 & 132331 & 712656 \\
-Slip road                    & 84   & 1203   & 10804   \\
-Unknown                      & 47   & 838    & 6860    \\
-\hline
-\end{tabular}
-\caption{Frecuencia de Severidad por Tipo de Calle}
-\label{tab:severidad_por_tipocalle}
-\end{table}
-
-\textbf{Interpretación} 
-
-En el período 2010 al 2017, los carriles de una calzada, \textit{Single carriageway}, concentra 
-la mayor cantidad de accidentes con 855,262 casos, representando 
-aproximadamente el 74.8\% del total. Esto lo ubica como el 
-principal factor de riesgo asociado al tipo de vía, lo que 
-podría explicarse por su alta frecuencia en calles del Reino Unido 
-y por sus características físicas, siendo estas sentidos compartidos, menor 
-separación entre vehículos y velocidades variables.
-
-Por otro lado, si bien la autovía, \textit{Dual carriageway} registra menos 
-accidentes en términos absolutos (166,286), presenta la mayor 
-tasa de fatalidad (aproximadamente 1.6\% de los accidentes son fatales con respecto a su total), 
-lo que sugiere que los accidentes en estas vías ocurren a velocidades más altas, incrementando 
-su letalidad. En contraste, las rotondas, \textit{Roundabouts},  
-presentan la menor tasa fatal ($\approx$0.27\%).\\
 
 \textbf{Gráfico de barras: Distribución de condición climática}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{figuras/Distribucion_Weather_cond.png}
+    \includegraphics[width=0.8\textwidth]{figuras/Distribucion_clima.png}
     \caption{Distribución de Weather Conditions}
     \label{fig:weather_distrib}
 \end{figure}
 
-\textbf{Interpretación}
-
 Las condiciones climáticas registradas durante los accidentes en el 
-período 2010 al 2017 muestran que la gran mayoría ocurrió bajo clima favorable 
-sin vientos fuertes (\textit{Fine no high winds}), 
-concentrando aproximadamente el 68\% de los casos (+750.000). Este resultado 
-tiene dos interpretaciones importantes para nuestro trabajo.
-Primero, vemos que el clima despejado es el más frecuente en el período, por lo que naturalmente 
-concentra más circulación vehicular y por ende más accidentes. 
-Segundo, puede indicar que los conductores subestiman el 
+período 2010 al 2017 muestran que la gran mayoría ocurrió bajo clima 
+despejado sin vientos fuertes, concentrando aproximadamente el 68\% de 
+los casos (+750.000). Este resultado tiene dos interpretaciones importantes 
+para nuestro trabajo. Primero, vemos que el clima despejado es el más frecuente 
+en el período, por lo que naturalmente concentra más circulación vehicular y por 
+ende más accidentes. Segundo, puede indicar que los conductores subestiman el 
 riesgo bajo condiciones favorables, reduciendo su nivel de atención 
 y aumentando la velocidad, lo que se convierte en un factor 
 explicativo de la frecuencia de accidentes.
 
-El clima lluvioso sin vientos fuertes (\textit{Raining no high winds}) es la segunda condición más frecuente, 
-lo cual puede interpretarse por la reducción de 
-adherencia al pavimento y menor visibilidad. Condiciones extremas como nieve y 
-niebla son mínimos en el gráfico, lo que puede atribuirse a una menor 
-exposición al tráfico en dichas condiciones.
+El clima lluvioso sin vientos fuertes es la segunda condición más frecuente, 
+lo cual puede interpretarse por la reducción de adherencia al pavimento y menor 
+visibilidad. Condiciones extremas como nieve y niebla son mínimos en el gráfico, 
+lo que puede atribuirse a una menor exposición al tráfico en dichas condiciones.
 
 \subsection{Construcción de fichas de resultados}
-\subsubsection*{Ficha de resultado 1}
-\textbf{Nivel descriptivo}
-\begin{itemize}
-    \item \textbf{Titular:} Predominan intersecciones sin control en accidentes de tránsito.
 
-    \item \textbf{Nombre del hallazgo:} Distribución de accidentes según control en intersecciones.
-
-    \item \textbf{Resumen en una oración:} La mayor parte de accidentes suceden en intersecciones 
-    sin control o con ceda el paso.
-
-    \item \textbf{Método o análisis que lo produjo:} El hallazgo fue encontrado mediante una 
-    tabla de frecuencias para la variable \textit{Junction Control}.
-
-    \item \textbf{Evidencia:} Tabla~\ref{tab: Frec_junctionControl}: \textit{frecuencia junction control}\\
-\end{itemize}
-
-\textbf{Nivel analítico}
-\begin{itemize}
-    \item \textbf{Conexión con la pregunta de investigación:} El hallazgo puede indicar que
-    el tipo de control vial sirve como posible factor explicativo de la variación de accidentes.
-
-    \item \textbf{Contraste con la literatura:} Este resultado se puede relacionar con lo que
-    indican \textcite{TAYLOR2000}, donde se menciona que las zonas urbanas con mayor interacción 
-    (como intersecciones) presentan mayor frecuencia de accidentes, lo que refuerza la idea de que
-    la falta de control vial incrementa el riesgo.
-
-    \item \textbf{Lo que NO explica este resultado:} No permite identificar si el mayor
-    número de accidentes se debe a mayor riesgo, a mayor presencia de estas intersecciones,
-    o a mayor flujo vial en estas zonas.
-
-    \item \textbf{Implicación para el siguiente paso:} 
-\end{itemize}
-
-\subsubsection*{Ficha de resultado 2}
-\textbf{Nivel descriptivo}
-\begin{itemize}
-    \item \textbf{Titular:} Carreteras simples concentran accidentes más severos.
-
-    \item \textbf{Nombre del hallazgo:} Relación entre tipo de vía y severidad.
-
-    \item \textbf{Resumen en una oración:} La mayoría de accidentes, incluyendo fatales y graves
-    ocurre en vías de una sola calzada.
-
-    \item \textbf{Método o análisis que lo produjo:} Tabla de frecuencias cruzadas entre 
-    tipo de vía y severidad del accidente.
-
-    \item \textbf{Evidencia:} Tabla~\ref{tab:severidad_por_tipocalle}: \textit{severidad por tipo de calle}\\
-\end{itemize}
-
-\textbf{Nivel analítico}
-\begin{itemize}
-    \item \textbf{Conexión con la pregunta de investigación:} El tipo de vía parece ser
-    un factor clave que explica la variación en la frecuencia y severidad de los accidentes.
-
-    \item \textbf{Contraste con la literatura:} Este hallazgo coincide fuertemente con lo concluido
-    por \textcite{MALIN2019}, donde se demuestra que el tipo de carretera influye de gran manera 
-    en el riesgo de accidentes, especialmente bajo ciertas condiciones climáticas.
-
-    \item \textbf{Lo que NO explica este resultado:} No explica si la mayor frecuencia de accidentes
-    se debe a mayor riesgo debido a no haber separación entre carriles o a mayor uso de estas vías.
-
-    \item \textbf{Implicación para el siguiente paso:} 
-\end{itemize}
-
-\subsubsection*{Ficha de resultado 3}
+\subsubsection{Ficha de resultado 1}
 \textbf{Nivel descriptivo}
 \begin{itemize}
     \item \textbf{Titular:} Clima favorable domina en distribución de accidentes.
@@ -766,7 +664,11 @@ exposición al tráfico en dichas condiciones.
     \item \textbf{Lo que NO explica este resultado:} No indica si este resultado se debe a una mayor
     presencia de automóviles en condiciones favorables de clima.
 
-    \item \textbf{Implicación para el siguiente paso:} 
+    \item \textbf{Implicación para el siguiente paso:} Dado que la mayor cantidad de accidentes sucede
+    bajo clima favorable (despejado sin viento fuerte), seguido de lluvia sin viento fuerte, lo cual
+    puede deberse a una mayor frecuencia de estas condiciones o un mayor flujo vehicular y no necesariamente
+    a un mayor riesgo, el siguiente paso es analizar esta relación mediante pruebas de independencia Chi-Cuadrado
+    para verificar si el clima está realmente asociado con la frecuencia de accidentes.
 \end{itemize}
 
 

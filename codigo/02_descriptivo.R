@@ -37,7 +37,6 @@ View(Accidentes)
 #---------------------------------------------------------------------------
 # Cuadro frecuencia: Junction Control
 #---------------------------------------------------------------------------
-View(Accidentes)
 
 tabla <- table(Accidentes$Junction_Control)
 
@@ -194,11 +193,15 @@ plot_grid(p12)
 #----------------------------------------------------------------------------------
 
 
-histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fill=Road_Surface_Conditions))+geom_bar()+coord_flip()+
+histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fill=Road_Surface_Conditions))+
+  geom_bar()+
+  coord_flip()+
   labs(title = "Conteo de accidentes por condición de carretera",
        x = "Condición de la carretera",
-       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+     
-
+       y = "Número de accidentes") + 
+  estilo_bayesianos()+
+  scale_fill_manual(values = paleta)     
+print(histograma_condiciones)
 
 #----------------------------------------------------------------------------------
 # Frecuencia de accidentes por amo dependiendo del tipo de calle 
