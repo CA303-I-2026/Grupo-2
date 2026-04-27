@@ -268,7 +268,7 @@ Alessandro Umaña Vega (C37963)
     de la base de nuestro proyecto tomando en cuenta cuales variables es mejor o no imputar y saber las consecuencias tanto positivas como negativas del método de imputación que se vaya a escoger para los valores perdidos.
     
 	\item \textbf{Lo que NO dice el autor:} Los autores no explican cómo tratar estos valores perdidos con variables de carácter geográfico o temporales. El documento no tiene información de qué hacer con datos donde el error tal vez no sea por recolección, sino información no disponible, que por sí misma podría ser un factor de riesgo.    
-	\item \textbf{Contraste con otra fuente:} Este documento se complementa con el estudio de Karzan e Ismael (2017) acerca accidentes en Manchester. Mientras que Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre el clima y los choques, Useche explica que esos cálculos solo serán confiables si primero se resuelve el problema de los datos faltantes. Es decir, el primer texto da la herramienta para limpiar la base de datos, asegurando que los valores perdidos no distorsionen el análisis, y el segundo da la técnica estadística para analizar los datos una vez que estén completos. Uno resuelve el problema técnico de la base de datos que el otro da por sentado.
+	\item \textbf{Contraste con otra fuente:} Este documento se complementa con el estudio de \textcite(KARZAN2017) acerca accidentes en Manchester. Mientras que Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre el clima y los choques, Useche explica que esos cálculos solo serán confiables si primero se resuelve el problema de los datos faltantes. Es decir, el primer texto da la herramienta para limpiar la base de datos, asegurando que los valores perdidos no distorsionen el análisis, y el segundo da la técnica estadística para analizar los datos una vez que estén completos. Uno resuelve el problema técnico de la base de datos que el otro da por sentado.
     
 	\item \textbf{Evaluación de aplicabilidad (1-5):} 5/5. La aplicabilidad de estas metodologías es perfecta, pues en la base de datos existen valores perdidos y la forma en la que estos se manejen va a afectar de una u otra manera el análisis estadístico que se hará. Además, el documento advierte que el ignorar totalmente los valores perdidos puede invalidad el análisis de variables multivariantes. Por otro lado, el objetivo del proyecto es identificar situaciones de riesgo, por lo que la imputación que se realice afectará directamente en los resultados que darán los análisis para poder dar las recomendaciones pertinentes.
     
@@ -304,7 +304,7 @@ Alessandro Umaña Vega (C37963)
 \begin{itemize}
     \item \textbf{Conexión con mi proyecto:} En el análisis de la base de datos, esta prueba es importante para comparar si la severidad de los accidentes se distribuye de forma homogénea en diferentes regiones o bajo distintos climas. Por ejemplo, se puede usar esta técnica para probar si la proporción de accidentes fatales es la misma en carreteras secas que en carreteras húmedas, tal como los autores comparan la eficacia de dos analgésicos.    
 	\item \textbf{Lo que NO dice el autor:} El documento se enfoca en muestras pequeñas de estudios clínicos (215 casos). En el caso de la base de datos, se trabajará con una gran cantidad de datos, donde casi cualquier diferencia mínima resulta estadísticamente significativa. Los autores no discuten el tamaño del efecto o la importancia práctica frente a la significancia estadística con una base de datos masiva.
-	\item \textbf{Contraste con otra fuente:} El estudio se relaciona con el estudio de Useche (2016), pues Useche nos habla sobre como imputar los datos para que la base de datos esté lo más completa posible, tomando en cuenta diferentes factores, mientras que Montaña et al. (2024) nos da un manual técnico para procesar los datos ya corregidos usando la prueba de Chi-Cuadrado. Entonces Useche(2016) garantiza que la información no esté sesgada para con Montaña et al. (2025) se pueda llegar conclusiones significativas de la información extraída.
+	\item \textbf{Contraste con otra fuente:} El estudio se relaciona con el estudio de \textcite(USECHE2006), pues Useche nos habla sobre como imputar los datos para que la base de datos esté lo más completa posible, tomando en cuenta diferentes factores, mientras que Montaña et al. (2024) nos da un manual técnico para procesar los datos ya corregidos usando la prueba de Chi-Cuadrado. Entonces Useche(2016) garantiza que la información no esté sesgada para con Montaña et al. (2025) se pueda llegar conclusiones significativas de la información extraída.
     
 	\item \textbf{Evaluación de aplicabilidad (1-5):} 4/5.  El método es bastante aplicable para la base de datos en la que se trabajará, pues se puede usar para variables categóricas como el clima e iluminación. Además de que da un paso a paso de como se puede analizar ese tipo de datos. Una desventaja es que el enfoque de ambos estudios es muy diferente y no se centra en los datos masivos, por lo que la eficacia de este no se puede verificar al máximo.
     
@@ -456,7 +456,7 @@ nos da dos perspectivas muy valiosas para el proyecto.En el caso de Saxena ilust
 para poder jerarquizar las variables de la base de datos, sin embargo hay que tomar en cuenta que el nivel 
 de infraestructura y el cumplimiento de la ley en la India es diferente que en Reino Unido, por lo cual el modelo debería 
 de ajustarse para identificar cual es el problema que se podría abarcar de primero y así permitir intervenciones que no 
-dependan solo de la educación, sino también de la interrupción mecánica.
+dependan solo de la educación, sino también de la interrupción mecánica. \\
 
 \subsection*{Ficha 5}
 
@@ -484,7 +484,71 @@ para responder de manera correcta nuestra pregunta de investigación, permitién
 variación en la frecuencia de accidentes entre 2010 y 2017, al igual que identificar patrones 
 comunes de riesgo. De esta manera, se fortalece el análisis estadístico al detectar asociaciones
 y evaluar cambios en el tiempo, contribuyendo a una mejor fundamentación para proponer medidas de
-prevención.
+prevención. \\
+
+\subsection*{Ficha 6}
+
+\textbf{Resumen:} El artículo de \textcite(USECHE2006)) analiza la problemática
+de los datos faltantes en investigaciones estadísticas, argumentando que su ausencia
+genera sesgos significativos y pérdida de eficiencia. El documento propone la
+imputación como una solución metodológica para rellenar los datos faltantes con 
+valores lógicos, permitiendo así el uso de métodos estadísticos tradicionales sin
+sacrificar el tamaño de la muestra. Por otro lado, advierten que ninguna técnica 
+es infalible, ya que pueden alterar la varianza o las relaciones entre variables 
+si no se seleccionan con cuidado.\\
+
+\textbf{Contraste:} Este documento se complementa con el estudio de 
+\textcite(KARZAN2017) acerca accidentes en Manchester. Mientras que
+Karzan utiliza la prueba Chi-Cuadrado para encontrar relaciones entre
+el clima y los choques, Useche explica que esos cálculos solo serán 
+confiables si primero se resuelve el problema de los datos faltantes. 
+Es decir, el primer texto da la herramienta para limpiar la base de 
+datos, asegurando que los valores perdidos no distorsionen el análisis,
+y el segundo da la técnica estadística para analizar los datos una vez
+que estén completos. Uno resuelve el problema técnico de la base de datos
+que el otro da por sentado.\\
+    
+\textbf{Contribución propia:} La integración de metodologías eficientes para 
+poder imputar valores de datos faltantes, siempre es fundamental para un buen
+análisis de cualquier base de datos, pues en casi todas las bases de datos van
+a existir estos vacíos, por l o que es importante entender el por qué de estos
+y cómo manejar cada uno. Además de ser un estudio muy real, donde da a entender
+que ninguna imputación va a ser perfecta, dando las consecuencias de cada uno de
+los métodos expuestos. Entonces esta fuente es importante para aplicarse antes 
+de empezar con el análisis de los datos y entender la naturaleza de los datos 
+en la base de datos para el proyecto. \\
+
+\subsection*{Ficha 7}
+
+\textbf{Resumen:} El artículo de \textcite(MONTANA2025) presenta una guía 
+metodológica sobre la prueba de Chi-cuadrado de homogeneidad, donde destaca 
+como una herramienta esencial para determinar si existen diferencias significativas 
+en la distribución de frecuencias entre grupos independientes. En el documento 
+sostienen que esta técnica permite verificar si distintas poblaciones se comportan
+de manera similar ante una variable cualitativa, ayudando a facilitar la toma de
+decisiones basada en evidencia estadística, siempre que se cumplan supuestos de
+independencia y frecuencias esperadas mínimas.\\
+
+\textbf{Contraste:} Este texto se vincula directamente con el trabajo de 
+\textcite(USECHE2006) en una relación de dependencia técnica. Mientras 
+que Useche se enfoca en la etapa previa de la limpieza de los datos 
+mediante la imputación de valores perdidos para evitar sesgos, este 
+artículo proporciona el marco analítico para procesar los datos una 
+vez que la base esté completa. En conclusión, Useche garantiza 
+la veracidad y representatividad de la muestra, mientras que Montaña et al. 
+ofrecen el manual para extraer conclusiones significativas de dicha muestra 
+a través de pruebas de contraste.\\
+    
+\textbf{Contribución propia:} La principal limitación al aplicar la metodología 
+de Montaña et al. al proyecto es la escala de los datos, pues el estudio original 
+trabaja con una muestra de 215 casos clínicos, mientras que la base de datos de 
+accidentes en el Reino Unido es masiva con más de dos millones de entradas. La 
+observación que se realiza es que, con volúmenes de datos tan grandes, la prueba 
+de Chi-cuadrado tenderá a mostrar que cualquier cambio mínimo entre las variables 
+es importante, por lo tanto, se debe complementar esta guía técnica con un análisis
+del tamaño del efecto para no llegar a conclusiones que en práctica no son reales 
+y estos podrían llegar a ser irrelevantes en la práctica de la seguridad vial.\\
+
 
 
 \section{Análisis estadísticos}
