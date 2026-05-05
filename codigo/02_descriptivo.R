@@ -133,7 +133,8 @@ grafico_velocidad <- ggplot(Accidentes, aes(x=as.factor(Speed_limit))) +
     y = "Número de Accidentes"
   ) +
   theme_half_open() + 
-  estilo_bayesianos()
+  estilo_bayesianos() + 
+  scale_y_continuous(labels = scales::comma)
 
 print(grafico_velocidad)
 
@@ -147,7 +148,7 @@ Accidentes_mapa <- Accidentes %>%
   filter(Longitude != 0, Latitude != 0) 
 
 
-Mapa_coordenadas <- ggplot(df_mapa_sample, aes(x = Longitude, y = Latitude)) +
+Mapa_coordenadas <- ggplot(Accidentes_mapa, aes(x = Longitude, y = Latitude)) +
   geom_point(alpha = 0.1, size = 0.05, color = paleta[3]) + 
   coord_quickmap() +
   labs(
@@ -167,15 +168,15 @@ print(Mapa_coordenadas)
 
 #Se filtra el dataset para realizar lo que se quiere
 Accidentes_frecuencias <- Accidentes %>%
-  filter(Junction_Detail == "T or staggered junction") %>%
+  filter(Junction_Detail == "Intersección en T") %>%
   #Agrupamos y contamos por condición especial (obstáculos)
   group_by(Special_Conditions_at_Site) %>%
   summarise(frecuencia = n()) %>%
   #Eliminar "None" para ver obstáculos reales
-  filter(Special_Conditions_at_Site != "None") %>%
+  filter(Special_Conditions_at_Site != "Ninguna") %>%
   arrange(desc(frecuencia))
 
-#Creación de un cuadro de frecuencias d ela intersección en T y obstáculos
+#Creación de un cuadro de frecuencias de la intersección en T y obstáculos
 p12 <- ggplot(Accidentes_frecuencias, aes(x = reorder(Special_Conditions_at_Site, frecuencia), y = frecuencia)) +
   geom_bar(stat = "identity", fill = paleta[2], color = "black") +
   coord_flip() + #Volteamos para que los nombres de los obstáculos se lean bien
