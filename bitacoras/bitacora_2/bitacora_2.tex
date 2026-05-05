@@ -639,7 +639,7 @@ lo que puede atribuirse a una menor exposición al tráfico en dichas condicione
     \label{fig:speed_limit}
 \end{figure}
 
-Este gráfico muestra la cantidad de accidentes que hubieron en el Reino U nido entre el 2017 y el 2010,
+Este gráfico muestra la cantidad de accidentes que hubieron en el Reino U nido entre el 2010 y el 2017,
 donde muestra que la mayoría de los accidentes ocurren donde existía un límite de 30mph con más de 600.000 accidentes. 
 Este es un dato importante para el trabajo, pues nos da una pista de donde sería más efectivo realizar
 publicidad para evitar que accidentes pasen en las carreteras que cumplan esta característica. También,
@@ -648,7 +648,7 @@ los accidentes, por lo que es importante recalcar que los límites de velocidad 
 
 Los otros datos que da el gráfico son que en velocidad límites más altas casi no hay accidentes comparados a lo antes mencionado,
 por lo que se ayuda para poder enfocar en un tipo de carreteras que cumplan ciertas características, para así poder reducir 
-de forma más eficiente los accidentes.
+de forma más eficiente los accidentes.\\
 
 \textbf{Gráfico de dispersión: Mapa de coordenadas}
 \begin{figure}[H]
@@ -658,14 +658,31 @@ de forma más eficiente los accidentes.
     \label{fig:latitude_longitude}
 \end{figure}
 
+Este gráfico muestra un conjunto de puntos, donde cada punto es un lugar en el que ocurrió un
+accidente entre el 2010 y 2017 formando un mapa, Reino Unido. Se puede observar que la distribución 
+de los puntos es bastante unifrome en muchos espacios, por lo que se puede concluir que 
+en general Reino Unido es una zona con bastante tráfico, sin embargo, hay lugares donde 
+se disipa el color lo que puede mostrar alguna zona rural que no tenga tráfico tan seguido. \\
+
+Este gráfico es relevante, pues muestra aquellas zonas en las que existe mucha concentración de accidentes,
+lo cual da una visión real de donde están sucediendo estos y es una forma de verificar
+que los datos son verídicos y niega la existencia de datos que sean outliers.\\
+
 \textbf{Gráfico de barras: Frecuencia de obstáculos en intersecciones en T }
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figuras/Frecuencia_Obstáculos_Intersecciones_T.png}
     \caption{Accidentes por obstáculos en intersecciones T}
-    \label{fig:junction_detail}
+    \label{fig:junction_control}
 \end{figure}
-
+Este gráfico muestra cuantos accidentes están asociados a distintios tipos de obstáculos o condiciones 
+en la vía y también exista una intersección en T. Se puede observar que la mayoría de accidentes ocurrieron 
+mientras habían obras en la vía con más de 2.000 accidentes, lo cual indica que las intervenciones 
+infraestructurales en la vía afectan de manera negativa a los conductores. También otros factores
+como el aceite, superficie defectuosa o las señalizaciones afectan en menor medida. 
+Este gráfico es de interés para el proyecto, pues ayuda a realizar correlaciones entre variables, 
+además de dar una variable que puede ser de interés trabajar para poder analizar y poder 
+priorizar auqellas variables que son más influyentes en un accidente.
 \subsection{Construcción de fichas de resultados}
 
 \subsubsection{Ficha de resultado 1}
@@ -706,6 +723,43 @@ de forma más eficiente los accidentes.
     para verificar si el clima está realmente asociado con la frecuencia de accidentes.
 \end{itemize}
 
+\subsubsection{Ficha de resultado 2}
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} Frecuencia de accidentes según obstáculos en intersecciones en T.
+
+    \item \textbf{Nombre del hallazgo:} Distribución de accidentes según obstáculos en intersecciones en T.
+
+    \item \textbf{Resumen en una oración:} Las obras en vía son el mayor factor de accidentes.
+
+    \item \textbf{Método o análisis que lo produjo:} Gráfico de barras de la frecuencia de la variable \textit{Special_Conditions_at_Site} 
+    yverificando que el accidente cumplliera una característica de la variable \textit{Junction_Control}.
+
+    \item \textbf{Evidencia:} Gráfico~\ref{fig:junction_control}: \textit{Frecuencia de obstáculos en intersecciones en T} \\
+\end{itemize} 
+
+\textbf{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Se relaciona de forma directa, 
+    ya que se identifica situaciones de riesgo, donde se revela que las obras en vía en intersecciones en T 
+    es un factor de riesgo para los accidentes en Reino Unido entre el 2010 y 2017. Esto 
+    permite poder priorizar la busqueda de medidas de precaución 
+
+    \item \textbf{Contraste con la literatura:} Se realizará el contraste con \textcite{SAXENA2017}, donde el resultado valida la Teoría del Dominó 
+    de ella, pues las obras en la vía actúan como una ficha ambiental que afecta el flujo normal 
+    y puede desencadenar el acto inseguro del conductor o el accidente mismo. Sin embargo, Saxena 
+    menciona la Homeostasis del Riesgo, sugiriendo que los conductores podrían compensar el peligro 
+    si perciben la zona de obras. Sin embargo, la alta frecuencia en el gráfico sugiere que, o bien el riesgo no es 
+    percibido correctamente, o bien la complejidad de la infraestructura supera la capacidad de adaptación del conductor.
+
+    \item \textbf{Lo que NO explica este resultado:}El gráfico muestra correlación, pero no explica si el accidente ocurrió debido a la obra 
+    o si solamente la obra se encontraba ahí.
+
+    \item \textbf{Implicación para el siguiente paso:} Dado que la mayoría de accidentes ocurren cuando hay obras en vía cuando hay una intersección en T 
+    sería pertinente analizar la severidad de los accidentes en zonas con obras con otras variables para poder verificar la correlación que pueda tener esta.
+    Además, se podría investigar si existe algún incremento de accidentes en obras entre los años 2010 y 2017 en Reino Unido para verificar 
+    el hallazgo.
+\end{itemize}
 
 \subsection{La imagen que cuenta la historia}
 
