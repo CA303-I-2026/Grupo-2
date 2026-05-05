@@ -9,6 +9,8 @@ library(cowplot)
 library(ggsci)
 library(readr)
 library(scales)
+library(lubridate)
+library(ggridges)
 
 # Se define el tema que se utilizará para la creación de gráficos
 estilo_bayesianos <- function() {
@@ -286,6 +288,79 @@ tabla_num_casualties <- data.frame(
   Max = max(Accidentes$Speed_limit),
   Media = mean(Accidentes$Speed_limit)
 )
+
+#=========================================================
+# Gráfico: Distribución de frecuencia por día de la semana
+#=========================================================
+# Preparar datos
+accidentes_dia <- Accidentes %>%
+  mutate(
+    Date = ymd(Date)
+  ) %>%
+  filter(!is.na(Date)) %>%
+  mutate(
+    dia_semana = weekdays(Date),
+    
+    # Traducir manualmente al español
+    dia_semana = recode(
+      dia_semana,
+      "Monday" = "Lunes",
+      "Tuesday" = "Martes",
+      "Wednesday" = "Miércoles",
+      "Thursday" = "Jueves",
+      "Friday" = "Viernes",
+      "Saturday" = "Sábado",
+      "Sunday" = "Domingo"
+    )
+  ) %>%
+  count(dia_semana, Date, name = "frecuencia_diaria")
+
+# Ordenar correctamente
+accidentes_dia$dia_semana <- factor(
+  accidentes_dia$dia_semana,
+  levels = c("Lunes", "Martes", "Miércoles", "Jueves",
+  "Viernes", "Sábado", "Domingo")
+)
+
+# Ridge plot
+grafico_ridge <- ggplot(
+  accidentes_dia,
+  aes(
+    x = frecuencia_diaria,
+    y = dia_semana,
+    fill = dia_semana
+  )
+) +
+  geom_density_ridges(
+    alpha = 0.9,
+    scale = 2.5,
+    rel_min_height = 0.01,
+    color = "black"
+  ) + scale_x_continuous(
+    breaks = seq(
+      0, max(accidentes_dia$frecuencia_diaria, na.rm = TRUE), by = 100  
+    )
+  ) +
+  scale_fill_manual(values = paleta) +
+  labs(
+    title = "Distribución de accidentes por día de la semana",
+    x = "Frecuencia diaria de accidentes",
+    y = "Día de la semana",
+    fill = "Día"
+  ) +
+  estilo_bayesianos() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(
+      hjust = 0.5,
+      face = "bold"
+    )
+  )
+
+# Mostrar gráfico
+plot_grid(grafico_ridge)
+
+
 
 
 
