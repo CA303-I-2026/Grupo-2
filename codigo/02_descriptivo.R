@@ -35,7 +35,7 @@ paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 # Se establecen los datos depurados que serán utilizados a lo largo del proyecto
 Accidentes <- read.csv("datos/procesados/Accident_Information_Clean_Espanol.csv")
-View(Accidentes)
+   View(Accidentes)
 #---------------------------------------------------------------------------
 # Cuadro frecuencia: Junction Control
 #---------------------------------------------------------------------------
@@ -203,7 +203,10 @@ histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fil
        x = "Condición de la carretera",
        y = "Número de accidentes") + 
   estilo_bayesianos()+
-  scale_fill_manual(values = paleta)     
+  scale_fill_manual(values = paleta) + scale_y_continuous(
+    labels = function(x) floor(x/1000)   
+  ) 
+
 print(histograma_condiciones)
 
 #----------------------------------------------------------------------------------
@@ -213,7 +216,8 @@ print(histograma_condiciones)
 histograma_amo_condiciones <- ggplot(Accidentes, aes(y=Year, fill=Road_Surface_Conditions))+geom_bar(position = "dodge")+coord_flip()+
   labs(title = "Conteo de accidentes por condición de carretera",
        x = "Condición de la carretera",
-       y = "Número de accidentes") + estilo_bayesianos()+scale_fill_manual(values = paleta)+ scale_y_continuous(labels=label_number())
+       y = "Número de accidentes") + estilo_bayesianos()+
+  scale_fill_manual(values = paleta)+ scale_y_continuous(labels = scales::comma)
 
 
 
@@ -280,7 +284,7 @@ tabla_num_casualties <- data.frame(
 )
 
 
-tabla_num_casualties <- data.frame(
+tabla_speed_limit <- data.frame(
   Min = min(Accidentes$Speed_limit),
   Q1 = as.numeric(quantile(Accidentes$Speed_limit, 0.25,na.rm = TRUE)),
   Mediana = median(Accidentes$Speed_limit),
