@@ -160,6 +160,7 @@ Alessandro Umaña Vega (C37963)
 	\item \textbf{Resumen argumentativo:} El artículo de M. C. Taylor, D. A. Lynam y A. Baruya intenta resolver el problema de cómo entender y cuantificar la relación entre la velocidad del tráfico y la frecuencia de accidentes. Los autores proponen analizar esta relación utilizando la velocidad promedio de los vehículos en la vía lo cual permite observar cómo cambios pequeños en la velocidad general de una vía pueden afectar el número total de accidentes. Sin embargo, su aplicación puede ser limitada en contextos donde no se dispone de datos sobre la velocidad promedio, ya que estudios como el que se pretende realizar solo cuentan con información como límites de velocidad o características de la carretera. A pesar de esto, el estudio proporciona evidencia clara de que incluso pequeñas reducciones en la velocidad promedio pueden generar disminuciones significativas en la frecuencia de accidentes. En el trabajo se utilizará este documento principalmente como base teórica para justificar la importancia de la velocidad como factor que influye en la frecuencia de accidentes, aunque posiblemente no se pueda aplicar exactamente su metodología ya que los datos disponibles no incluyen medidas de velocidad promedio. Además, servirá para entender cómo la velocidad interactúa con otros factores del entorno vial. \\
 	\end{itemize} 
 	
+
 \textbf{Ficha 3:}
 
 \textbf{Nivel descriptivo} 
@@ -649,6 +650,33 @@ para facilitar la interpretación de los gráficos sin interferir con el área d
 
 \subsection{Análisis descriptivo}
 
+En la presente bitácora se desarrolla el análisis exploratorio de datos con el 
+objetivo de estudiar cómo varía la cantidad de accidentes de tránsito en el Reino 
+Unido durante el periodo 2010–2017, a partir de distintos factores relevantes, 
+utilizando la base de datos UK Road Safety: Traffic Accidents and Vehicles. 
+Este análisis busca no solo identificar patrones, sino también reconocer 
+situaciones de riesgo que permitan proponer medidas de prevención orientadas 
+a reducir su frecuencia.\\
+Para ello, se seleccionaron variables consideradas clave dentro del conjunto 
+de datos, específicamente: el tipo de control en la carretera en intersecciones, 
+el tipo de carretera, el tipo de obstáculos en intersecciones en T, el año, la 
+condición de iluminación, la condición climática, la condición de la carretera, 
+las coordenadas de ubicación del accidente (longitud y latitud), la velocidad 
+límite de la vía, la zona donde ocurrió el accidente, el número de vehículos 
+involucrados y el número de casualidades. Estas variables fueron elegidas debido 
+a su capacidad para describir tanto las condiciones del entorno como las 
+características del accidente, lo que permite analizar de manera integral 
+los factores que influyen en su ocurrencia.\\
+En cuanto al tratamiento de los datos, se optó por no eliminar los registros 
+que contenían la etiqueta “Data missing” u otro derivado, ya que su eliminación 
+podría implicar una pérdida significativa de información y modificarlos podía 
+alterar la distribución original de los datos debido a que eran muchos. 
+Por otro lado, se realizó un proceso de imputación, donde los NA fueron 
+reemplazados utilizando medidas como la media y la moda, según la naturaleza de 
+cada variable. Este enfoque permite conservar la mayor cantidad posible de 
+información sin introducir sesgos importantes en el análisis.
+
+
 
 \subsubsection*{Frecuencia de control en intersecciones}
 \addcontentsline{toc}{subsubsection}{Frecuencia de control en intersecciones}
@@ -790,6 +818,52 @@ en la variación de accidentes. Sin embargo, no permite establecer relaciones ca
 solo cómo interactúan otros factores ambientales como clima, iluminación o estado de la carretera. 
 Además, al tratarse de conteos absolutos, no ajusta por exposición o volumen real de tráfico.
 
+\subsubsection*{Distribución por tipo de área}
+\addcontentsline{toc}{subsubsection}{Distribución por tipo de área}
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\hline
+\textbf{Área} & \textbf{Cantidad de accidentes} \\
+\hline
+Urbano       & 748451 \\
+Rural        & 394632 \\
+No asignado  & 17     \\
+\hline
+\end{tabular}
+\caption{Frecuencia de accidentes por área urbana o rural}
+\label{tab: Frec_UrbanRural}
+\end{table}
+
+La tabla muestra una clara división en la siniestralidad según el entorno: la zona urbana 
+concentra 748,451 accidentes, prácticamente duplicando los 394,632 registrados en áreas rurales. 
+Esta diferencia marcada sugiere que la frecuencia de accidentes en el Reino Unido está 
+estrechamente ligada a la densidad del tráfico y a la complejidad de las interacciones viales 
+de la ciudad, como cruces y presencia de peatones.
+
+\subsubsection*{Cantidad de accidentes según la superficie de la vía y las condiciones de luz}
+\addcontentsline{toc}{subsubsection}{Accidentes según la superficie de la vía y las condiciones de luz}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/Accidentes_superficiexluz.png}
+    \caption{Conteo de accidentes según la condición de la superficie de la vía y las condiciones de luz}
+    \label{fig:superficiexluz}
+\end{figure} 
+
+En términos generales, el gráfico muestra que la mayor cantidad de accidentes 
+ocurre en carreteras secas, especialmente durante el día, lo cual destaca como el 
+escenario más frecuente. Asimismo, se aprecia que en superficies mojadas o húmedas 
+también se registra una cantidad considerable de accidentes, nuevamente predominando 
+las condiciones de luz diurna, aunque en menor magnitud que en carreteras secas. 
+Durante la noche, tanto con iluminación como sin ella, la cantidad de accidentes 
+disminuye en comparación con el día, pero sigue siendo relevante, lo que sugiere 
+que la visibilidad continúa siendo un factor importante en la ocurrencia de 
+accidentes. Por otro lado, las condiciones más extremas de la superficie, como nieve, 
+escarcha o hielo e inundaciones, presentan una frecuencia de accidentes 
+significativamente menor. Esto puede deberse a que estas situaciones son menos 
+comunes o a que los conductores tienden a ser más precavidos o reducir la circulación 
+bajo dichas condiciones. 
+
 \subsection{Construcción de fichas de resultados}
 
 \subsubsection{Ficha de resultado 1}
@@ -868,6 +942,36 @@ Además, al tratarse de conteos absolutos, no ajusta por exposición o volumen r
     Además, se podría investigar si existe algún incremento de accidentes en obras entre los años 2010 y 2017 en Reino Unido para verificar 
     el hallazgo.
 \end{itemize}
+
+\subsubsection*{Ficha de resultado 3}
+\textbf{Nivel descriptivo} 
+\begin{itemize}
+    \item \textbf{Titular:}  La mayoría de accidentes se producen en el día en carreteras secas. \\
+
+    \item \textbf{Nombre del hallazgo:} Cantidad de accidentes según la superficie de la vía y las condiciones de luz. \\
+
+    \item \textbf{Resumen en una oración:} La mayor cantidad de accidentes ocurre durante el día, principalmente en carreteras secas, aunque también se registran en carreteras mojadas. \\
+
+    \item \textbf{Método o análisis que lo produjo:}  Gráfico de barras de conteo de accidentes según la superficie de la vía y las condiciones de luz. \\
+
+    \item \textbf{Evidencia:} Gráfico~\ref{fig:superficiexluz}: \textit{Cantidad de accidentes según la superficie de la vía y las condiciones de luz} \\
+\end{itemize} 
+
+
+\end{itemize}
+
+\textbf{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Este gráfico es fundamental pues permite aterrizar los factores de riesgo que busca plantear el proyecto. Es relevante concluir que la mayoría de los accidentes pasan en condiciones óptimas, es decir, de día y en carreteras secas. Esto es un hallazgo importante porque obliga a pensar que el problema quizás no está tanto en el clima o la infraestructura, sino en factores humanos o en el volumen de tráfico. \\
+
+    \item \textbf{Contraste con la literatura:} Este resultado coincide fuertemente con lo concluido por \textcite{}, donde se determina mediante un gráfico similar que la cantidad de accidentes en carreteras mojadas aumentan durante el día debido al nivel de tráfico. \\
+
+    \item \textbf{Lo que NO explica este resultado:} Este hallazgo deja abierta la pregunta de si los accidentes diurnos son más frecuentes porque las condiciones son peligrosas o simplemente porque ocurren en horas de alto volumen de tráfico. Si el análisis incluyera una variable temporal como la hora y el día, se podría determinar si el tráfico es el factor determinante. \\
+
+    \item \textbf{Implicación para el siguiente paso:}  Dado que la alta frecuencia de accidentes en condiciones óptimas sugiere una posible relación directa con la cantidad de vehículos en circulación, el siguiente paso podría ser realizar una serie de tiempo de las horas de los accidentes. \\
+
+
+
 
 \subsection{La imagen que cuenta la historia}
 \textbf{Cantidad de accidentes por día de la semana}\\
