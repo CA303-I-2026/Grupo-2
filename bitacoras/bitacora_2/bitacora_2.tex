@@ -40,9 +40,18 @@ Alessandro Umaña Vega (C37963)
 \end{titlepage}
 \tableofcontents
 \newpage
-\section{Audiencia del proyecto} v\\
+\section{Audiencia del proyecto} 
+Esta semana le diría a los investigadores académicos que los factores de entorno 
+que se creía que influían en la producción de accidentes, tienen poca incidencia 
+en ellos, por lo que se debe de investigar más a profundad la densidad del tránsito 
+como posible factor causante. \\
 
-\section{Respuesta a retroalimentación} v \\
+\section{Respuesta a retroalimentación}  \\
+Tras recibir retroalimentación, se realizaron mejoras en la organización y estructura 
+de las secciones de la Bitácora 2, prestando especial atención a la correcta ubicación 
+del rastro de IA, evitando colocarlo después de las referencias para mantener una 
+presentación más adecuada y ordenada del documento. 
+
 
 \section{Parte de planificación}
 \subsection{Fichas de literatura}
@@ -1396,37 +1405,72 @@ para contextualizar los patrones generales de frecuencia de accidentes durante e
 
 
 
-
-
-
 \section{Arco narrativo del proyecto}
+Al explorar los datos descubrimos que la mayoría de los accidentes ocurren en
+condiciones óptimas, es decir de día, en carreteras secas y con condiciones 
+climáticas favorables. Lo anteriror nos obliga a analizar el comportanmiento de 
+otros factores, como el tráfico y la densidad del flujo vehicular. 
+
 
 \section{Diario de aprendizaje}
+
+
 \section{Log de contribución}
 
 \section{Rastro de decisiones}
+Durante la etapa del análisis descriptivo, se llevó a cabo un proceso exploratorio
+que permitió filtrar las relaciones más significativas para 
+el estudio. En esta fase, se generaron diversos gráficos centrados en factores de 
+entorno que, tras una evaluación crítica, fueron descartados debido a que no 
+aportaban información relevante ni contribuían a responder las preguntas de 
+investigación planteadas. Esto resultó fundamental para evitar la 
+saturación del informe con datos que no añadían valor explicativo a las causas 
+de los accidentes viales.
+
+Asimismo, se hicieron gráficos que integraban múltiples 
+variables de forma simultánea. Sin embargo, estos generaban un 
+ruido excesivo que dificultaba la identificación de patrones claros, por lo que 
+se decidió prescindir de ellos en favor de una comunicación más clara con el lector. 
+Al reducir el ruido visual, el análisis logró centrarse en las variables 
+fundamentales, garantizando que cada gráfico presentado en la bitácora fuera 
+interpretable y útil para el lector.
+
+Adicionalmente, se optó por descartar los gráficos que contemplaban la severidad de los accidentes. 
+Esta decisión se fundamentó en la falta de una dependencia clara pues la severidad es una consecuencia del evento y no necesariamente 
+una variable que actúa de manera previa al accidente. 
+Al identificar que las causas operan de forma independiente al 
+desenlace final en términos de gravedad, se determinó que su inclusión no aportaba 
+valor al análisis.
 
 \section{Registro de uso de IA}
 
 \textbf{Primera pregunta}
 \begin{itemize}
-    \item Herramienta:  
-    \item Prompt: 
-    \item Respuesta de la IA: 
-    \item Evaluación: 
-    \item Modificaciones: 
-    \item Aprendizaje:
+    \item Herramienta: Copilot 
+    \item Prompt: Cambie las categorías de las siguientes variables a español, en formato “palabra en ingles” = “palabra en espanol” unique(Accidentes$Special_Conditions_at_Site) [1] "None" [2] "Roadworks" [3] "Auto traffic signal - out" [4] "Road surface defective" [5] "Oil or diesel" [6] "Road sign or marking defective or obscured" [7] "Auto signal part defective" [8] "Mud" [9] "Data missing or out of range" > unique(Accidentes$Urban_or_Rural_Area) [1] "Urban" "Rural" "Unallocated" > unique(Accidentes$Weather_Conditions) [1] "Other" "Raining no high winds" [3] "Fine no high winds" "Raining + high winds" [5] "Snowing no high winds" "Fine + high winds" [7] "Snowing + high winds" "Fog or mist"
+    \item Respuesta de la IA: "None" = "Ninguna", "Roadworks" = "Obras en la vía", "Auto traffic signal - out" = "Semáforo fuera de servicio", "Road surface defective" = "Superficie de la vía defectuosa", "Oil or diesel" = "Aceite o diésel en la vía", "Road sign or marking defective or obscured" = "Señalización defectuosa u oculta", "Auto signal part defective" = "Parte del semáforo defectuosa", "Mud" = "Lodo", "Data missing or out of range" = "Datos faltantes o fuera de rango"
+    \item Evaluación: Fue muy útil, no estaba ni incompleto ni erróneo, supo traducir todas las categorías y mantener el formato deseado.
+    \item Modificaciones: Se tomaron las traducciones y se introdujeron en un código mutate para traducir todas las variables deseadas a espanol y construir la base de datos en el idioma deseado.
+    \item Aprendizaje: Se aprendió qué herramientas de IA simplifican tareas repetitivas y que requieren bastante tiempo y no son de interés en este curso.
 \end{itemize}
 
 \textbf{Segunda pregunta:}
 \begin{itemize}
-    \item Herramienta: 
-    \item Prompt: 
+    \item Herramienta: Copilot
+    \item Prompt: Se quiere centrar una imagen en latex, como se hace y cómo se ajusta el tamaño.
     \item Respuesta de la IA: 
+Para centrar 
+%\begin{figure}[H]
+%\centering
+%\includegraphics{imagen.png}
+%\end{figure}
+
+Ajustar tamano
+%\includegraphics[width=0.5\textwidth]{imagen.png}
  
-    \item Evaluación: 
-    \item Modificaciones: 
-    \item Aprendizaje:
+    \item Evaluación: Fue útil, se lograron formatear las imagen en el documento y ajustarlas al tamaño deseado.
+    \item Modificaciones: Se tuvo que rellenar los espacios indicados con los nombres de las imágenes que se deseaban colocar y formatear.
+    \item Aprendizaje: Se aprendió que es posible pedirle a la IA indicaciones generales acerca de un tema para luego cambiarlo a lo deseado.
 \end{itemize}
 
 \newpage
