@@ -60,7 +60,7 @@ severidad_vs_tipocalle <- as.data.frame.matrix(tabla_cruzada)
 #-------------------------------------------------------------------------
 # Histograma: Frecuencia por Weather_Conditions
 #-------------------------------------------------------------------------
-ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
+condicion_clima <- ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
   geom_bar() +
   scale_fill_manual(values = paleta) +
   estilo_bayesianos() +
@@ -70,7 +70,9 @@ ggplot(Accidentes, aes(x = Weather_Conditions, fill = Weather_Conditions)) +
     y = "Número de accidentes"
   ) +
   coord_flip() +
-  theme(legend.position = "none")
+  theme_cowplot() +
+  theme(legend.position = "none") 
+print(condicion_clima)
 
 #-------------------------------------------------------------------------------------------
 # Gráfico de barras: Cantidad de accidentes según light_Conditions y Road_Surface_Conditions
@@ -85,7 +87,8 @@ ggplot(Accidentes, aes(x = Road_Surface_Conditions, fill = Light_Conditions)) +
     fill = "Condiciones de luz"
   ) +
   coord_flip() +
-  scale_y_continuous(labels = scales::label_number())
+  scale_y_continuous(labels = scales::label_number()) +
+  theme_cowplot()
 
 #-------------------------------------------------------------------------
 # Cuadro: Cantidad de accidentes según Urban_or_Rural_Area 
@@ -101,7 +104,7 @@ cuadro_zona
 # Gráfico de barras: Conteo de accidentes por Accident_Severity
 #-------------------------------------------------------------------------
 
-ggplot(Accidentes, aes(x = Accident_Severity, fill = Accident_Severity)) +
+conteo_severidad <- ggplot(Accidentes, aes(x = Accident_Severity, fill = Accident_Severity)) +
   geom_bar() +
   scale_fill_manual(values = paleta) +
   labs(
@@ -109,6 +112,7 @@ ggplot(Accidentes, aes(x = Accident_Severity, fill = Accident_Severity)) +
     x = "Severidad",
     y = "Frecuencia"
   ) +
+  theme_cowplot() +
   theme(legend.position = "none")
 
 #----------------------------------------------------------------------------------
@@ -127,8 +131,8 @@ ggplot(Accidentes, aes(x = factor(Year), fill = Accident_Severity)) +
 #----------------------------------------------------------------------------------
 # Gráfico de barras: Conteo de accidentes por velocidad límite
 #----------------------------------------------------------------------------------
-grafico_velocidad <- ggplot(Accidentes, aes(x=as.factor(Speed_limit))) +
-  geom_bar(fill = paleta[1], color = "black") +
+grafico_velocidad <- ggplot(Accidentes, aes(x=as.factor(round(Speed_limit)))) +
+  geom_bar(fill = paleta[3], color = "black") +
   labs(
     title = "Conteo de Accidentes por Velocidad Límite",
     x = "Velocidad Límite (mph)",
@@ -136,7 +140,8 @@ grafico_velocidad <- ggplot(Accidentes, aes(x=as.factor(Speed_limit))) +
   ) +
   theme_half_open() + 
   estilo_bayesianos() + 
-  scale_y_continuous(labels = scales::comma)
+  scale_y_continuous(labels = scales::comma) +
+  theme_cowplot()
 
 print(grafico_velocidad)
 
@@ -158,7 +163,8 @@ Mapa_coordenadas <- ggplot(Accidentes_mapa, aes(x = Longitude, y = Latitude)) +
     x = "Longitud",
     y = "Latitud"
   ) +
-  estilo_bayesianos()
+  estilo_bayesianos() +
+  theme_cowplot()
 
 print(Mapa_coordenadas)
 
@@ -180,15 +186,16 @@ Accidentes_frecuencias <- Accidentes %>%
 
 #Creación de un cuadro de frecuencias de la intersección en T y obstáculos
 p12 <- ggplot(Accidentes_frecuencias, aes(x = reorder(Special_Conditions_at_Site, frecuencia), y = frecuencia)) +
-  geom_bar(stat = "identity", fill = paleta[2], color = "black") +
+  geom_bar(stat = "identity", fill = paleta[3], color = "black") +
   coord_flip() + #Volteamos para que los nombres de los obstáculos se lean bien
   labs(
     title = "Frecuencia de Obstáculos en Intersecciones en T",
     x = "Tipo de Obstáculo / Condición",
     y = "Número de Accidentes"
   ) +
-  estilo_bayesianos()
-plot_grid(p12)
+  estilo_bayesianos() +
+  theme_cowplot()
+print(p12)
 
 
 #----------------------------------------------------------------------------------
@@ -205,7 +212,9 @@ histograma_condiciones <- ggplot(Accidentes, aes(x= Road_Surface_Conditions, fil
   estilo_bayesianos()+
   scale_fill_manual(values = paleta) + scale_y_continuous(
     labels = function(x) floor(x/1000)   
-  ) 
+  ) + 
+  theme_cowplot() +
+  theme(legend.position = "none") 
 
 print(histograma_condiciones)
 
@@ -217,10 +226,10 @@ histograma_amo_condiciones <- ggplot(Accidentes, aes(y=Year, fill=Road_Surface_C
   labs(title = "Conteo de accidentes por condición de carretera",
        x = "Condición de la carretera",
        y = "Número de accidentes") + estilo_bayesianos()+
-  scale_fill_manual(values = paleta)+ scale_y_continuous(labels = scales::comma)
-
-
-
+  scale_fill_manual(values = paleta)+ 
+  scale_y_continuous(labels = scales::comma) +
+  theme_cowplot()
+print(histograma_amo_condiciones)
 #----------------------------------------------------------------------------------
 # Boxplot de outliers 
 #----------------------------------------------------------------------------------
@@ -236,7 +245,9 @@ boxplot_num_casualties<- ggplot(Accidentes, aes(y=Number_of_Casualties))+geom_bo
   fill = "#4C78A8", outlier.colour = "red" 
 )+coord_flip()+
   labs(title = NULL,
-       y = "Número de víctimas") + estilo_bayesianos()+scale_fill_manual(values = paleta)
+       y = "Número de víctimas") +
+  estilo_bayesianos()+scale_fill_manual(values = paleta) + 
+  theme_cowplot()
 
 
 
@@ -244,7 +255,9 @@ boxplot_speed_limit<-ggplot(Accidentes, aes(y=Speed_limit))+geom_boxplot(
   fill = "#4C78A8", outlier.colour = "red" 
 )+coord_flip()+
   labs(title = NULL,
-       y = "Límite de velocidad") + estilo_bayesianos()+scale_fill_manual(values = paleta)
+       y = "Límite de velocidad") + estilo_bayesianos()+
+  scale_fill_manual(values = paleta) +
+  theme_cowplot()
 
 
 boxplot_num_vehicles
@@ -353,6 +366,7 @@ grafico_ridge <- ggplot(
     fill = "Día"
   ) +
   estilo_bayesianos() +
+  theme_cowplot() +
   theme(
     legend.position = "none",
     plot.title = element_text(
@@ -362,7 +376,7 @@ grafico_ridge <- ggplot(
   )
 
 # Mostrar gráfico
-plot_grid(grafico_ridge)
+print(grafico_ridge)
 
 
 
