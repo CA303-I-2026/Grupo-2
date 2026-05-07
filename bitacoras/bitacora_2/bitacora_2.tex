@@ -46,7 +46,7 @@ que se creía que influían en la producción de accidentes, tienen poca inciden
 en ellos, por lo que se debe de investigar más a profundad la densidad del tránsito 
 como posible factor causante. \\
 
-\section{Respuesta a retroalimentación}  \\
+\section{Respuesta a retroalimentación} 
 Tras recibir retroalimentación, se realizaron mejoras en la organización y estructura 
 de las secciones de la Bitácora 2, prestando especial atención a la correcta ubicación 
 del rastro de IA, evitando colocarlo después de las referencias para mantener una 
@@ -1446,12 +1446,73 @@ valor al análisis.
 
 \textbf{Primera pregunta}
 \begin{itemize}
-    \item Herramienta: Copilot 
-    \item Prompt: Cambie las categorías de las siguientes variables a español, en formato “palabra en ingles” = “palabra en espanol” unique(Accidentes$Special_Conditions_at_Site) [1] "None" [2] "Roadworks" [3] "Auto traffic signal - out" [4] "Road surface defective" [5] "Oil or diesel" [6] "Road sign or marking defective or obscured" [7] "Auto signal part defective" [8] "Mud" [9] "Data missing or out of range" > unique(Accidentes$Urban_or_Rural_Area) [1] "Urban" "Rural" "Unallocated" > unique(Accidentes$Weather_Conditions) [1] "Other" "Raining no high winds" [3] "Fine no high winds" "Raining + high winds" [5] "Snowing no high winds" "Fine + high winds" [7] "Snowing + high winds" "Fog or mist"
-    \item Respuesta de la IA: "None" = "Ninguna", "Roadworks" = "Obras en la vía", "Auto traffic signal - out" = "Semáforo fuera de servicio", "Road surface defective" = "Superficie de la vía defectuosa", "Oil or diesel" = "Aceite o diésel en la vía", "Road sign or marking defective or obscured" = "Señalización defectuosa u oculta", "Auto signal part defective" = "Parte del semáforo defectuosa", "Mud" = "Lodo", "Data missing or out of range" = "Datos faltantes o fuera de rango"
-    \item Evaluación: Fue muy útil, no estaba ni incompleto ni erróneo, supo traducir todas las categorías y mantener el formato deseado.
-    \item Modificaciones: Se tomaron las traducciones y se introdujeron en un código mutate para traducir todas las variables deseadas a espanol y construir la base de datos en el idioma deseado.
-    \item Aprendizaje: Se aprendió qué herramientas de IA simplifican tareas repetitivas y que requieren bastante tiempo y no son de interés en este curso.
+    \item Herramienta: Copilot
+
+    \item Prompt:
+\begin{verbatim}
+
+Cambie las categorías de las siguientes variables a español,
+
+en formato “palabra en ingles” = “palabra en espanol”
+
+unique(Accidentes$Special_Conditions_at_Site)
+
+[1] "None"
+
+[2] "Roadworks"
+
+[3] "Auto traffic signal - out"
+
+[4] "Road surface defective"
+
+[5] "Oil or diesel"
+
+[6] "Road sign or marking defective or obscured"
+
+[7] "Auto signal part defective"
+
+[8] "Mud"
+
+[9] "Data missing or out of range"
+
+\end{verbatim}
+
+    \item Respuesta de la IA:
+
+\begin{verbatim}
+
+"None" = "Ninguna"
+
+"Roadworks" = "Obras en la vía"
+
+"Auto traffic signal - out" = "Semáforo fuera de servicio"
+
+"Road surface defective" = "Superficie de la vía defectuosa"
+
+\end{verbatim}
+
+    \item Evaluación:
+
+    Fue muy útil, no estaba incompleto ni erróneo, ya que logró
+
+    traducir todas las categorías y mantener el formato deseado.
+
+    \item Modificaciones:
+
+    Se tomaron las traducciones y se introdujeron en un código
+
+    \texttt{mutate} para traducir todas las variables deseadas
+
+    al español y construir la base de datos en el idioma deseado.
+
+    \item Aprendizaje:
+
+    Se aprendió que las herramientas de IA pueden simplificar tareas
+
+    repetitivas que requieren bastante tiempo y que no representan
+
+    el objetivo principal del curso.
+
 \end{itemize}
 
 \textbf{Segunda pregunta:}
@@ -1460,14 +1521,17 @@ valor al análisis.
     \item Prompt: Se quiere centrar una imagen en latex, como se hace y cómo se ajusta el tamaño.
     \item Respuesta de la IA: 
 Para centrar 
-%\begin{figure}[H]
-%\centering
-%\includegraphics{imagen.png}
-%\end{figure}
+\begin{verbatim}
+ \begin{figure}[H]
+\centering
+\includegraphics{imagen.png}
+\end{figure}   
+\end{verbatim}
 
-Ajustar tamano
-%\includegraphics[width=0.5\textwidth]{imagen.png}
- 
+Ajustar tamaño
+\begin{verbatim}
+\includegraphics[width=0.5\textwidth]{imagen.png}
+\end{verbatim}
     \item Evaluación: Fue útil, se lograron formatear las imagen en el documento y ajustarlas al tamaño deseado.
     \item Modificaciones: Se tuvo que rellenar los espacios indicados con los nombres de las imágenes que se deseaban colocar y formatear.
     \item Aprendizaje: Se aprendió que es posible pedirle a la IA indicaciones generales acerca de un tema para luego cambiarlo a lo deseado.
