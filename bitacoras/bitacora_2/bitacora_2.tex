@@ -925,45 +925,10 @@ información sin introducir sesgos importantes en el análisis.
 
 
 
-\subsubsection*{Frecuencia de control en intersecciones}
-\addcontentsline{toc}{subsubsection}{Frecuencia de control en intersecciones}
+\subsubsection*{Resumen estadístico: Número de vehículos por accidente}
+\addcontentsline{toc}{subsubsection}{Número de vehículos por accidente}
 \begin{table}[h]
 \centering
-\begin{tabular}{lc}
-\hline
-\textbf{Categoría} & \textbf{Frecuencia} \\
-\hline
-Ceda el paso / sin control           & 556276  \\
-Control por persona autorizada       & 2032    \\
-Datos faltantes                      & 446937  \\
-No aplica (no intersección)          & 10832  \\
-Semáforo automático                  & 121077  \\
-Señal de alto                        & 5946    \\
-\hline
-\end{tabular}
-\caption{Frecuencia de Junction Control}
-\label{tab: Frec_junctionControl}
-\end{table}
-
-El análisis del control en intersecciones revela una situación de 
-riesgo importante para el período estudiado. Las intersecciones con 
-control de ceda el paso o  sin ningún tipo de control son las más frecuentes
-con 556,276 accidentes (48.65\% del total). Esto indica que casi la 
-mitad de los accidentes ocurrió en intersecciones sin control activo 
-o donde no se respetó la señalización, lo que constituye un factor 
-explicativo relevante de la variación en la frecuencia de accidentes 
-en el Reino Unido.
-
-Un aspecto limitante es que los datos clasificados como faltantes (no NA), 
-concentran 446,937 registros (39.1\%), lo que restringe la capacidad 
-de análisis de esta variable. A pesar de ello, las intersección con semáfor automático 
-registran 121,077 accidentes (10.59\%), evidenciando que la 
-presencia de semáforos no elimina el riesgo por sí sola.\\
-
-
-
-\subsubsection*{Resumen estadístico Número de vehículos por accidente}
-\begin{table}[]
 \begin{tabular}{cccccc}
 \hline
 Min                    & Q1 & Mediana & Q3 & Max & Media    \\ \hline
@@ -984,7 +949,9 @@ este representa un outlier muy fuerte lo que influye en la media.
 
 
 \subsubsection*{Resumen estadístico: Número de víctimas por accidente}
-\begin{table}[]
+\addcontentsline{toc}{subsubsection}{Número de víctimas por accidente}
+\begin{table}[h]
+\centering 
 \begin{tabular}{cccccc}
 \hline
 Min                    & Q1 & Mediana & Q3 & Max & Media    \\ \hline
@@ -1005,7 +972,40 @@ en un suceso que involucra 67 vehículos extraño un número alto de víctimas, 
 como lo es 93. Por lo que es mucho más probable que estos datos provengan de un 
 evento masivo, y no de un error de registro.  
 
+\subsubsection*{Frecuencia de control en intersecciones}
+\addcontentsline{toc}{subsubsection}{Frecuencia de control en intersecciones}
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+\hline
+\textbf{Categoría} & \textbf{Frecuencia} \\
+\hline
+Ceda el paso / sin control           & 556276  \\
+Control por persona autorizada       & 2032    \\
+Datos faltantes                      & 446937  \\
+No aplica (no intersección)          & 10832  \\
+Semáforo automático                  & 121077  \\
+Señal de alto                        & 5946    \\
+\hline
+\end{tabular}
+\caption{Frecuencia de control en intersecciones}
+\label{tab: Frec_junctionControl}
+\end{table}
 
+El análisis del control en intersecciones revela una situación de 
+riesgo importante para el período estudiado. Las intersecciones con 
+control de ceda el paso o  sin ningún tipo de control son las más frecuentes
+con 556,276 accidentes (48.65\% del total). Esto indica que casi la 
+mitad de los accidentes ocurrió en intersecciones sin control activo 
+o donde no se respetó la señalización, lo que constituye un factor 
+explicativo relevante de la variación en la frecuencia de accidentes 
+en el Reino Unido.
+
+Un aspecto limitante es que los datos clasificados como faltantes (no NA), 
+concentran 446,937 registros (39.1\%), lo que restringe la capacidad 
+de análisis de esta variable. A pesar de ello, las intersección con semáfor automático 
+registran 121,077 accidentes (10.59\%), evidenciando que la 
+presencia de semáforos no elimina el riesgo por sí sola.\\
 
 
 
@@ -1014,7 +1014,7 @@ evento masivo, y no de un error de registro.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figuras/Distribucion_clima.png}
-    \caption{Distribución de Weather Conditions}
+    \caption{Distribución de condición climática}
     \label{fig:weather_distrib}
 \end{figure}
 
