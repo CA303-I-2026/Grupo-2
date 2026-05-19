@@ -22,7 +22,7 @@
 # Archivos temporales de editores LaTeX
 *.backup
 *~
-*bitacoras/**/*.pdf
+*.pdf
 
 
 # ==============================================================================
