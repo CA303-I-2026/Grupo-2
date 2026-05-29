@@ -79,8 +79,6 @@ Accident_Information %>%
 
 
 Accident_Information_Clean_espanol <- read_csv("Accident_Information_clean.csv")
-
-
 Accident_Information_Clean_espanol <- Accident_Information_Clean_espanol %>%
   #cambiamos las categorias a espanol
   mutate(
@@ -207,8 +205,12 @@ Accident_Information_Clean_espanol <- Accident_Information_Clean_espanol %>%
 
 
 
-
-
+#Se cambia el formato de la variable tiempo de segundos a la hora.
+Accident_Information_Clean_espanol$Time <- sprintf(
+  "%02d:%02d",
+  Accident_Information_Clean_espanol$Time %/% 3600,
+  (Accident_Information_Clean_espanol$Time %% 3600) %/% 60
+)
 
 
 
