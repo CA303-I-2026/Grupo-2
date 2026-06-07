@@ -12,6 +12,7 @@ library(readr)
 library(scales)
 library(lubridate)
 library(ggridges)
+library(DescTools)
 
 Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
@@ -83,6 +84,8 @@ print(prueba3)
 
 #se crea la tabla
 tabla_luz_carretera <- table(Accident_Information_Clean_espanol$Light_Conditions, Accident_Information_Clean_espanol$Road_Type)
+tabla_luz_carretera<- tabla_luz_carretera[!rownames(tabla_luz_carretera) %in% c("Datos faltantes"),
+                                          !colnames(tabla_luz_carretera) %in% c("Datos faltantes", "Desconocido")]
 
 #Se imprime la tabla
 print("=== CASO 4: LUZ Y TIPO DE CARRETERA ===")
@@ -93,6 +96,28 @@ print(tabla_luz_carretera)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba4 <- chisq.test(tabla_luz_carretera)
 print(prueba4)
+
+
+cat("\n--- V de Crámer ---\n")
+prueba4.1<-CramerV(tabla_luz_carretera)
+print(prueba4.1)
+
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba4.2 <- prueba4$stdres
+res_prueba4.2 <- round(prueba4.2,2)
+pos_prueba4.2 <- which(abs(prueba4.2) > 2, arr.ind = TRUE)
+
+tabla_prueba4.2 <-data.frame(
+  Iluminacion = rownames(res_prueba4.2)[pos_prueba4.2[,1]],
+  Tipo_Carretera = colnames(res_prueba4.2)[pos_prueba4.2[,2]],
+  Residuo = res_prueba4.2[pos_prueba4.2]
+)
+
+tabla_prueba4.2 <- tabla_prueba4.2[order(tabla_prueba4.2$Residuo, decreasing = TRUE),]
+print(tabla_prueba4.2)
+
+
 
 #----------------------------------------------------------------------------------
 # 5. Tabla de contingencia de si el área es rural o urban y la hora
