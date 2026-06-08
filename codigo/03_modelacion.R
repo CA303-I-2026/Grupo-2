@@ -14,7 +14,8 @@ library(lubridate)
 library(ggridges)
 library(DescTools)
 
-Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
+#Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
+Accident_Information_Clean_espanol <-read.csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
 
 
@@ -24,7 +25,8 @@ View(Accident_Information_Clean_espanol)
 
 #se crea la tabla
 tabla_luz_superficie <- table(Accident_Information_Clean_espanol$Road_Surface_Conditions, Accident_Information_Clean_espanol$Light_Conditions)
-
+tabla_luz_superficie <- tabla_luz_superficie[!rownames(tabla_luz_superficie) %in% c("Datos faltantes"),
+                                             !colnames(tabla_luz_superficie) %in% c("Datos faltantes", "Desconocido")]
 #Se imprime la tabla
 print("=== CASO 1: SUPERFICIE Y LUZ ===")
 print(tabla_luz_superficie)
@@ -33,6 +35,66 @@ print(tabla_luz_superficie)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba1 <- chisq.test(tabla_luz_superficie)
 print(prueba1)
+
+
+cat("\n--- V de Crámer ---\n")
+prueba1.1<-CramerV(tabla_luz_superficie)
+print(prueba1.1)
+
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba1.2 <- prueba1$stdres
+res_prueba1.2 <- round(prueba1.2,2)
+pos_prueba1.2 <- which(abs(prueba1.2) > 2, arr.ind = TRUE)
+
+tabla_prueba1.2 <-data.frame(
+  Superficie_carretera = rownames(res_prueba1.2)[pos_prueba1.2[,1]],
+  Luminocidad = colnames(res_prueba1.2)[pos_prueba1.2[,2]],
+  Residuo = res_prueba1.2[pos_prueba1.2]
+)
+
+tabla_prueba1.2 <- tabla_prueba1.2[order(tabla_prueba1.2$Residuo, decreasing = TRUE),]
+print(tabla_prueba1.2)
+
+# --------- Heatmap de residuos ----------------------- #
+residuos_luz_superficie <- as.data.frame(as.table(prueba1.2))
+colnames(residuos_luz_superficie) <- c( "Superficie", "Luminocidad", "Residuo")
+
+#volvemos a cargar la estética de los gráficos
+#Se define el tema que se utilizará para la creación de gráficos
+estilo_bayesianos <- function() {
+  theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(size = 14, face = "bold"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 11),
+      panel.grid = element_blank(),   # sin grilla
+      axis.line = element_line(color = "black"),
+      legend.position = "top",
+      legend.title = element_blank(),
+      plot.background = element_blank()
+    )
+}
+
+#Se fija el tema para su uso durante todo el proyecto
+theme_set(estilo_bayesianos())
+
+#Se escoge la paleta BMJ del paquete ggsci (9 colores)
+paleta <- c(pal_bmj("default")(9), "#4C78A8")
+
+ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: Superficie de la vía y condición de luz",
+    fill = "Residuo",
+    x = "Superficie de la vía",
+    y = "Condición de luz"
+  )  + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
 
 
 #----------------------------------------------------------------------------------
@@ -159,6 +221,7 @@ print(prueba6)
 
 #se crea la tabla
 tabla_dia_zona <- table(Accident_Information_Clean_espanol$Day_of_Week, Accident_Information_Clean_espanol$Urban_or_Rural_Area)
+tabla_dia_zona <- tabla_dia_zona[,!colnames(tabla_dia_zona) %in% c("No asignado")]
 
 #Se imprime la tabla
 print("=== CASO 7: DÍA DE LA SEMANA Y ZONA ===")
@@ -169,6 +232,66 @@ print(tabla_dia_zona)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba7 <- chisq.test(tabla_dia_zona)
 print(prueba7)
+
+cat("\n--- V de Crámer ---\n")
+prueba7.1<-CramerV(tabla_dia_zona)
+print(prueba7.1)
+
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba7.2 <- prueba7$stdres
+res_prueba7.2 <- round(prueba7.2,2)
+pos_prueba7.2 <- which(abs(prueba7.2) > 2, arr.ind = TRUE)
+
+
+tabla_prueba7.2 <-data.frame(
+  Dia_semana = rownames(res_prueba7.2)[pos_prueba7.2[,1]],
+  Zona = colnames(res_prueba7.2)[pos_prueba7.2[,2]],
+  Residuo = res_prueba7.2[pos_prueba7.2]
+)
+
+tabla_prueba7.2 <- tabla_prueba7.2[order(tabla_prueba7.2$Residuo, decreasing = TRUE),]
+print(tabla_prueba7.2)
+
+# --------- Heatmap de residuos ----------------------- #
+residuos_dia_zona <- as.data.frame(as.table(prueba7.2))
+colnames(residuos_dia_zona) <- c( "Día", "Zona", "Residuo")
+
+#volvemos a cargar la estética de los gráficos
+#Se define el tema que se utilizará para la creación de gráficos
+estilo_bayesianos <- function() {
+  theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(size = 14, face = "bold"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 11),
+      panel.grid = element_blank(),   # sin grilla
+      axis.line = element_line(color = "black"),
+      legend.position = "top",
+      legend.title = element_blank(),
+      plot.background = element_blank()
+    )
+}
+
+#Se fija el tema para su uso durante todo el proyecto
+theme_set(estilo_bayesianos())
+
+#Se escoge la paleta BMJ del paquete ggsci (9 colores)
+paleta <- c(pal_bmj("default")(9), "#4C78A8")
+
+ggplot(residuos_dia_zona, aes(x = Día, y = Zona, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: Dia de la semana y zona",
+    fill = "Residuo",
+    x = "Día de la semana",
+    y = "Zona"
+  )  + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
 
 #----------------------------------------------------------------------------------
 # 8. Tabla de contingencia de superficie de la vía y el límite de velocidad
