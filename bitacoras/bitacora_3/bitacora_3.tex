@@ -583,13 +583,15 @@ Alessandro Umaña Vega (C37963)
 \begin{itemize}
     \item \textbf{Títular:} Resultados de superficie de la vía y condiciones de luz.
     
-    \item \textbf{Nombre del hallazgo/resultado:}  Asociación entre ambas variables, superficie de la vía y condiciones de luz.
+    \item \textbf{Nombre del hallazgo/resultado:}  Asociación entre ambas variables, superficie de la vía y condiciones de luz, donde las superficies 
+    mojadas y congeladas y la noche aumentan el riesgo de accidentes.
+    
     
     \item \textbf{Resumen en una oración:}  Las variables tienen cierta relación, sin embargo, hay relaciones específicas que resaltar.
     
     \item \textbf{Método o análisis que lo produjo:} Primero se realizó una selección de las variables deseadas de la base
     de datos a analizar, para poder crear una tabla de contingencia, para así poder calcular 
-    la prueba de Chi-Cuadrado con p valor de 2.12*10ˆ16 lo cual indica que hay una relación 
+    la prueba de Chi-Cuadrado con p valor de 2.2e-16 lo cual indica que hay una relación 
     entre ambas variables. Después también se usó la misma tabla para calcular la V de 
     Cramer donde nos dio 0.1151277, esto da a entender que, aunque si exista una relación 
     entre las variables esta al tender a 0 es muy débil. Por último, se calculó una tabla
@@ -611,7 +613,7 @@ Alessandro Umaña Vega (C37963)
   \centering
   \caption{Residuos estandarizados de la prueba de independencia entre superficie de la vía y condición de luz (orden descendente).}
   \label{tab:residuos_luz_superficie}
-  \small % Reducimos ligeramente el tamaño de letra para que calce perfectamente en la página
+  \small 
   \begin{tabular}{llc}
     \toprule
     \textbf{Superficie de la Carretera} & \textbf{Condición de Luminosidad} & \textbf{Residuo Estandarizado} \\ 
@@ -649,7 +651,7 @@ Alessandro Umaña Vega (C37963)
 \begin{itemize}
     \item \textbf{Conexión con la pregunta de investigación:} Los resultados se conectan con los objetivos de la 
     pregunta de investigación, el cual es encontrar combinaciones de factores que afectan la frecuencia de siniestros.
-    Al encontrar tres diferentes combinaciones que afectan la frecuencia ya es ganancia para poder entender cuales son 
+    Al encontrar tres diferentes combinaciones que afectan la frecuencia ya es ganancia para poder entender cuáles son 
     esas condiciones en específico que hay que mitigar para poder reducir el riesgo a accidentes.
     
 	\item \textbf{Constraste con la literatura:} El estudio “Traffic Accidents Analysis on Dry and Wet 
@@ -668,6 +670,87 @@ Alessandro Umaña Vega (C37963)
 	
 \end{itemize}
  
+\textbf{Ficha 7:}
+
+\textbf{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Títular:} Resultados día de la semana y zona rural o urbana
+    
+    \item \textbf{Nombre del hallazgo/resultado:}  Los días laborales el riesgo en la zona urbana aumenta,
+    mientras que los domingos en la zona rural aumenta el riesgo
+    
+    \item \textbf{Resumen en una oración:} Las zonas urbanas concentra accidentes en días laborales y zona rural fines de semana. 
+    
+    \item \textbf{Método o análisis que lo produjo:} Primero se realizó una selección de las variables 
+    deseadas de la base de datos a analizar, para poder crear una tabla de contingencia, para así poder 
+    calcular la prueba de Chi-Cuadrado con p valor de 2.2e-16 lo cual indica que hay una relación entre ambas 
+    variables. Después también se usó la misma tabla para calcular la V de Cramer donde nos dio 0.04320548, esto 
+    da a entender que, aunque si exista una relación entre las variables esta al tender a 0 es muy débil. Por último, 
+    se calculó una tabla de residuos donde se concluye que la mayoría de los accidentes pasan los días laborales en la 
+    zona urbana y los fines de semana en las zonas rurales. Esto se puede explicar por la gran congestión vial que se crea 
+    por las personas que van hacia sus respectivos trabajos y que los fines de semana las personas tienden a salir de la ciudad, 
+    además se puede observar como el sábado las zonas rurales suben un poco su riesgo a accidentes hasta llegar al domingo que es el valor más alto.
+    
+    \item \textbf{Evidencia:} \subsubsection*{Heatmap: Residuos de los días de la semana y la zona}
+\addcontentsline{toc}{subsubsection}{Residuos del día de la semana y zona}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/Residuos_dia_zona.png}
+    \caption{Residuos día de la semana y zona}
+    \label{fig:residuos dia zona}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Residuos estandarizados de la prueba de independencia entre el día de la semana y la zona del accidente.}
+  \label{tab:residuos_dia_zona}
+  \begin{tabular}{llc}
+    \toprule
+    \textbf{Día de la Semana} & \textbf{Zona Geográfica} & \textbf{Residuo Estandarizado} \\ 
+    \midrule
+    Domingo & Rural & 43.34 \\
+    Miércoles & Urbano & 12.65 \\
+    Martes & Urbano & 11.81 \\
+    Jueves & Urbano & 11.44 \\
+    Sábado & Rural & 7.83 \\
+    Viernes & Urbano & 6.64 \\
+    Lunes & Urbano & 2.47 \\
+    \midrule
+    Lunes & Rural & -2.47 \\
+    Viernes & Rural & -6.64 \\
+    Sábado & Urbano & -7.83 \\
+    Jueves & Rural & -11.44 \\
+    Martes & Rural & -11.81 \\
+    Miércoles & Rural & -12.65 \\
+    Domingo & Urbano & -43.34 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+    
+
+\end{itemize}
+
+\textbf{Nivel analítico}
+
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Los resultados se conectan con los objetivos de la 
+    pregunta de investigación, el cual es encontrar combinaciones de factores que afectan la frecuencia de siniestros.
+    Al encontrar que días de la semana y donde se concentra la mayoría de los accidentes ayuda a concentrar 
+    el área donde se tiene que accionar y en qué momentos.
+    
+	\item \textbf{Constraste con la literatura:} Se conecta de forma crítica con los estudios “The effects of drivers' speed 
+	on the frequency of road accidents” y “Analysis of Road Traffic Accident using Causation Theory with Traffic Safety Model 
+	and Measures”. Valida la teoría de Taylor et al. sobre la complejidad y riesgo que tiene la infraestructura urbana de lunes 
+	a viernes debido a la congestión. Además, complementa a Saxena al evidenciar que los patrones de ocio del domingo alteran la
+	conducta humana y la percepción del riesgo en entornos rurales alejados de la rutina diaria.
+    	
+	\item \textbf{Lo que NO explica este resultado:}   No detalla el tipo ni la gravedad de las colisiones, 
+	ni registra la velocidad promedio real a la que transitaban los vehículos al momento del impacto en las zonas rurales.
+    
+	\item \textbf{Implicación para el siguiente paso:} 
+	
+	
+\end{itemize}
 
 
 
