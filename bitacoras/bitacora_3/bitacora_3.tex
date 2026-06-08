@@ -581,32 +581,93 @@ Alessandro Umaña Vega (C37963)
 
 \textbf{Nivel descriptivo}
 \begin{itemize}
-    \item \textbf{Títular:} 
+    \item \textbf{Títular:} Resultados de superficie de la vía y condiciones de luz.
     
-    \item \textbf{Nombre del hallazgo/resultado:} 
+    \item \textbf{Nombre del hallazgo/resultado:}  Asociación entre ambas variables, superficie de la vía y condiciones de luz.
     
-    \item \textbf{Resumen en una oración:}  
+    \item \textbf{Resumen en una oración:}  Las variables tienen cierta relación, sin embargo, hay relaciones específicas que resaltar.
     
-    \item \textbf{Método o análisis que lo produjo:} 
+    \item \textbf{Método o análisis que lo produjo:} Primero se realizó una selección de las variables deseadas de la base
+    de datos a analizar, para poder crear una tabla de contingencia, para así poder calcular 
+    la prueba de Chi-Cuadrado con p valor de 2.12*10ˆ16 lo cual indica que hay una relación 
+    entre ambas variables. Después también se usó la misma tabla para calcular la V de 
+    Cramer donde nos dio 0.1151277, esto da a entender que, aunque si exista una relación 
+    entre las variables esta al tender a 0 es muy débil. Por último, se calculó una tabla
+    de residuos donde se concluye que la mayoría de los accidentes pasan durante el día y 
+    con la superficie seca, esto pues habrá mayor flujo vehicular y congestión, lo cual incrementa las posibilidades 
+    de un accidente. Cuando la superficie esta húmeda o mojada los accidentes son más comunes cuando hay oscuridad con iluminación 
+    y en oscuridad total y también los accidentes sobre hielo o escarcha se ven relacionado a la oscuridad sin iluminación. 
     
-    \item \textbf{Evidencia:} 
+    \item \textbf{Evidencia:} \subsubsection*{Heatmap: Residuos de la condición de superficie en la vía y las condiciones de luz}
+\addcontentsline{toc}{subsubsection}{Residuos de la condición de superficie y luz}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/Residuos_superficie_luz.png}
+    \caption{Residuos condición superficie y luz}
+    \label{fig:residuos superfice luz}
+\end{figure}
     
-
+\begin{table}[htbp]
+  \centering
+  \caption{Residuos estandarizados de la prueba de independencia entre superficie de la vía y condición de luz (orden descendente).}
+  \label{tab:residuos_luz_superficie}
+  \small % Reducimos ligeramente el tamaño de letra para que calce perfectamente en la página
+  \begin{tabular}{llc}
+    \toprule
+    \textbf{Superficie de la Carretera} & \textbf{Condición de Luminosidad} & \textbf{Residuo Estandarizado} \\ 
+    \midrule
+    Seca & Luz del día & 218.97 \\
+    Húmeda o mojada & Oscuridad con luces & 156.62 \\
+    Húmeda o mojada & Oscuridad sin iluminación & 114.65 \\
+    Escarcha o hielo & Oscuridad sin iluminación & 90.28 \\
+    Inundación $>$ 3cm & Oscuridad sin iluminación & 44.39 \\
+    Nieve & Oscuridad sin iluminación & 39.09 \\
+    Húmeda o mojada & Oscuridad sin luces & 26.20 \\
+    Escarcha o hielo & Oscuridad con luces & 11.75 \\
+    Nieve & Oscuridad con luces & 8.97 \\
+    Escarcha o hielo & Oscuridad (iluminación desconocida) & 4.97 \\
+    Seca & Oscuridad (iluminación desconocida) & 4.06 \\
+    Inundación $>$ 3cm & Oscuridad sin luces & 3.87 \\
+    Escarcha o hielo & Oscuridad sin luces & 2.91 \\
+    \midrule
+    Inundación $>$ 3cm & Oscuridad con luces & -4.47 \\
+    Húmeda o mojada & Oscuridad (iluminación desconocida) & -6.03 \\
+    Inundación $>$ 3cm & Luz del día & -19.06 \\
+    Seca & Oscuridad sin luces & -26.88 \\
+    Nieve & Luz del día & -28.17 \\
+    Escarcha o hielo & Luz del día & -57.61 \\
+    Seca & Oscuridad sin iluminación & -149.72 \\
+    Seca & Oscuridad con luces & -156.71 \\
+    Húmeda o mojada & Luz del día & -200.67 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 \end{itemize}
 
 \textbf{Nivel analítico}
 
 \begin{itemize}
-    \item \textbf{Conexión con la pregunta de investigación:} 
+    \item \textbf{Conexión con la pregunta de investigación:} Los resultados se conectan con los objetivos de la 
+    pregunta de investigación, el cual es encontrar combinaciones de factores que afectan la frecuencia de siniestros.
+    Al encontrar tres diferentes combinaciones que afectan la frecuencia ya es ganancia para poder entender cuales son 
+    esas condiciones en específico que hay que mitigar para poder reducir el riesgo a accidentes.
     
-	\item \textbf{Constraste con la literatura:} 
-	
-	\item \textbf{Lo que NO explica este resultado:}   
+	\item \textbf{Constraste con la literatura:} El estudio “Traffic Accidents Analysis on Dry and Wet 
+	Road Bends Surfaces in Greater Manchester-UK” sostienen que las condiciones de la superficie de la 
+	vía, como la humedad o seco, combinado junto condiciones de luz influye significativamente con la 
+	ocurrencia de accidentes. Con los resultados obtenidos se puede concluir que esto también pasa para el periodo
+	2010-2017 y además este estudio expande su validez.  El estudio se limitó a las superficies secas y húmedas, 
+	dejando detrás los climas invernales, por lo que con este trabajo se llenará ese vacío, donde se encuentra
+	que en la tabla de residuos el riesgo aumento cuando las bajas temperaturas se condicionan con una visibilidad nula en la noche.
+   	
+	\item \textbf{Lo que NO explica este resultado:}   No se consideran otros factores, es un 
+	análisis de solo dos factores y podrían verse más factores involucrados que afecten las probabilidades de que ocurra un accidente de tránsito.
     
 	\item \textbf{Implicación para el siguiente paso:} 
 	
 	
-\end{itemize} 
+\end{itemize}
+ 
 
 
 
