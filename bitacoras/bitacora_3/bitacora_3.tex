@@ -524,7 +524,7 @@ varios factores de riesgo, más que a solo una situación de riesgo.
 	\item \textbf{Contraste con otra fuente:}  El contraste entre Yannis et al
 	y la literatura de Ismael y Razzaq se basa en cómo analizan la seguridad en los 
 	cruces de calles. La conclusión principal según \textcite{yannis_effectiveness_junctions} 
-	es que aunque los semáforos sí reducen siniestralidad, estos no siempre 
+	es que aunque los semáforos sí reducen la siniestralidad, estos no siempre 
 	son la opción más segura. De hecho, demuestran que las intersecciones con 
 	semáforos tienen muchos más accidentes con heridos que las rotondas. Según 
 	sus datos, si se quitan los semáforos y se construye una rotonda, los accidentes 
@@ -547,7 +547,7 @@ varios factores de riesgo, más que a solo una situación de riesgo.
 	
 	\item \textbf{Pregunta que le haría al autor:}  ¿Qué criterios de su marco teórico se deberían priorizar para interpretar los residuos?
 	
-	\item \textbf{Resumen argumentativo:} El autor intenta resolver el problema de la alta concentración de accidentes en las intersecciones viales, buscando ordenar y cuantificar cuáles medidas de diseño y control de tráfico son las más eficientes evitar colisiones. Esta fuente funciona para el contexto del trabajo, ya que da el sustento teórico de por qué variables como Special\_Conditions\_at\_Site altera el riesgo en las intersecciones. Sin embargo, el enfoque del texto no responde completamente a la pregunta de investigación porque solo se enfoca a esa combinación de variables. Por esta razón, para el trabajo se utilizaran los fundamentos teóricos y conclusiones pero se llevará un paso más allá mediante el usos de más tablas de contingencia. De esta manera, los temas tratados en el documento servirán de guía para interpretar y justificar los resultados del análisis de residuos estadísticos de la tabla cruzada de intersecciones y condiciones especiales de la vía.\\
+	\item \textbf{Resumen argumentativo:} El autor intenta resolver el problema de la alta concentración de accidentes en las intersecciones viales, buscando ordenar y cuantificar cuáles medidas de diseño y control de tráfico son las más eficientes para evitar colisiones. Esta fuente funciona para el contexto del trabajo, ya que da el sustento teórico de por qué variables como Special\_Conditions\_at\_Site altera el riesgo en las intersecciones. Sin embargo, el enfoque del texto no responde completamente a la pregunta de investigación porque solo se enfoca a esa combinación de variables. Por esta razón, para el trabajo se utilizaran los fundamentos teóricos y conclusiones pero se llevará un paso más allá mediante el usos de más tablas de contingencia. De esta manera, los temas tratados en el documento servirán de guía para interpretar y justificar los resultados del análisis de residuos estadísticos de la tabla cruzada de intersecciones y condiciones especiales de la vía.\\
 \end{itemize}
 	
 \textbf{Ficha 9}
@@ -1023,6 +1023,9 @@ accidentes de tránsito durante el período analizado.
 \section{Parte de escritura}
 \section{Parte de reflexión}
 \section{Diario de aprendizaje}
+Al entregar la Bitácora #2, no se tenía consciencia de que las pruebas de Chi-cuadrado de independencia exigen estrictamente frecuencias absolutas, así que se aprendió en el proceso que reducir o escalar artificialmente los conteos altera por completo la potencia y los p-valores del estadístico. Durante esta etapa, el mayor desafío se centró en la complejidad de interpretar adecuadamente los residuos estandarizados, así como en la dificultad de encontrar literatura académica que respaldara y contextualizara las relaciones específicas encontradas en dichos residuos. Asimismo, la estrategia de visualización tomó un rumbo diferente al planificado, ya que originalmente se tenía planeado sintetizar los resultados en tablas resúmenes; sin embargo, los mapas de calor representaban las asociaciones con mayor claridad visual, por lo que se optó por ellos.
+
+
 
 \section{Rastro de decisiones}
 La propuesta inicial del proyecto buscaba responder la pregunta: ¿Qué factores explican la variación 
@@ -1063,6 +1066,63 @@ y análisis de residuos estandarizados para identificar patrones de coocurrencia
 presentes en los accidentes de tránsito registrados.
 
 \section{Registro de uso de IA}
+
+
+\textbf{Primera pregunta}
+\begin{itemize}
+    \item Herramienta: Copilot
+
+    \item Prompt:
+\begin{verbatim}
+
+Como referenciar una figura en Latex 
+\end{verbatim}
+
+    \item Respuesta de la IA: Lo siguiente es un resúmen de la respuesta de la IA.
+
+\begin{verbatim}
+
+Para referenciar una figura en LaTeX usas \label{} dentro del entorno figure y luego \ref{} en el texto.
+Definir la Figura 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/ejemplo.png}
+    \caption{Descripción de la figura}
+    \label{fig:ejemplo}
+\end{figure}
+
+Referenciarla en el texto  
+Como se observa en la Figura \ref{fig:ejemplo}, los resultados muestran...
+
+\end{verbatim}
+
+    \item Evaluación:
+
+    Fue muy útil, pues habíamos olvidado como referenciar figuras en LaTex
+
+    \item Modificaciones:
+
+    Se tomó en cuenta la plantilla y se usó en el código para referenciar figuras, especialmente para la parte de evidencias en las fichas de resultados. 
+
+   
+    \item Aprendizaje:
+Se aprendió que es posible pedirle a la IA indicaciones generales acerca de un tema para luego cambiarlo a lo deseado.
+
+
+\end{itemize}
+
+\textbf{Segunda pregunta:}
+\begin{itemize}
+    \item Herramienta: Copilot
+    \item Prompt: Existe un paquete de R que tenga la función de la V de Crammer?
+    \item Respuesta de la IA:  
+Los paquetes de R que permiten calcular la V de Cramér incluyen varias opciones con distintos estilos de implementación. El paquete DescTools utiliza la función CramerV() y corresponde a una implementación clásica, muy utilizada en cursos y análisis descriptivos básicos. Por otro lado, el paquete rstatix emplea la función cramer_v(), la cual sigue el estilo del tidyverse y es común en flujos de trabajo modernos basados en dplyr. El paquete lsr también ofrece esta medida mediante la función cramersV(), y se utiliza principalmente con fines educativos. En el caso del paquete vcd, la V de Cramér se obtiene dentro de la función assocstats(), que proporciona además otras medidas de asociación en tablas de contingencia, siendo una opción más orientada a análisis estadístico formal. Finalmente, el paquete sjstats implementa la función cramers_v(), que es ampliamente usada en análisis aplicados por su compatibilidad con el ecosistema tidyverse y su facilidad de integración en flujos de trabajo de análisis de datos.
+
+    \item Evaluación: Fue útil, queríamos saber si ya existía algún paquete que tuviera esa función o si debíamos programarla nosotros. 
+    \item Modificaciones: Se tuvo que investigar un poco más por a parte si había diferencia entre las funciones o si todas hacian exactamente lo mismo. 
+    \item Aprendizaje: Se aprendió que es posible preguntarle a la IA sobre la existencia de funciones para simplificar el trabajo. 
+\end{itemize}
+
 \section{Log de contribuciones}
 
 \end{document}
