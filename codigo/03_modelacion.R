@@ -101,18 +101,39 @@ ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Resi
 # 2. Tabla de contingencia de intersecciones en T y obstáculos en la vía
 #----------------------------------------------------------------------------------
 
-#Se filtra el dataset para realizar lo que se quiere
-
 tabla_interseccion_obstaculos <- Accident_Information_Clean_espanol %>%
+  # Se filtra para excluir los "Datos faltantes" en ambas variables
+  filter(
+    Junction_Detail != "Datos faltantes",
+    Special_Conditions_at_Site != "Datos faltantes"
+  ) %>%
   
-  filter(Special_Conditions_at_Site != "Ninguna") %>%
+  # Se crean las nuevas variables agrupadas
+  mutate(
+    # Agrupación para Junction_Detail
+    Tipo_Cruce = case_when(
+      Junction_Detail %in% c("Intersección en T", "Intersección > 4 vías", "Vía de incorporación", "Otra intersección", "Cruce de caminos", "Entrada privada") ~ "Intersecciones",
+      Junction_Detail %in% c("Mini rotonda", "Rotonda") ~ "Rotondas",
+      Junction_Detail == "No aplica" ~ "No aplica"
+    ),
+    
+    # Agrupación para Special_Conditions_at_Site
+    Condicion_Sitio = case_when(
+      Special_Conditions_at_Site %in% c("Semáforo fuera de servicio", "Señalización defectuosa", "Semáforo defectuoso") ~ "Semáforo o señalización defectuosa",
+      Special_Conditions_at_Site == "Ninguna" ~ "Ninguna",
+      Special_Conditions_at_Site == "Obras en la vía" ~ "Obras en la vía",
+      Special_Conditions_at_Site %in% c("Lodo", "Aceite o diésel") ~ "Superficie resbaladiza",
+      Special_Conditions_at_Site == "Superficie defectuosa" ~ "Superficie defectuosa"
+    )
+  ) %>%
   
-  #se crea una nueva variable que clasifique si es Intersección en T o NO
-  mutate(Tipo_Cruce = ifelse(Junction_Detail == "Intersección en T", 
-                             "Intersección en T", 
-                             "Otros detalles de vía")) %>%
-  select(Tipo_Cruce, Special_Conditions_at_Site) %>%
+  # Se seleccionan las nuevas variables calculadas
+  select(Tipo_Cruce, Condicion_Sitio) %>%
+  
+  # Se genera la tabla de frecuencia cruzada
   table()
+
+
 
 #imprimir la tabla 
 print("=== CASO 2: INTERSECCIÓN EN T Y OBSTÁCULOS ===")
@@ -122,6 +143,29 @@ print(tabla_interseccion_obstaculos)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba2 <- chisq.test(tabla_interseccion_obstaculos)
 print(prueba2)
+
+# Prueba V de Crámer
+cat("\n--- V de Crámer ---\n")
+prueba2.1<-cramer.v(tabla_interseccion_obstaculos)
+print(prueba2.1)
+
+# Prueba residuos Estandarizados 
+cat("\n--- Residuos Estandarizados ---\n")
+prueba2.2 <- prueba2$stdres
+res_prueba2.2 <- round(prueba2.2,2)
+pos_prueba2.2 <- which(abs(prueba2.2) > 2, arr.ind = TRUE)
+
+tabla_prueba2.2 <-data.frame(
+  Detalles_de_interseccion = rownames(res_prueba2.2)[pos_prueba2.2[,1]],
+  Condiciones_especiales = colnames(res_prueba2.2)[pos_prueba2.2[,2]],
+  Residuo = res_prueba2.2[pos_prueba2.2]
+)
+
+tabla_prueba2.2 <- tabla_prueba2.2[order(tabla_prueba2.2$Residuo, decreasing = TRUE),]
+print(tabla_prueba2.2)
+
+print(tabla_prueba2.2[tabla_prueba2.2$Residuo > 2, ])
+
 
 #----------------------------------------------------------------------------------
 # 3. Tabla de contingencia de condición climática y obstáculos en la vía
