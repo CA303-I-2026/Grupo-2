@@ -324,7 +324,7 @@ ggplot(tabla_prueba4.2, aes(x = Iluminacion, y = Tipo_Carretera, fill = Residuo)
   "Oscuridad sin iluminación" = "Oscuridad sin\niluminación",
   "Oscuridad sin luces" = "Oscuridad sin\nluces"
 ))+
-  scale_fill_gradient2(low = paleta[1],mid = "white",high = paleta[6], midpoint = 0) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
     title = "Residuos estandarizados: \nCondiciones de iluminación y vía",
     fill = "Residuo",
@@ -393,7 +393,7 @@ ggplot(tabla_prueba5.2, aes(x = Zona, y = Hora, fill = Residuo)) +
   geom_tile(color = "white") +
   geom_text(aes(label = round(Residuo,1)), size = 3.8) + scale_y_discrete(
     limits = c("Madrugada", "Noche", "Tarde", "Mañana")
-  ) + scale_fill_gradient2(low = paleta[5],mid = "white",high = paleta[10], midpoint = 0) +
+  ) + scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
     title = "Residuos estandarizados: \nZona y hora",
     fill = "Residuo",
