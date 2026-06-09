@@ -13,6 +13,30 @@ library(scales)
 library(lubridate)
 library(ggridges)
 library(DescTools)
+library(reshape2)
+
+
+# Se define el tema que se utilizará para la creación de gráficos
+estilo_bayesianos <- function() {
+  theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(size = 14, face = "bold"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 11),
+      panel.grid = element_blank(),   # sin grilla
+      axis.line = element_line(color = "black"),
+      legend.position = "top",
+      legend.title = element_blank(),
+      plot.background = element_blank()
+    )
+}
+
+# Se fija el tema para su uso durante todo el proyecto
+theme_set(estilo_bayesianos())
+
+# Se escoge la paleta BMJ del paquete ggsci (9 colores)
+paleta <- c(pal_bmj("default")(9), "#4C78A8")
+
 
 Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
@@ -117,14 +141,50 @@ tabla_prueba4.2 <-data.frame(
 tabla_prueba4.2 <- tabla_prueba4.2[order(tabla_prueba4.2$Residuo, decreasing = TRUE),]
 print(tabla_prueba4.2)
 
-
+# --------- Heatmap de residuos ----------------------- #
+ggplot(tabla_prueba4.2, aes(x = Iluminacion, y = Tipo_Carretera, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) + 
+  scale_x_discrete(labels = c(
+  "Luz del día" = "Luz\ndel día",
+  "Oscuridad (iluminación desconocida)" = "Oscuridad\n(iluminación desconocida)",
+  "Oscuridad con luces" = "Oscuridad con\nluces",
+  "Oscuridad sin iluminación" = "Oscuridad sin\niluminación",
+  "Oscuridad sin luces" = "Oscuridad sin\nluces"
+))+
+  scale_fill_gradient2(low = paleta[1],mid = "white",high = paleta[6], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: \nCondiciones de iluminación y vía",
+    fill = "Residuo",
+    x = "Tipo de vía",
+    y = "Iluminación"
+  ) + theme_cowplot() + estilo_bayesianos() +
+  theme(
+    axis.text.x = element_text(
+      angle = 0,
+      hjust = 0.5,
+      size = 10
+    ),
+    plot.title = element_text(hjust = 0.5)
+  )
 
 #----------------------------------------------------------------------------------
 # 5. Tabla de contingencia de si el área es rural o urban y la hora
 #----------------------------------------------------------------------------------
 
+#se resumen las horas en franjas horarias
+hora <- as.numeric(substr(Accident_Information_Clean_espanol$Time,1,2))
+Accident_Information_Clean_espanol$franja<-cut(
+  hora,
+  breaks = c(-1,5,11,17,23),
+  labels = c("Madrugada", "Mañana", "Tarde", "Noche")
+)
+
+
 #se crea la tabla
-tabla_area_hora <- table(Accident_Information_Clean_espanol$Urban_or_Rural_Area, Accident_Information_Clean_espanol$Time)
+tabla_area_hora <- table(Accident_Information_Clean_espanol$Urban_or_Rural_Area, Accident_Information_Clean_espanol$franja)
+tabla_area_hora<- tabla_area_hora[!rownames(tabla_area_hora) %in% c("No asignado"),
+                                          !colnames(tabla_area_hora) %in% c("No asignado")]
 
 #Se imprime la tabla
 print("=== CASO 5: ÁREA Y TIEMPO ===")
@@ -135,6 +195,42 @@ print(tabla_area_hora)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba5 <- chisq.test(tabla_area_hora)
 print(prueba5)
+
+
+cat("\n--- V de Crámer ---\n")
+prueba5.1<-CramerV(tabla_area_hora)
+print(prueba5.1)
+
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba5.2 <- prueba5$stdres
+res_prueba5.2 <- round(prueba5.2,2)
+pos_prueba5.2 <- which(abs(prueba5.2) > 2, arr.ind = TRUE)
+
+tabla_prueba5.2 <-data.frame(
+  Zona = rownames(res_prueba5.2)[pos_prueba5.2[,1]],
+  Hora = colnames(res_prueba5.2)[pos_prueba5.2[,2]],
+  Residuo = res_prueba5.2[pos_prueba5.2]
+)
+
+tabla_prueba5.2 <- tabla_prueba5.2[order(tabla_prueba5.2$Residuo, decreasing = TRUE),]
+print(tabla_prueba5.2)
+
+# --------- Heatmap de residuos ----------------------- #
+ggplot(tabla_prueba5.2, aes(x = Zona, y = Hora, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) + scale_y_discrete(
+    limits = c("Madrugada", "Noche", "Tarde", "Mañana")
+  ) + scale_fill_gradient2(low = paleta[5],mid = "white",high = paleta[10], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: \nZona y hora",
+    fill = "Residuo",
+    x = "Zona",
+    y = "Hora"
+  ) + theme_cowplot() + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
 
 #----------------------------------------------------------------------------------
 # 6. Tabla de contingencia de condición de la superficie y el tipo de carretera
