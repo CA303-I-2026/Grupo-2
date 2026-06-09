@@ -18,6 +18,27 @@ library(DescTools)
 Accident_Information_Clean_espanol <-read.csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
 
+#volvemos a cargar la estética de los gráficos
+#Se define el tema que se utilizará para la creación de gráficos
+estilo_bayesianos <- function() {
+  theme_minimal(base_size = 12) +
+    theme(
+      plot.title = element_text(size = 14, face = "bold"),
+      axis.title = element_text(size = 12),
+      axis.text = element_text(size = 11),
+      panel.grid = element_blank(),   # sin grilla
+      axis.line = element_line(color = "black"),
+      legend.position = "top",
+      legend.title = element_blank(),
+      plot.background = element_blank()
+    )
+}
+
+#Se fija el tema para su uso durante todo el proyecto
+theme_set(estilo_bayesianos())
+
+#Se escoge la paleta BMJ del paquete ggsci (9 colores)
+paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 #----------------------------------------------------------------------------------
 # 1. Tabla de contingencia de superficie de la vía y condición de la vía
@@ -60,28 +81,6 @@ print(tabla_prueba1.2)
 residuos_luz_superficie <- as.data.frame(as.table(prueba1.2))
 colnames(residuos_luz_superficie) <- c( "Superficie", "Luminocidad", "Residuo")
 
-#volvemos a cargar la estética de los gráficos
-#Se define el tema que se utilizará para la creación de gráficos
-estilo_bayesianos <- function() {
-  theme_minimal(base_size = 12) +
-    theme(
-      plot.title = element_text(size = 14, face = "bold"),
-      axis.title = element_text(size = 12),
-      axis.text = element_text(size = 11),
-      panel.grid = element_blank(),   # sin grilla
-      axis.line = element_line(color = "black"),
-      legend.position = "top",
-      legend.title = element_blank(),
-      plot.background = element_blank()
-    )
-}
-
-#Se fija el tema para su uso durante todo el proyecto
-theme_set(estilo_bayesianos())
-
-#Se escoge la paleta BMJ del paquete ggsci (9 colores)
-paleta <- c(pal_bmj("default")(9), "#4C78A8")
-
 ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Residuo)) +
   geom_tile(color = "white") +
   geom_text(aes(label = round(Residuo,1)), size = 3.8) +
@@ -119,7 +118,7 @@ tabla_interseccion_obstaculos <- Accident_Information_Clean_espanol %>%
     
     # Agrupación para Special_Conditions_at_Site
     Condicion_Sitio = case_when(
-      Special_Conditions_at_Site %in% c("Semáforo fuera de servicio", "Señalización defectuosa", "Semáforo defectuoso") ~ "Semáforo o señalización defectuosa",
+      Special_Conditions_at_Site %in% c("Semáforo fuera de servicio", "Señalización defectuosa", "Semáforo defectuoso") ~ "Control vial defectuoso",
       Special_Conditions_at_Site == "Ninguna" ~ "Ninguna",
       Special_Conditions_at_Site == "Obras en la vía" ~ "Obras en la vía",
       Special_Conditions_at_Site %in% c("Lodo", "Aceite o diésel") ~ "Superficie resbaladiza",
@@ -171,18 +170,66 @@ print(tabla_prueba2.2[tabla_prueba2.2$Residuo > 2, ])
 # 3. Tabla de contingencia de condición climática y obstáculos en la vía
 #----------------------------------------------------------------------------------
 
+#Se agrupan las categorías para evitar repeticiones
+
+Accident_Information_Clean_espanol <- Accident_Information_Clean_espanol %>% 
+  mutate(obstaculo_agrupado = case_when(
+    Special_Conditions_at_Site %in% c("Semáforo defectuoso", "Semáforo fuera de servicio", "Señalización defectuosa")  ~"Control vial defectuoso",
+    Special_Conditions_at_Site %in% c("Lodo", "Aceite o diésel") ~ "Superficie resbaladiza",
+    TRUE ~ as.character(Special_Conditions_at_Site)
+  )
+  )
+Accident_Information_Clean_espanol <- Accident_Information_Clean_espanol %>%
+  mutate(clima_agrupado = case_when(
+    Weather_Conditions %in% c("Despejado con viento fuerte", "Despejado sin viento fuerte") ~ "Despejado",
+    Weather_Conditions %in% c("Lluvia con viento fuerte", "Lluvia sin viento fuerte") ~ "Lluvia",
+    Weather_Conditions %in% c("Nieve con viento fuerte","Nieve sin viento fuerte") ~ "Nieve",
+TRUE ~ as.character(Weather_Conditions)))
+
 #se crea la tabla
-tabla_clima_obstaculos <- table(Accident_Information_Clean_espanol$Weather_Conditions, Accident_Information_Clean_espanol$Special_Conditions_at_Site)
+tabla_clima_obstaculos2 <- table(Accident_Information_Clean_espanol$clima_agrupado, Accident_Information_Clean_espanol$obstaculo_agrupado)
+tabla_clima_obstaculos2 <- tabla_clima_obstaculos2[!rownames(tabla_clima_obstaculos2) %in% c("Datos faltantes", "Desconocido"), 
+  !colnames(tabla_clima_obstaculos2) %in% c("Datos faltantes", "Desconocido")]
+
 
 #Se imprime la tabla
 print("=== CASO 3: CLIMA Y OBSTÁCULO ===")
-print(tabla_clima_obstaculos)
-
+print(tabla_clima_obstaculos2)
 
 #Prueba de Independencia Chi-cuadrado
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
-prueba3 <- chisq.test(tabla_clima_obstaculos)
+cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
+prueba3 <- chisq.test(tabla_clima_obstaculos2)
 print(prueba3)
+
+cat("\n--- V de Crámer ---\n")
+prueba3.1 <- CramerV(tabla_clima_obstaculos2)
+print(prueba3.1)
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba3.2 <- prueba3$stdres
+print(prueba3.2)
+
+
+# --------- Heatmap de residuos ----------------------- #
+residuos_clima_obstaculo <- as.data.frame(as.table(prueba3.2))
+colnames(residuos_clima_obstaculo) <- c( "Clima", "Obstaculo", "Residuo")
+
+heatmap_clima_obs <- ggplot(residuos_clima_obstaculo, aes(x = Clima, y = Obstaculo,fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: \nCondición climática y obstáculos en la vía",
+    fill = "Residuo",
+    x = "Clima",
+    y = "Obstáculo en vía"
+  )  + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
+
+print(heatmap_clima_obs)
 
 #----------------------------------------------------------------------------------
 # 4. Tabla de contingencia de condición de luz y el tipo de carretera
@@ -358,9 +405,21 @@ ggplot(residuos_dia_zona, aes(x = Día, y = Zona, fill = Residuo)) +
 #----------------------------------------------------------------------------------
 # 8. Tabla de contingencia de superficie de la vía y el límite de velocidad
 #----------------------------------------------------------------------------------
+Accident_Information_Clean_espanol <- Accident_Information_Clean_espanol %>%
+  mutate(
+    velocidad_agrupada = case_when(
+      Speed_limit %in% c(0, 38.2791280970515) ~ "Desconocido",
+      Speed_limit %in% c(10, 15, 20, 30) ~ "Baja",
+      Speed_limit %in% c(40, 50) ~ "Media",
+      Speed_limit %in% c(60, 70) ~ "Alta",
+      TRUE ~ as.character(Speed_limit)
+    )
+  )
 
 #se crea la tabla
-tabla_superficie_limite <- table(Accident_Information_Clean_espanol$Road_Surface_Conditions, Accident_Information_Clean_espanol$Speed_limit)
+tabla_superficie_limite <- table(Accident_Information_Clean_espanol$Road_Surface_Conditions, Accident_Information_Clean_espanol$velocidad_agrupada)
+tabla_superficie_limite <- tabla_superficie_limite[!rownames(tabla_superficie_limite) %in% c("Datos faltantes", "Desconocido"), 
+  !colnames(tabla_superficie_limite) %in% c("Datos faltantes", "Desconocido")]
 
 #Se imprime la tabla
 print("=== CASO 8: SUPERFICIE CONDICIÓN DE SUPERFICIE Y LÍMITE DE VELOCIDAD ===")
@@ -371,3 +430,44 @@ print(tabla_superficie_limite)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba8 <- chisq.test(tabla_superficie_limite)
 print(prueba8)
+
+cat("\n--- V de Crámer ---\n")
+prueba8.1 <-CramerV(tabla_superficie_limite)
+print(prueba8.1)
+
+cat("\n--- Residuos Estandarizados ---\n")
+prueba8.2 <- prueba8$stdres
+print(prueba8.2)
+
+residuos_superficie_velocidad <- as.data.frame(as.table(prueba8.2))
+
+colnames(residuos_superficie_velocidad) <- c(
+  "Superficie",
+  "Velocidad",
+  "Residuo"
+)
+
+heatmap_sup_vel <- ggplot(residuos_superficie_velocidad, aes(x = Velocidad, y = Superficie, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(
+    aes(label = round(Residuo, 1)),
+    size = 4
+  ) +
+  scale_fill_gradient2(
+    low = paleta[2],
+    mid = "white",
+    high = paleta[3],
+    midpoint = 0
+  ) +
+  labs(
+    title = "Residuos estandarizados: \nCondición de la superficie vial y límite de velocidad",
+    fill = "Residuo"
+  ) +
+  estilo_bayesianos() +
+  theme(
+    plot.title = element_text(
+      hjust = 0.5
+    )
+  )
+
+print(heatmap_sup_vel)
