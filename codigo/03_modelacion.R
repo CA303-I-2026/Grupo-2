@@ -248,7 +248,8 @@ print(prueba5)
 
 #se crea la tabla
 tabla_superficie_carretera <- table(Accident_Information_Clean_espanol$Road_Surface_Conditions, Accident_Information_Clean_espanol$Road_Type)
-
+tabla_superficie_carretera<- tabla_superficie_carretera[!rownames(tabla_superficie_carretera) %in% c("Datos faltantes"),
+                                                        !colnames(tabla_superficie_carretera) %in% c("Datos faltantes", "Desconocido")]
 #Se imprime la tabla
 print("=== CASO 6: CONDICION DE SUPERFICIE Y TIPO DE CARRETERA ===")
 print(tabla_superficie_carretera)
@@ -258,6 +259,23 @@ print(tabla_superficie_carretera)
 cat("\n--- Prueba Chi-cuadrado de Independencia ---\n")
 prueba6 <- chisq.test(tabla_superficie_carretera)
 print(prueba6)
+
+# Prueba V de Crámer 
+cat("\n--- V de Crámer ---\n")
+prueba6.1<-cramer.v(tabla_superficie_carretera)
+print(prueba6.1)
+
+# Prueba Residuos Estandarizados 
+cat("\n--- Residuos Estandarizados ---\n")
+prueba6.2 <- prueba6$stdres
+res_prueba6.2 <- round(prueba6.2,2)
+pos_prueba6.2 <- which(abs(prueba6.2) > 2, arr.ind = TRUE)
+
+tabla_prueba6.2 <-data.frame(
+  Condiciones_de_carretera = rownames(res_prueba6.2)[pos_prueba6.2[,1]],
+  Tipo_de_carretera = colnames(res_prueba6.2)[pos_prueba6.2[,2]],
+  Residuo = res_prueba6.2[pos_prueba6.2]
+)
 
 #----------------------------------------------------------------------------------
 # 7. Tabla de contingencia de dia de la semana y la zona
