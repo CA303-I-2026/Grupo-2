@@ -165,6 +165,25 @@ print(tabla_prueba2.2)
 
 print(tabla_prueba2.2[tabla_prueba2.2$Residuo > 2, ])
 
+# --------- Heatmap de residuos ----------------------- #
+residuos_interseccion_obstaculos <- as.data.frame(as.table(prueba2.2))
+colnames(residuos_interseccion_obstaculos) <- c( "Interseccion", "Obstaculos", "Residuo")
+
+ggplot(residuos_interseccion_obstaculos, aes(x = Interseccion, y = Obstaculos, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: Detalles de intersección y condiciones especiales de la vía",
+    fill = "Residuo",
+    x = "Detalles de intersección",
+    y = "Condiciones especiales de la vía"
+  )  + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
+
+
 
 #----------------------------------------------------------------------------------
 # 3. Tabla de contingencia de condición climática y obstáculos en la vía
@@ -323,6 +342,26 @@ tabla_prueba6.2 <-data.frame(
   Tipo_de_carretera = colnames(res_prueba6.2)[pos_prueba6.2[,2]],
   Residuo = res_prueba6.2[pos_prueba6.2]
 )
+
+
+# --------- Heatmap de residuos ----------------------- #
+residuos_superficie_carretera <- as.data.frame(as.table(prueba6.2))
+colnames(residuos_superficie_carretera) <- c( "superficie", "carretera", "Residuo")
+
+ggplot(residuos_superficie_carretera, aes(x = superficie, y = carretera, fill = Residuo)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(Residuo,1)), size = 3.8) +
+  scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
+  labs(
+    title = "Residuos estandarizados: Condición de superficie de carretera y tipo de vía",
+    fill = "Residuo",
+    x = "Condición de superficie de carretera",
+    y = "Tipo de vía"
+  )  + estilo_bayesianos() +
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
+
 
 #----------------------------------------------------------------------------------
 # 7. Tabla de contingencia de dia de la semana y la zona
