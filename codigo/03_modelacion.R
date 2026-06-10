@@ -15,8 +15,8 @@ library(ggridges)
 library(DescTools)
 library(reshape2)
 
-# Leer los datos
-Accident_Information_Clean_espanol <-read.csv("datos/procesados/Accident_Information_Clean_espanol.csv")
+
+Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
 
 
