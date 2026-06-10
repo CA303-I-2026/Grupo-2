@@ -588,8 +588,7 @@ Este análisis fallido dejó tres aprendizajes fundamentales para el desarrollo 
     Al encontrar tres diferentes combinaciones que afectan la frecuencia ya es ganancia para poder entender cuáles son 
     esas condiciones en específico que hay que mitigar para poder reducir el riesgo a accidentes.
     
-	\item \textbf{Constraste con la literatura:} El estudio “Traffic Accidents Analysis on Dry and Wet 
-	Road Bends Surfaces in Greater Manchester-UK” sostienen que las condiciones de la superficie de la 
+	\item \textbf{Constraste con la literatura:} El estudio de \textcite{Karzan2017} sostienen que las condiciones de la superficie de la 
 	vía, como la humedad o seco, combinado junto condiciones de luz influye significativamente con la 
 	ocurrencia de accidentes. Con los resultados obtenidos se puede concluir que esto también pasa para el periodo
 	2010-2017 y además este estudio expande su validez.  El estudio se limitó a las superficies secas y húmedas, 
@@ -733,6 +732,147 @@ provoca pérdidas de control y frenados bruscos que disparan los choques en esto
     necesario algún siguiente paso para el estudio de estas variables.
 \end{itemize} 
 
+\textbf{Ficha 4:}
+\textbf{Nivel descriptivo:}
+\begin{itemize}
+  \item \textbf{Titular:} Bajo condiciones de oscuridad sin iluminación mientras
+  se transita una vía doble suceden accidentes de tránsito con una mayor frecuencia a la esperada 
+
+  \item \textbf{Nombre del hallazgo/resultado:} Asociación entre la condición de 
+  iluminación y el tipo de carretera 
+
+  \item \textbf{Resumen en una oración:} Se determina que hay una asociación entre 
+  la condición de iluminación y el tipo de carretera, sin embargo hay combinaciones 
+  que aparecen con una mayor frecuencia 
+
+  \item \textbf{Método o análisis que lo produjo:} Primero, se construyó una tabla 
+  de contingencia entre la condición de iluminación y el tipo de carretera. 
+  Seguidamente, se aplicó la prueba de chi-cuadrado de independencia donde 
+  se concluye que $p=2.2e^-16$, por lo que se rechaza la hipótesis nula y 
+  se establece la dependencia entre estas dos variables. Luego, se calculó 
+  la V de Cramer que resultó en un valor igual a 0.004974. Mediante este resultado, 
+  se determina que mientras sí hay una asociación entre variables esta es débil. 
+  Finalmente, se analizaron los residuos estandarizados donde se muestra que bajo 
+  condiciones de oscuridad sin iluminación transitando por una vía doble suceden 
+  con más frecuencia accidentes de tránsito. Seguido por transitar una rotonda en 
+  oscuridad con iluminación, y transitar una vía simple bajo luz del día.
+  
+  \item \textbf{Evidencia:} Figura \ref{fig:residuos_iluminacion_via}: Residuos de la condición de iluinación y el tipo de vía
+\end{itemize}
+
+\textbf{Nivel analítico}
+\begin{itemize}
+  \item \textbf{Conexión con la pregunta de investigación:} Los resultados anteriores 
+  contribuyen a responder directamente la pregunta de investigación, ya que se 
+  logra identificar combinaciones específicas de factores que aparecen un una mayor 
+  frecuencia que la esperada en los accidentes de tránsito, en este caso combinaciones 
+  de las condiciones de luz y el tipo de calle. 
+
+  \item \textbf{Contraste con la literatura:} 
+  Como resultado, se obtuvo que bajo 
+  condiciones de oscuridad sin iluminación transitando una vía doble suceden más 
+  accidentes que lo esperado. Estos resultados coinciden con lo estipulado por 
+  \textcite{HOSSEINIAN2012} quienes plantean que los accidentes no pueden explicarse 
+  a partir de únicamente el comportamiento humano, sino que suceden a partir de 
+  la interacción de múltiples factores. El patrón identificado entre ciertas 
+  condiciones de la iluminación y la vía muestran que elementos del entorno 
+  tienden a presentarse con una frecuencia superior a la esperada, lo que 
+  respalda los modelos de causalidad múltiple descritos en la investigación. 
+  Es decir, dado que existen ciertas combinaciones entre infraestructura vial y 
+  el ambiente que son más frecuentes se determina que son componentes relevantes 
+  en el contexto de los accidentes. Sin embargo, no es posible determinar una única 
+  causa o la importancia de cada factor tal como lo señala Shahab et al. 
+  Además, en segundo lugar; es decir, las condiciones en la que suceden 
+accidentes con mayor frecuencia después de oscuridad sin iluminación en doble vía, 
+es transitando rotondas bajo oscuridad pero con luces. En la investigación 
+“Effectiveness of road safety measures at junction” \textcite{yannis_effectiveness_junction} se determina que las rotondas 
+tienen efectos en la seguridad vial muy altos. Entonces, mientras son una herramienta 
+para disminuir los accidentes de tránsito como tal, por los resultados de este proyecto, 
+estas necesitan tener buena iluminación y el vehiculo especialmente debe contar con luces 
+en buen estado, sino contribuyen a que ocurran accidentes. 
+
+  \item \textbf{Lo que NO explica este resultado:} Este resultado no permite determinar
+  las causas por las cuales ocurren accidentes de tránsito ni medir el riesgo ante 
+  cierta combinación de factores. Además, no se consideran otros factores que podrían 
+  influir en la ocurrencia de los accidentes.  
+
+  \item \textbf{Implicación para el siguiente paso:} Dado que se logró dar un con 
+  resultado concreto al completar la metodología planteada, no se necesita un 
+  siguiente paso en el análisis de estas variables. 
+\end{itemize}
+
+
+\textbf{Ficha 5:}
+\textbf{Nivel descriptivo:}
+\begin{itemize}
+  \item \textbf{Titular:} Los accidentes de tránsito por la mañana en zonas rurales 
+  y los accidentes por la noche en zonas urbanas suceden con mayor frecuencia de la esperada
+
+  \item \textbf{Nombre del hallazgo/resultado:} Se distinguen ciertas asociaciones 
+  entre zona (urbana o rural) y momento del día en la ocurrencia de accidentes. 
+  
+  \item \textbf{Resumen en una oración:} Aunque la asociación entre la zona y el momento 
+  del día es débil, existen ciertas horas en el día donde la frecuencia de accidentes 
+  es significativamente mayor a la esperada en zonas rurales o urbanas.
+  
+  \item \textbf{Método o análisis que lo produjo:}Basado en los datos proporcionados, 
+  se construyó una tabla de contingencias entre el área del accidente (rural o urbano) 
+  y el momento del día (madrugada, mañana, tarde y noche). Con esta información, 
+  se aplicó una prueba de Chi-cuadrado donde se determinó el valor p, tal que 
+  $p=2.2e^-16$. Esto permite rechazar la hipótesis nula, y por lo tanto concluir 
+  la dependencia entre estas dos variables. Además, se calculó la V de Cramer, 
+  la cual indica que la intensidad de la asociación es débil, ya que esta fue de 
+  0.050. Por último, se analizaron los residuos estandarizados. Donde la combinación 
+  más predominante son los accidentes que ocurren por la mañana en zona rural seguidos 
+  por los que suceden en zonas rurales por la noche. 
+
+  \item \textbf{Evidencia:} Figura \ref{fig:residuos_zona_hora}: Residuos de zona (rural o urbana) y momento del día
+\end{itemize}
+
+\textbf{Nivel analítico}
+\begin{itemize}
+  \item \textbf{Conexión con la pregunta de investigación:} Este resultado permite 
+  identificar patrones de ocurrencia asociados a la zona geográfica y el momento 
+  del día. En particular, se muestra que los accidentes ocurren con una mayor 
+  frecuencia de la esperada en zonas rurales por la mañana y madrugada, mientras 
+  que en las zonas urbanas suceden más durante la tarde y noche. 
+  
+  \item \textbf{Contraste con la literatura:} 
+    Según \textcite{SAXENA2017}, los accidentes de tránsito son consecuencias de una secuencia de factores interrelacionados y 
+  no de eventos aislados, lo que respalda el resultado anterior. El hecho de que 
+  ciertas combinaciones entre zona y momento del día en el que ocurren los accidentes
+  suceden con mayor frecuencia indica que si hay ciertos factores externos que 
+  culminan en un accidente de tránsito. La teoría del dominó la cual especifica 
+  que los accidentes surgen a partir de la interacción de múltiples condiciones 
+  que juntos aumentan la probabilidad de que ocurra un siniestro, esta idea de 
+  igual manera se ve reflejada en el resultado anterior.
+  
+  Además, como se mencionó anteriormente se determinaron dos resultados principales.
+  Primero, que los accidentes ocurren con mayor frecuencia de la esperada por las 
+  mañanas en zonas rurales, mientras que en zonas urbanas ocurren mayoritariamente 
+  por las tardes. Se conjetura que esto sucede dado que en las zonas rurales las 
+  personas tienden a empezar su día mucho más temprano, por lo que aumenta el 
+  tráfico de vehículos a estas horas. Por otro lado, en zonas urbanas sucede lo 
+  contrario y las personas terminan su día mucho más tarde, por lo que hay mucho 
+  más flujo de vehículos a esas horas.  
+  
+  Sin embargo, este resultado es contrario a lo estipulado por \textcite{KARZAN2017}. 
+  En dicha investigación, se concluye que ocurren más accidentes por la mañana en 
+  Manchester que por la noche, una ciudad predominantemente urbana del Reino Unido. 
+  Esto por el volumen en horas pico y la actitud de los conductores al manejar.  
+
+  \item \textbf{Lo que NO explica este resultado:} Este resultado no permite 
+  determinar las causas por las cuales ocurren accidentes de tránsito ni medir 
+  el riesgo ante cierta combinación de factores. Además, no se consideran otros 
+  factores que podrían influir en la ocurrencia de los accidentes. 
+  
+  \item \textbf{Implicación para el siguiente paso:} Dado que se logró realizar 
+  la metodología planteada en su totalidad, respondiendo a la pregunta de 
+  investigación no se necesita un siguiente paso para el estudio de estas variables.  
+
+
+\end{itemize}
+
 \textbf{Ficha 6:}
 
 \textbf{Nivel descriptivo}
@@ -843,9 +983,7 @@ maniobras para incorporarse a las carreteras.
     Al encontrar que días de la semana y donde se concentra la mayoría de los accidentes ayuda a concentrar 
     el área donde se tiene que accionar y en qué momentos.
     
-	\item \textbf{Constraste con la literatura:} Se conecta de forma crítica con los estudios “The effects of drivers' speed 
-	on the frequency of road accidents” y “Analysis of Road Traffic Accident using Causation Theory with Traffic Safety Model 
-	and Measures”. Valida la teoría de Taylor et al. sobre la complejidad y riesgo que tiene la infraestructura urbana de lunes 
+	\item \textbf{Constraste con la literatura:} Se conecta de forma crítica con los estudios \textcite{Taylor2000} y \textcite{Saxena2017}. Valida la teoría de Taylor et al. sobre la complejidad y riesgo que tiene la infraestructura urbana de lunes 
 	a viernes debido a la congestión. Además, complementa a Saxena al evidenciar que los patrones de ocio del domingo alteran la
 	conducta humana y la percepción del riesgo en entornos rurales alejados de la rutina diaria.
     	
@@ -896,147 +1034,6 @@ maniobras para incorporarse a las carreteras.
     necesario algún siguiente paso para el estudio de estas variables.
 \end{itemize}
 
-\textbf{Ficha 9:}
-\textbf{Nivel descriptivo:}
-\begin{itemize}
-  \item \textbf{Titular:} Bajo condiciones de oscuridad sin iluminación mientras
-  se transita una vía doble suceden accidentes de tránsito con una mayor frecuencia a la esperada 
-
-  \item \textbf{Nombre del hallazgo/resultado:} Asociación entre la condición de 
-  iluminación y el tipo de carretera 
-
-  \item \textbf{Resumen en una oración:} Se determina que hay una asociación entre 
-  la condición de iluminación y el tipo de carretera, sin embargo hay combinaciones 
-  que aparecen con una mayor frecuencia 
-
-  \item \textbf{Método o análisis que lo produjo:} Primero, se construyó una tabla 
-  de contingencia entre la condición de iluminación y el tipo de carretera. 
-  Seguidamente, se aplicó la prueba de chi-cuadrado de independencia donde 
-  se concluye que $p=2.2e^-16$, por lo que se rechaza la hipótesis nula y 
-  se establece la dependencia entre estas dos variables. Luego, se calculó 
-  la V de Cramer que resultó en un valor igual a 0.004974. Mediante este resultado, 
-  se determina que mientras sí hay una asociación entre variables esta es débil. 
-  Finalmente, se analizaron los residuos estandarizados donde se muestra que bajo 
-  condiciones de oscuridad sin iluminación transitando por una vía doble suceden 
-  con más frecuencia accidentes de tránsito. Seguido por transitar una rotonda en 
-  oscuridad con iluminación, y transitar una vía simple bajo luz del día.
-  
-  \item \textbf{Evidencia:} Figura \ref{fig:residuos_iluminacion_via}: Residuos de la condición de iluinación y el tipo de vía
-\end{itemize}
-
-\textbf{Nivel analítico}
-\begin{itemize}
-  \item \textbf{Conexión con la pregunta de investigación:} Los resultados anteriores 
-  contribuyen a responder directamente la pregunta de investigación, ya que se 
-  logra identificar combinaciones específicas de factores que aparecen un una mayor 
-  frecuencia que la esperada en los accidentes de tránsito, en este caso combinaciones 
-  de las condiciones de luz y el tipo de calle. 
-
-  \item \textbf{Contraste con la literatura:} 
-  Como resultado, se obtuvo que bajo 
-  condiciones de oscuridad sin iluminación transitando una vía doble suceden más 
-  accidentes que lo esperado. Estos resultados coinciden con lo estipulado por 
-  \textcite{HOSSEINIAN2012} quienes plantean que los accidentes no pueden explicarse 
-  a partir de únicamente el comportamiento humano, sino que suceden a partir de 
-  la interacción de múltiples factores. El patrón identificado entre ciertas 
-  condiciones de la iluminación y la vía muestran que elementos del entorno 
-  tienden a presentarse con una frecuencia superior a la esperada, lo que 
-  respalda los modelos de causalidad múltiple descritos en la investigación. 
-  Es decir, dado que existen ciertas combinaciones entre infraestructura vial y 
-  el ambiente que son más frecuentes se determina que son componentes relevantes 
-  en el contexto de los accidentes. Sin embargo, no es posible determinar una única 
-  causa o la importancia de cada factor tal como lo señala Shahab et al. 
-  Además, en segundo lugar; es decir, las condiciones en la que suceden 
-accidentes con mayor frecuencia después de oscuridad sin iluminación en doble vía, 
-es transitando rotondas bajo oscuridad pero con luces. En la investigación 
-“Effectiveness of road safety measures at junction” \textcite{yannis_effectiveness_junction} se determina que las rotondas 
-tienen efectos en la seguridad vial muy altos. Entonces, mientras son una herramienta 
-para disminuir los accidentes de tránsito como tal, por los resultados de este proyecto, 
-estas necesitan tener buena iluminación y el vehiculo especialmente debe contar con luces 
-en buen estado, sino contribuyen a que ocurran accidentes. 
-
-  \item \textbf{Lo que NO explica este resultado:} Este resultado no permite determinar
-  las causas por las cuales ocurren accidentes de tránsito ni medir el riesgo ante 
-  cierta combinación de factores. Además, no se consideran otros factores que podrían 
-  influir en la ocurrencia de los accidentes.  
-
-  \item \textbf{Implicación para el siguiente paso:} Dado que se logró dar un con 
-  resultado concreto al completar la metodología planteada, no se necesita un 
-  siguiente paso en el análisis de estas variables. 
-\end{itemize}
-
-
-
-\textbf{Ficha 10:}
-\textbf{Nivel descriptivo:}
-\begin{itemize}
-  \item \textbf{Titular:} Los accidentes de tránsito por la mañana en zonas rurales 
-  y los accidentes por la noche en zonas urbanas suceden con mayor frecuencia de la esperada
-
-  \item \textbf{Nombre del hallazgo/resultado:} Se distinguen ciertas asociaciones 
-  entre zona (urbana o rural) y momento del día en la ocurrencia de accidentes. 
-  
-  \item \textbf{Resumen en una oración:} Aunque la asociación entre la zona y el momento 
-  del día es débil, existen ciertas horas en el día donde la frecuencia de accidentes 
-  es significativamente mayor a la esperada en zonas rurales o urbanas.
-  
-  \item \textbf{Método o análisis que lo produjo:}Basado en los datos proporcionados, 
-  se construyó una tabla de contingencias entre el área del accidente (rural o urbano) 
-  y el momento del día (madrugada, mañana, tarde y noche). Con esta información, 
-  se aplicó una prueba de Chi-cuadrado donde se determinó el valor p, tal que 
-  $p=2.2e^-16$. Esto permite rechazar la hipótesis nula, y por lo tanto concluir 
-  la dependencia entre estas dos variables. Además, se calculó la V de Cramer, 
-  la cual indica que la intensidad de la asociación es débil, ya que esta fue de 
-  0.050. Por último, se analizaron los residuos estandarizados. Donde la combinación 
-  más predominante son los accidentes que ocurren por la mañana en zona rural seguidos 
-  por los que suceden en zonas rurales por la noche. 
-
-  \item \textbf{Evidencia:} Figura \ref{fig:residuos_zona_hora}: Residuos de zona (rural o urbana) y momento del día
-\end{itemize}
-
-\textbf{Nivel analítico}
-\begin{itemize}
-  \item \textbf{Conexión con la pregunta de investigación:} Este resultado permite 
-  identificar patrones de ocurrencia asociados a la zona geográfica y el momento 
-  del día. En particular, se muestra que los accidentes ocurren con una mayor 
-  frecuencia de la esperada en zonas rurales por la mañana y madrugada, mientras 
-  que en las zonas urbanas suceden más durante la tarde y noche. 
-  
-  \item \textbf{Contraste con la literatura:} 
-    Según \textcite{SAXENA2017}, los accidentes de tránsito son consecuencias de una secuencia de factores interrelacionados y 
-  no de eventos aislados, lo que respalda el resultado anterior. El hecho de que 
-  ciertas combinaciones entre zona y momento del día en el que ocurren los accidentes
-  suceden con mayor frecuencia indica que si hay ciertos factores externos que 
-  culminan en un accidente de tránsito. La teoría del dominó la cual especifica 
-  que los accidentes surgen a partir de la interacción de múltiples condiciones 
-  que juntos aumentan la probabilidad de que ocurra un siniestro, esta idea de 
-  igual manera se ve reflejada en el resultado anterior.
-  
-  Además, como se mencionó anteriormente se determinaron dos resultados principales.
-  Primero, que los accidentes ocurren con mayor frecuencia de la esperada por las 
-  mañanas en zonas rurales, mientras que en zonas urbanas ocurren mayoritariamente 
-  por las tardes. Se conjetura que esto sucede dado que en las zonas rurales las 
-  personas tienden a empezar su día mucho más temprano, por lo que aumenta el 
-  tráfico de vehículos a estas horas. Por otro lado, en zonas urbanas sucede lo 
-  contrario y las personas terminan su día mucho más tarde, por lo que hay mucho 
-  más flujo de vehículos a esas horas.  
-  
-  Sin embargo, este resultado es contrario a lo estipulado por \textcite{KARZAN2017}. 
-  En dicha investigación, se concluye que ocurren más accidentes por la mañana en 
-  Manchester que por la noche, una ciudad predominantemente urbana del Reino Unido. 
-  Esto por el volumen en horas pico y la actitud de los conductores al manejar.  
-
-  \item \textbf{Lo que NO explica este resultado:} Este resultado no permite 
-  determinar las causas por las cuales ocurren accidentes de tránsito ni medir 
-  el riesgo ante cierta combinación de factores. Además, no se consideran otros 
-  factores que podrían influir en la ocurrencia de los accidentes. 
-  
-  \item \textbf{Implicación para el siguiente paso:} Dado que se logró realizar 
-  la metodología planteada en su totalidad, respondiendo a la pregunta de 
-  investigación no se necesita un siguiente paso para el estudio de estas variables.  
-
-
-\end{itemize}
 
 
 

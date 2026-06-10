@@ -16,8 +16,7 @@ library(DescTools)
 library(reshape2)
 
 
-#Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
-Accident_Information_Clean_espanol <-read.csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/procesados/Accident_Information_Clean_espanol.csv")
+Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
 
 
