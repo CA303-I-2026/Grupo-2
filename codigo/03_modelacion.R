@@ -15,9 +15,8 @@ library(ggridges)
 library(DescTools)
 library(reshape2)
 
-
-#Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
-Accident_Information_Clean_espanol <-read.csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/procesados/Accident_Information_Clean_espanol.csv")
+# Leer los datos
+Accident_Information_Clean_espanol <-read.csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
 
 
@@ -44,7 +43,7 @@ theme_set(estilo_bayesianos())
 paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 #----------------------------------------------------------------------------------
-# 1. Tabla de contingencia de superficie de la vía y condición de la vía
+# 1. Tabla de contingencia de superficie de la vía y condición de luz
 #----------------------------------------------------------------------------------
 
 #se crea la tabla
@@ -89,7 +88,7 @@ ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Resi
   geom_text(aes(label = round(Residuo,1)), size = 3.8) +
   scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
-    title = "Residuos estandarizados: Superficie de la vía y condición de luz",
+    title = "Residuos estandarizados: \nSuperficie de la vía y condición de luz",
     fill = "Residuo",
     x = "Superficie de la vía",
     y = "Condición de luz"
@@ -307,8 +306,8 @@ ggplot(tabla_prueba4.2, aes(x = Iluminacion, y = Tipo_Carretera, fill = Residuo)
   labs(
     title = "Residuos estandarizados: \nCondiciones de iluminación y vía",
     fill = "Residuo",
-    x = "Tipo de vía",
-    y = "Iluminación"
+    x = "Iluminación",
+    y = "Tipo de vía"
   ) + theme_cowplot() + estilo_bayesianos() +
   theme(
     axis.text.x = element_text(
