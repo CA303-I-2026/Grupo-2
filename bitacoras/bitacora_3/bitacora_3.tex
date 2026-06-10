@@ -748,6 +748,21 @@ de factores que ocurren con una frecuencia significativamente distinta de la esp
     \label{fig:residuos_superficie_tipo_via}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/residuos_zona_hora.png}
+    \caption{Residuos de zona (urbana o rural) y momento del día}
+    \label{fig:residuo_zona_hora}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figuras/residuos_iluminacion_via.png}
+    \caption{Residuos de condiciones de la condición de iluminación y tipo de vía}
+    \label{fig:residuo_iluminacion_via}
+\end{figure}
+
+
 \subsection{Construcción de fichas de resultados}
 \textbf{Ficha 1:}
 
@@ -805,15 +820,21 @@ de factores que ocurren con una frecuencia significativamente distinta de la esp
 
 \textbf{Nivel descriptivo}
 \begin{itemize}
-    \item \textbf{Títular:} Nivel de relación entre condiciones especiales de la carretera y presencia de intersecciones.
+    \item \textbf{Títular:} Nivel de relación entre condiciones especiales de la 
+    carretera y presencia de intersecciones.
     
-    \item \textbf{Nombre del hallazgo/resultado:} Asociaciones entre las intersecciones y la presencia de obstáculos o condiciones especiales en la vía generan combinaciones que ocurren con mayor frecuencia de lo esperado en accidentes. 
+    \item \textbf{Nombre del hallazgo/resultado:} Asociaciones entre las intersecciones 
+    y la presencia de obstáculos o condiciones especiales en la vía generan combinaciones 
+    que ocurren con mayor frecuencia de lo esperado en accidentes. 
 
     
-    \item \textbf{Resumen en una oración:} Las superficies resbaladizas y las obras incrementan los siniestros en tramos rectos. De igual forma, las fallas de señalización aumentan frecuencias de accidentes en intersecciones.
+    \item \textbf{Resumen en una oración:} Las superficies resbaladizas y las 
+    obras incrementan los siniestros en tramos rectos. De igual forma, las fallas 
+    de señalización aumentan frecuencias de accidentes en intersecciones.
 
     
-    \item \textbf{Método o análisis que lo produjo:} Prueba Chi-cuadrado de independencia, coeficiente V de Crámer y análisis de residuos estandarizados.
+    \item \textbf{Método o análisis que lo produjo:} Prueba Chi-cuadrado de independencia, 
+    coeficiente V de Crámer y análisis de residuos estandarizados.
 
     
     \item \textbf{Evidencia:} Figura~\ref{fig:residuos_interseccion_obstaculos}
@@ -824,46 +845,88 @@ de factores que ocurren con una frecuencia significativamente distinta de la esp
 \textbf{Nivel analítico}
 
 \begin{itemize}
-    \item \textbf{Conexión con la pregunta de investigación:} Este resultado responde de forma directa a la pregunta del trabajo porque ayuda a ver cuáles combinaciones entre la infraestructura y los problemas del entorno provocan más choques de lo normal en el Reino Unido. Inicialmente, la prueba Chi-cuadrado validó la dependencia entre el tipo de cruce y las condiciones especiales del sitio. Sin embargo,  el coeficiente V de Crámer ($0.045$) denota que la relación es débil.
-Asimismo, el análisis de los residuos revela por un lado que los semáforos o señalización defectuosa interactúan de manera crítica dentro de las intersecciones, aumentando la frecuencia de accidentes ($r = 24.93$). Por otro lado, imprevistos en el entorno como la superficie resbaladiza, las obras en la vía y el la carretera defectuosa tienden a concentrar el peligro en los tramos donde no hay ningún tipo de intersección ($r = 46.84$, $r = 29.03$ y $r = 26.95$, respectivamente).
+    \item \textbf{Conexión con la pregunta de investigación:} Este resultado responde 
+    de forma directa a la pregunta del trabajo porque ayuda a ver cuáles combinaciones 
+    entre la infraestructura y los problemas del entorno provocan más choques de lo 
+    normal en el Reino Unido. Inicialmente, la prueba Chi-cuadrado validó la 
+    dependencia entre el tipo de cruce y las condiciones especiales del sitio. 
+    Sin embargo,  el coeficiente V de Crámer ($0.045$) denota que la relación es débil.
+Asimismo, el análisis de los residuos revela por un lado que los semáforos o 
+señalización defectuosa interactúan de manera crítica dentro de las intersecciones, 
+aumentando la frecuencia de accidentes ($r = 24.93$). Por otro lado, imprevistos en 
+el entorno como la superficie resbaladiza, las obras en la vía y el la carretera 
+defectuosa tienden a concentrar el peligro en los tramos donde no hay ningún tipo 
+de intersección ($r = 46.84$, $r = 29.03$ y $r = 26.95$, respectivamente).
 
     
-	\item \textbf{Constraste con la literatura:} El artículo de \textcite{yannis_effectiveness_junctions} complementa y valida  los patrones de riesgo identificados en este análisis. Los autores explican que las intersecciones son los puntos más complejos y peligrosos de la red vial debido a que en ellos convergen trayectorias de distintas direcciones. En su investigación, destacan que los semáforos y los sistemas de control son una herramienta para dar orden a dichos cruces; por lo tanto, cuando estos elementos fallan, los conductores pierden por completo la guía de prioridad de paso. Este argumento de la literatura fundamenta perfectamente por qué el análisis de residuos arrojó un coeficiente alto para la combinación de intersecciones con semáforos o señalización defectuosa ($r = 24.93$), demostrando que la falta de control operativo aumenta frecuencias de siniestros más de lo esperado.
-Asimismo, la fuente también ayuda a entender y respaldar de forma indirecta los resultados obtenidos en las vías sin intersección (la categoría "No aplica"). El artículo detalla que elementos como las rotondas o los cruces bien diseñados tienen la función de obligar a los conductores a reducir la velocidad. Al no existir estos moderadores de tráfico en los tramos rectos, los vehículos transitan a velocidades más altas y con mayor confianza. Esto explica por qué el factor sorpresa de encontrarse repentinamente con irregularidades en el entorno como una superficie resbaladiza ($r = 46.84$), obras en la vía ($r = 29.03$) o el asfalto defectuoso ($r = 26.95$) provoca pérdidas de control y frenados bruscos que disparan los choques en estos sectores.
+	\item \textbf{Constraste con la literatura:} El artículo de \textcite{yannis_effectiveness_junctions} 
+	complementa y valida  los patrones de riesgo identificados en este análisis. Los autores 
+	explican que las intersecciones son los puntos más complejos y peligrosos de la red vial 
+	debido a que en ellos convergen trayectorias de distintas direcciones. En su investigación,
+	destacan que los semáforos y los sistemas de control son una herramienta para dar orden 
+	a dichos cruces; por lo tanto, cuando estos elementos fallan, los conductores pierden 
+	por completo la guía de prioridad de paso. Este argumento de la literatura fundamenta 
+	perfectamente por qué el análisis de residuos arrojó un coeficiente alto para la 
+	combinación de intersecciones con semáforos o señalización defectuosa ($r = 24.93$), 
+	demostrando que la falta de control operativo aumenta frecuencias de siniestros más 
+	de lo esperado.
+Asimismo, la fuente también ayuda a entender y respaldar de forma indirecta los 
+resultados obtenidos en las vías sin intersección (la categoría "No aplica"). El 
+artículo detalla que elementos como las rotondas o los cruces bien diseñados tienen
+la función de obligar a los conductores a reducir la velocidad. Al no existir estos 
+moderadores de tráfico en los tramos rectos, los vehículos transitan a velocidades 
+más altas y con mayor confianza. Esto explica por qué el factor sorpresa de encontrarse 
+repentinamente con irregularidades en el entorno como una superficie resbaladiza 
+($r = 46.84$), obras en la vía ($r = 29.03$) o el asfalto defectuoso ($r = 26.95$) 
+provoca pérdidas de control y frenados bruscos que disparan los choques en estos sectores.
 
 	
-	\item \textbf{Lo que NO explica este resultado:} El análisis se limita a evaluar una relación bivariada aislada, por lo que no es capaz de explicar el fenómeno a un nivel multivariado ni ponderar simultáneamente otras variables ocultas que ocurren al mismo tiempo, como los niveles de iluminación, el exceso de velocidad, etc. 
+	\item \textbf{Lo que NO explica este resultado:} El análisis se limita a evaluar
+	una relación bivariada aislada, por lo que no es capaz de explicar el fenómeno 
+	a un nivel multivariado ni ponderar simultáneamente otras variables ocultas que
+	ocurren al mismo tiempo, como los niveles de iluminación, el exceso de velocidad, etc. 
 \end{itemize} 
 
 \textbf{Ficha 3:}
 
 \textbf{Nivel descriptivo}
 \begin{itemize}
-    \item \textbf{Títular:} Accidentes suceden más frecuente de lo esperado en clima lluvioso y con presencia de sustancias en la carretera
+    \item \textbf{Títular:} Accidentes suceden más frecuente de lo esperado en clima
+    lluvioso y con presencia de sustancias en la carretera
     
-    \item \textbf{Nombre del hallazgo/resultado:} Asociación entre condición climática y obstáculos en la vía significativa pero débil.
+    \item \textbf{Nombre del hallazgo/resultado:} Asociación entre condición climática 
+    y obstáculos en la vía significativa pero débil.
     
-    \item \textbf{Resumen en una oración:} La lluvia aparece frecuentemente junto a sustancias y defectos viales.
+    \item \textbf{Resumen en una oración:} La lluvia aparece frecuentemente junto a 
+    sustancias y defectos viales.
     
-    \item \textbf{Método o análisis que lo produjo:} Prueba Chi-cuadrado de independencia, V de Crámer y análisis de residuos estandarizados.
+    \item \textbf{Método o análisis que lo produjo:} Prueba Chi-cuadrado de independencia,
+    V de Crámer y análisis de residuos estandarizados.
 
     
-    \item \textbf{Evidencia:} Figura \ref{fig:residuos clima obs}: Residuos de condición climática y obstáculos en la vía
+    \item \textbf{Evidencia:} Figura \ref{fig:residuos clima obs}: Residuos de 
+    condición climática y obstáculos en la vía
     
 \end{itemize}
 
 \textbf{Nivel analítico}
 
 \begin{itemize}
-    \item \textbf{Conexión con la pregunta de investigación:} Este resultado ayuda directamente a identificar cuáles combinaciones de clima
+    \item \textbf{Conexión con la pregunta de investigación:} Este resultado ayuda 
+    directamente a identificar cuáles combinaciones de clima
     y obstáculos aparecen con mayor frecuencia dentro de los accidentes de tránsito estudiados. 
 
-	\item \textbf{Constraste con la literatura:} La prueba Chi-cuadrado mostró una asociación estadísticamente significativa entre la condición climática y los obstáculos en la vía 
-    ($p<0.05$). Sin embargo, la V de Crámer fue de aproximadamente a 0.026, indicando que la intensidad global de la asociación es muy débil.
+	\item \textbf{Constraste con la literatura:} La prueba Chi-cuadrado mostró una 
+	asociación estadísticamente significativa entre la condición climática y los obstáculos 
+	en la vía 
+    ($p<0.05$). Sin embargo, la V de Crámer fue de aproximadamente a 0.026, indicando 
+    que la intensidad global de la asociación es muy débil.
 
-    El resultado de la prueba de independencia y el análisis de los residuos estandarizados para el presente proyecto,
+    El resultado de la prueba de independencia y el análisis de los residuos estandarizados 
+    para el presente proyecto,
     coincide con lo reportado por \textcite{KARZAN2017}, quienes encontraron que 
-    las condiciones de la carretera y los factores ambientales influyen en la ocurrencia de accidentes de tránsito. 
+    las condiciones de la carretera y los factores ambientales influyen en la 
+    ocurrencia de accidentes de tránsito. 
     
     En particular, los autores señalan una mayor presencia de accidentes en carreteras mojadas y resaltan la importancia de las condiciones del entorno vial. 
     De manera similar, en esta investigación la combinación lluvia-sustancia en la vía presentó el residuo estandarizado positivo más alto 
@@ -1060,8 +1123,9 @@ maniobras para incorporarse a las carreteras.
   Finalmente, se analizaron los residuos estandarizados donde se muestra que bajo 
   condiciones de oscuridad sin iluminación transitando por una vía doble suceden 
   con más frecuencia accidentes de tránsito. Seguido por transitar una rotonda en 
-  oscuridad con iluminación, y transitar una vía simple bajo luz del día
-  \item \textbf{Evidencia:}
+  oscuridad con iluminación, y transitar una vía simple bajo luz del día.
+  
+  \item \textbf{Evidencia:} Figura \ref{fig:residuos_iluminacion_via}: Residuos de la condición de iluinación y el tipo de vía
 \end{itemize}
 
 \textbf{Nivel analítico}
@@ -1088,11 +1152,12 @@ maniobras para incorporarse a las carreteras.
   causa o la importancia de cada factor tal como lo señala Shahab et al. 
   Además, en segundo lugar; es decir, las condiciones en la que suceden 
 accidentes con mayor frecuencia después de oscuridad sin iluminación en doble vía, 
-es transitando rotondas bajo oscuridad pero con iluminación. En la investigación 
+es transitando rotondas bajo oscuridad pero con luces. En la investigación 
 “Effectiveness of road safety measures at junction” \textcite{yannis_effectiveness_junction} se determina que las rotondas 
 tienen efectos en la seguridad vial muy altos. Entonces, mientras son una herramienta 
 para disminuir los accidentes de tránsito como tal, por los resultados de este proyecto, 
-estas necesitan tener buena iluminación sino contribuyen a que ocurran accidentes. 
+estas necesitan tener buena iluminación y el vehiculo especialmente debe contar con luces 
+en buen estado, sino contribuyen a que ocurran accidentes. 
 
   \item \textbf{Lo que NO explica este resultado:} Este resultado no permite determinar
   las causas por las cuales ocurren accidentes de tránsito ni medir el riesgo ante 
@@ -1130,7 +1195,7 @@ estas necesitan tener buena iluminación sino contribuyen a que ocurran accident
   más predominante son los accidentes que ocurren por la mañana en zona rural seguidos 
   por los que suceden en zonas rurales por la noche. 
 
-  \item \textbf{Evidencia:}
+  \item \textbf{Evidencia:} Figura \ref{fig:residuos_zona_hora}: Residuos de zona (rural o urbana) y momento del día
 \end{itemize}
 
 \textbf{Nivel analítico}

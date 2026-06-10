@@ -16,31 +16,10 @@ library(DescTools)
 library(reshape2)
 
 
-# Se define el tema que se utilizará para la creación de gráficos
-estilo_bayesianos <- function() {
-  theme_minimal(base_size = 12) +
-    theme(
-      plot.title = element_text(size = 14, face = "bold"),
-      axis.title = element_text(size = 12),
-      axis.text = element_text(size = 11),
-      panel.grid = element_blank(),   # sin grilla
-      axis.line = element_line(color = "black"),
-      legend.position = "top",
-      legend.title = element_blank(),
-      plot.background = element_blank()
-    )
-}
-
-# Se fija el tema para su uso durante todo el proyecto
-theme_set(estilo_bayesianos())
-
-# Se escoge la paleta BMJ del paquete ggsci (9 colores)
-paleta <- c(pal_bmj("default")(9), "#4C78A8")
-
-
 #Accident_Information_Clean_espanol <- read_csv("datos/procesados/Accident_Information_Clean_espanol.csv")
 Accident_Information_Clean_espanol <-read.csv("C:/Users/aless/OneDrive/Escritorio/Grupo-2/datos/procesados/Accident_Information_Clean_espanol.csv")
 View(Accident_Information_Clean_espanol)
+
 
 #volvemos a cargar la estética de los gráficos
 #Se define el tema que se utilizará para la creación de gráficos
@@ -395,10 +374,10 @@ ggplot(tabla_prueba5.2, aes(x = Zona, y = Hora, fill = Residuo)) +
     limits = c("Madrugada", "Noche", "Tarde", "Mañana")
   ) + scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
-    title = "Residuos estandarizados: \nZona y hora",
+    title = "Residuos estandarizados: \nzona y momento del día",
     fill = "Residuo",
     x = "Zona",
-    y = "Hora"
+    y = "Momento del día"
   ) + theme_cowplot() + estilo_bayesianos() +
   theme(
     plot.title = element_text(hjust = 0.5)
