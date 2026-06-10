@@ -373,7 +373,7 @@ ggplot(tabla_prueba5.2, aes(x = Zona, y = Hora, fill = Residuo)) +
     limits = c("Madrugada", "Noche", "Tarde", "Mañana")
   ) + scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
-    title = "Residuos estandarizados: \nzona y momento del día",
+    title = "Residuos estandarizados: \nZona y momento del día",
     fill = "Residuo",
     x = "Zona",
     y = "Momento del día"
@@ -478,28 +478,6 @@ print(tabla_prueba7.2)
 # --------- Heatmap de residuos ----------------------- #
 residuos_dia_zona <- as.data.frame(as.table(prueba7.2))
 colnames(residuos_dia_zona) <- c( "Día", "Zona", "Residuo")
-
-#volvemos a cargar la estética de los gráficos
-#Se define el tema que se utilizará para la creación de gráficos
-estilo_bayesianos <- function() {
-  theme_minimal(base_size = 12) +
-    theme(
-      plot.title = element_text(size = 14, face = "bold"),
-      axis.title = element_text(size = 12),
-      axis.text = element_text(size = 11),
-      panel.grid = element_blank(),   # sin grilla
-      axis.line = element_line(color = "black"),
-      legend.position = "top",
-      legend.title = element_blank(),
-      plot.background = element_blank()
-    )
-}
-
-#Se fija el tema para su uso durante todo el proyecto
-theme_set(estilo_bayesianos())
-
-#Se escoge la paleta BMJ del paquete ggsci (9 colores)
-paleta <- c(pal_bmj("default")(9), "#4C78A8")
 
 ggplot(residuos_dia_zona, aes(x = Día, y = Zona, fill = Residuo)) +
   geom_tile(color = "white") +
