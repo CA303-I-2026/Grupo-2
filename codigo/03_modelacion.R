@@ -147,7 +147,7 @@ print(prueba2)
 
 # Prueba V de Crámer
 cat("\n--- V de Crámer ---\n")
-prueba2.1<-cramer.v(tabla_interseccion_obstaculos)
+prueba2.1<-CramerV(tabla_interseccion_obstaculos)
 print(prueba2.1)
 
 # Prueba residuos Estandarizados 
@@ -402,7 +402,7 @@ print(prueba6)
 
 # Prueba V de Crámer 
 cat("\n--- V de Crámer ---\n")
-prueba6.1<-cramer.v(tabla_superficie_carretera)
+prueba6.1<-CramerV(tabla_superficie_carretera)
 print(prueba6.1)
 
 # Prueba Residuos Estandarizados 
