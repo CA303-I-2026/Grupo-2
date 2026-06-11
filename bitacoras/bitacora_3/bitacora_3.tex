@@ -981,20 +981,42 @@ Este análisis fallido dejó tres aprendizajes fundamentales para el desarrollo 
 \subsubsection{Tabla resumen de resultados de las pruebas Chi-cuadrado de independencia y V de Crámer}
 \begin{table}[htbp]
 \centering
+
+\begin{tabular}{p{8cm}cc}
+\toprule
+\textbf{Variables cruzadas} & \textbf{\textit{p}-valor} & \textbf{V de Crámer} \\
+\midrule
+
+Condición de superficie $\times$ Condición de luz &
+$< 2.2 \times 10^{-16}$ & 0.1151 \\
+
+Condición de superficie $\times$ Límite de velocidad &
+$< 2.2 \times 10^{-16}$ & 0.0974 \\
+
+Zona $\times$ Momento del día &
+$< 2.2 \times 10^{-16}$ & 0.0497 \\
+
+Detalles de intersección $\times$ Condiciones especiales de la carretera &
+$< 2.2 \times 10^{-16}$ & 0.0449 \\
+
+Día de la semana $\times$ Zona &
+$< 2.2 \times 10^{-16}$ & 0.0432 \\
+
+Condición de luz $\times$ Tipo de carretera &
+$< 2.2 \times 10^{-16}$ & 0.0405 \\
+
+Condición climática $\times$ Condiciones especiales de la carretera &
+$< 2.2 \times 10^{-16}$ & 0.0261 \\
+
+Condición de superficie $\times$ Tipo de carretera &
+$< 2.2 \times 10^{-16}$ & 0.0191 \\
+
+\bottomrule
+\end{tabular}
+
+\footnotesize
 \caption{Resumen de las pruebas Chi-cuadrado de independencia y fuerza de asociación (V de Crámer)}
 \label{tab:resumen_chicuadrado}
-\begin{tabular}{clccc}
-\toprule
-\textbf{Caso} & \textbf{Variables Cruzadas (Filas $\times$ Columnas)} & \textbf{gl} & \textbf{\textit{p}-valor} & \textbf{V de Crámer} \\ \midrule
-Condición de superficie $\times$ Condición de luz & 16 & $< 2.2 \times 10^{-16}$ & 0.1151 \\
-Condición de superficie $\times$ Límite de velocidad & 8 & $< 2.2 \times 10^{-16}$ & 0.0974 \\
-Zona $\times$ Momento del día & 3 & $< 2.2 \times 10^{-16}$ & 0.0497 \\
-Detalles de intersección $\times$ Condiciones especiales de la carretera & 8 & $< 2.2 \times 10^{-16}$ & 0.0449 \\
-Día de la semana $\times$ Zona & 6 & $< 2.2 \times 10^{-16}$ & 0.0432 \\
-Condición de luz $\times$ Tipo de carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0405 \\
-Condición climática $\times$ Condiciones especiales de la carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0261 \\
-Condición de superficie $\times$ Tipo de carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0191 \\ \bottomrule
-\end{tabular}
 \end{table}
 
 \subsubsection{Residuos de condición superficie y luz}
