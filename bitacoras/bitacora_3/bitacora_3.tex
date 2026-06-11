@@ -977,6 +977,26 @@ Se comprobó que este procedimiento era metodológicamente inválido al observar
 Este análisis fallido dejó tres aprendizajes fundamentales para el desarrollo de la bitácora. Antes que nada, se internalizó que las pruebas basadas en la distribución Chi-cuadrado no admiten transformaciones lineales ni cambios de escala en sus tablas de datos, ya que el tamaño muestral absoluto es un componente esencial de la potencia y consistencia del modelo. De igual forma, marcó el aprendizaje de la importancia de validar las propiedades matemáticas de un estimador antes de intentar transformaciones sobre los datos con el único fin de ajustar el volumen de la muestra. Por último, fue evidente que para responder a una pregunta orientada a patrones y combinaciones, era necesario descartar los métodos que analizaban una variable de forma aislada pues la naturaleza del objeto de estudio requiere la interacción de al menos dos o más variables simultáneamente para poder formar una combinación real. 
 
 \subsection{Resultados}
+
+\subsubsection{Tabla resumen de resultados de las pruebas Chi-cuadrado de independencia y V de Crámer}
+\begin{table}[htbp]
+\centering
+\caption{Resumen de las pruebas Chi-cuadrado de independencia y fuerza de asociación (V de Crámer)}
+\label{tab:resumen_chicuadrado}
+\begin{tabular}{clccc}
+\toprule
+\textbf{Caso} & \textbf{Variables Cruzadas (Filas $\times$ Columnas)} & \textbf{gl} & \textbf{\textit{p}-valor} & \textbf{V de Crámer} \\ \midrule
+Condición de superficie $\times$ Condición de luz & 16 & $< 2.2 \times 10^{-16}$ & 0.1151 \\
+Condición de superficie $\times$ Límite de velocidad & 8 & $< 2.2 \times 10^{-16}$ & 0.0974 \\
+Zona $\times$ Momento del día & 3 & $< 2.2 \times 10^{-16}$ & 0.0497 \\
+Detalles de intersección $\times$ Condiciones especiales de la carretera & 8 & $< 2.2 \times 10^{-16}$ & 0.0449 \\
+Día de la semana $\times$ Zona & 6 & $< 2.2 \times 10^{-16}$ & 0.0432 \\
+Condición de luz $\times$ Tipo de carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0405 \\
+Condición climática $\times$ Condiciones especiales de la carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0261 \\
+Condición de superficie $\times$ Tipo de carretera & 16 & $< 2.2 \times 10^{-16}$ & 0.0191 \\ \bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Residuos de condición superficie y luz}
 \begin{figure}[H]
     \centering

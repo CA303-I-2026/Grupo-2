@@ -90,7 +90,7 @@ ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Resi
   labs(
     title = "Residuos estandarizados: \nSuperficie de la vía y condición de luz",
     fill = "Residuo",
-    x = "Superficie de la vía",
+    x = "Condición de superficie",
     y = "Condición de luz"
   )  + estilo_bayesianos() +
   theme(
@@ -99,7 +99,7 @@ ggplot(residuos_luz_superficie, aes(x = Superficie, y = Luminocidad, fill = Resi
 
 
 #----------------------------------------------------------------------------------
-# 2. Tabla de contingencia de intersecciones en T y obstáculos en la vía
+# 2. Tabla de contingencia de intersecciones y obstáculos en la vía
 #----------------------------------------------------------------------------------
 
 tabla_interseccion_obstaculos <- Accident_Information_Clean_espanol %>%
@@ -176,10 +176,10 @@ ggplot(residuos_interseccion_obstaculos, aes(x = Interseccion, y = Obstaculos, f
   geom_text(aes(label = round(Residuo,1)), size = 3.8) +
   scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
-    title = "Residuos estandarizados: Detalles de intersección y condiciones especiales de la vía",
+    title = "Residuos estandarizados: Detalles de intersección y condiciones especiales de la carretera",
     fill = "Residuo",
     x = "Detalles de intersección",
-    y = "Condiciones especiales de la vía"
+    y = "Condiciones especiales de la carretera"
   )  + estilo_bayesianos() +
   theme(
     plot.title = element_text(hjust = 0.5)
@@ -241,10 +241,10 @@ heatmap_clima_obs <- ggplot(residuos_clima_obstaculo, aes(x = Clima, y = Obstacu
   geom_text(aes(label = round(Residuo,1)), size = 3.8) +
   scale_fill_gradient2(low = paleta[2],mid = "white",high = paleta[3], midpoint = 0) +
   labs(
-    title = "Residuos estandarizados: \nCondición climática y obstáculos en la vía",
+    title = "Residuos estandarizados: \nCondición climática y obstáculos en la carretera",
     fill = "Residuo",
     x = "Clima",
-    y = "Obstáculo en vía"
+    y = "Condiciones especiales de la carretera"
   )  + estilo_bayesianos() +
   theme(
     plot.title = element_text(hjust = 0.5)
@@ -306,7 +306,7 @@ ggplot(tabla_prueba4.2, aes(x = Iluminacion, y = Tipo_Carretera, fill = Residuo)
   labs(
     title = "Residuos estandarizados: \nCondiciones de iluminación y vía",
     fill = "Residuo",
-    x = "Iluminación",
+    x = "Condición de luz",
     y = "Tipo de vía"
   ) + theme_cowplot() + estilo_bayesianos() +
   theme(
@@ -430,7 +430,7 @@ ggplot(residuos_superficie_carretera, aes(x = superficie, y = carretera, fill = 
     title = "Residuos estandarizados: Condición de superficie de carretera y tipo de vía",
     fill = "Residuo",
     x = "Condición de superficie de carretera",
-    y = "Tipo de vía"
+    y = "Tipo de carretera"
   )  + estilo_bayesianos() +
   theme(
     plot.title = element_text(hjust = 0.5)
