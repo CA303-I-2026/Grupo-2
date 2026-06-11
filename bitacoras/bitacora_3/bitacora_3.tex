@@ -855,6 +855,78 @@ de factores que ocurren con una frecuencia significativamente distinta de la esp
 
 \subsection{Propuesta metodológica}
 \subsubsection{Métodos}
+Para identificar las combinaciones y patrones de factores que ocurren con mayor frecuencia en los accidentes 
+de tránsito del Reino Unido durante el período de 2010-2017, se emplearán distintos métodos de análisis para variables
+categóricas basados en tablas de contingencias y pruebas estadísticas de asociación.En primer lugar, las tablas de contigencia
+permitirán resumir la distribución conjunta de los factores seleccionados. Posteriormente, se aplicarán pruebas de independencia 
+Chi-cuadrado para evaluar la existencia de asociaciones estadísticamente significativas entre las variables analizadas.
+
+Una vez identificadas dichas asociaciones, se calculará la V de Crámer con el objetivo de cuantificar la intensidad de la relación entre los factores
+estudiados. Finalmente, se analizarán los residuos estandarizados de las tablas de contingencia para identificar cuáles combinaciones específicas de
+categorías ocurren con una mayor o menor frecuencia a la esperada bajo el supuesto de independencia. 
+Este proceso metodológico permitirá identificar y caracterizar las combinaciones de factoresmás frecuentes en los accidentes de 
+tránsito del Reino Unido durante el período 2010-2017.
+
+\subsubsection*{Tablas de contingencia}
+Según \textcite{agresti2002categorical}, la relación entre dos variables categóricas puede estudiarse mediante su distribución conjunta, 
+la cual se representa a través de una tabla de contingencia. Si $X$ y $Y$ son variables categóricas con $I$ y $J$ categorías, 
+respectivamente, la tabla de contingencia $(I \times J)$ contiene las frecuencias observadas para cada una de las posibles combinaciones de 
+categorías entre ambas variables.
+
+Sea $(n_{ij})$ la frecuencia observada correspondiente a la categoría ($i$) de la variable $(X)$ y la categoría $(j)$ de la variable $(Y)$. 
+El número total de observaciones se obtiene mediante
+
+$$
+N=\sum_{i=1}^{I}\sum_{j=1}^{J}n_{ij}.
+$$
+
+A partir de estas frecuencias es posible obtener las proporciones conjuntas
+$$
+p_{ij}=\frac{n_{ij}}{N},
+$$
+
+las cuales describen la distribución conjunta de las variables. 
+
+Las tablas de contingencia permiten estudiar la estructura de asociación entre 
+variables categóricas mediante el análisis de sus distribuciones conjuntas, marginales 
+y condicionales, constituyendo la base para la aplicación de pruebas de independencia y homogeneidad (\cite{LASTRE2019}).
+
+\subsubsection*{Prueba Chi-cuadrado de independencia}
+Una vez construidas las tablas de contingencia, se aplicará la prueba Chi-cuadrado de independencia para determinar si existe asociación entre las variables categóricas analizadas. Según \textcite{LASTRE2019}, esta prueba compara las frecuencias observadas en cada celda de la tabla con las frecuencias que se esperarían obtener bajo el supuesto de independencia entre las variables.
+
+Bajo la hipótesis nula, las variables son independientes y las frecuencias esperadas para cada celda se calculan mediante
+
+$$
+E_{ij}=\frac{n_{i+}n_{+j}}{N},
+$$
+
+donde $n_{i+}$ representa el total de la fila $i$, $n_{+j}$ el total de la columna j y $N$ el número total de observaciones.
+
+A partir de estas frecuencias esperadas se calcula el estadístico Chi-cuadrado de Pearson:
+
+$$
+\chi^2=\sum_{i=1}^{I}\sum_{j=1}^{J}
+\frac{(n_{ij}-E_{ij})^2}{E_{ij}},
+$$
+
+donde $(n_{ij})$ corresponde a la frecuencia observada en la celda $((i,j))$.
+
+Las hipótesis de interés para este estudio son:
+
+$$
+H_0: \text{ Los factores relacionados a accidentes de tránsito son independientes }
+$$
+$$
+H_1: \text{ Los factores relacionados a accidentes de tránsito son dependientes}
+$$
+
+Bajo la hipótesis nula, el estadístico $(\chi^2)$ sigue aproximadamente una distribución Chi-cuadrado con
+$(I-1)(J-1)$ grados de libertad. De esta forma, el $p$-valor asociado al estadístico es la probabilidad de obtener un valor del estadístico más grande
+que el observado, suponiendo que $H_0$ es verdadera, donde $p=P({\chi^2}_{gl} \geq {\chi^2}_{obs})$.
+
+Si el $p$-valor asociado al estadístico es menor que el nivel de significancia establecido, se rechazará la hipótesis nula y se concluirá que existe 
+evidencia estadística de asociación entre las variables analizadas. Para la presente investigación, el nivel de significancia establecido es $\alpha = 0.05$, es decir,
+se concluirá que se rechaza la hipótesis nula $H_0$ si el $p$-valor asociado al estadístico cumple que $p<0.05$, y por lo tanto, las variables analizadas están asociadas.
 \subsubsection{Análisis fallido}
 Como parte del proceso para identificar qué patrones o combinaciones de factores ocurren con mayor frecuencia en los accidentes de tránsito del Reino Unido (2010-2017), se evaluó inicialmente la implementación de pruebas de Chi-cuadrado de homogeneidad. El objetivo era determinar si la distribución de ciertos factores de riesgo se mantenía constante a través de diferentes entornos viales. Sin embargo, este enfoque metodológico resultó fallido.
 En primer lugar, se determinó que los resultados de las pruebas de homogeneidad no aportaban información útil para responder a la pregunta de investigación. La prueba de homogeneidad está diseñada para analizar cómo se comporta una única variable categórica a lo largo de diferentes poblaciones independientes. Dado que nuestro objetivo principal es descubrir combinaciones de factores concurrentes, este método era incapaz de capturar relaciones complejas.
