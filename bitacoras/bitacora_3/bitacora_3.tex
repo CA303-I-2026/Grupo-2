@@ -6,6 +6,7 @@
 \usepackage{caption}
 \usepackage{csquotes}
 \usepackage{booktabs}
+\usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage[backend=biber,style=apa]{biblatex}
 \addbibresource{../../referencias/referencias.bib}
@@ -913,12 +914,8 @@ donde $(n_{ij})$ corresponde a la frecuencia observada en la celda $((i,j))$.
 
 Las hipótesis de interés para este estudio son:
 
-$$
-H_0: \text{ Los factores relacionados a accidentes de tránsito son independientes }
-$$
-$$
-H_1: \text{ Los factores relacionados a accidentes de tránsito son dependientes}
-$$
+$$ H_0: \text{ Los factores relacionados a accidentes de tránsito son independientes } $$
+$$ H_1: \text{ Los factores relacionados a accidentes de tránsito son dependientes} $$
 
 Bajo la hipótesis nula, el estadístico $(\chi^2)$ sigue aproximadamente una distribución Chi-cuadrado con
 $(I-1)(J-1)$ grados de libertad. De esta forma, el $p$-valor asociado al estadístico es la probabilidad de obtener un valor del estadístico más grande
@@ -927,15 +924,66 @@ que el observado, suponiendo que $H_0$ es verdadera, donde $p=P({\chi^2}_{gl} \g
 Si el $p$-valor asociado al estadístico es menor que el nivel de significancia establecido, se rechazará la hipótesis nula y se concluirá que existe 
 evidencia estadística de asociación entre las variables analizadas. Para la presente investigación, el nivel de significancia establecido es $\alpha = 0.05$, es decir,
 se concluirá que se rechaza la hipótesis nula $H_0$ si el $p$-valor asociado al estadístico cumple que $p<0.05$, y por lo tanto, las variables analizadas están asociadas.
+
+
+\subsubsection*{V de Cramer}
+Una vez identificada la existencia de asociación entre variables mediante la prueba Chi-cuadrado
+de independencia, se utilizará la V de Crámer para cuantificar la intensidad de cada asociación. De acuerdo con \textcite{McHugh2013},
+esta medida se basa en el estadístico Chi-cuadrado y permite evaluar la fuerza de la asociación entre dos variables categóricas.
+La V de Crámer se calcula mediante la fórmula:
+$$
+V = \sqrt{\frac{\chi^2}{N\min{I-1, J-1}}}
+$$
+
+donde $\chi^2$ corresponde al estadístico Chi-cuadrado de Pearson, $N$ es el número total de observaciones, e $I$ y $J$
+es el número de filas y columnas de la tabla de contingencia, respectivamente.
+
+La V de Crámer toma valores entre 0 y 1. Un valor cercano a 0 se interpreta como una asociación débil o inexistente entre 
+las variables, mientras que valores cercanos a 1 indican asociaciones más fuertes. Por esta razón, la medida complementa 
+a la prueba Chi-cuadrado de independencia, la cual sólo indica si existe relación significativa entre variables pero no 
+da información sobre la magnitud de esta relación (\cite{McHugh2013}).
+
+En el presente trabajo, la V de Crámer permitirá comparar la intensidad de asociación entre las distintas variables analizadas, ayudando
+a identificar cuáles factores presentan relaciones más fuertes dentro de los accidentes de tránsito analizados.
+
+\subsubsection*{Análisis de residuos estandarizados}
+
+Si bien la prueba de independencia Chi-cuadrado permite determinar la existencia de relación entre dos variables categóricas y la V de Crámer
+cuantifica la intensidad de dicha relación, estos métodos no permiten identificar cuáles combinaciones específicas de categorías son las responsables
+de la relación entre estas. Por esta razón, se analizarán los residuos estandarizados para examinar el aporte de cada celda de la tabla de contingencia 
+al estadístico Chi-cuadrado.
+
+Los residuos estandarizados comparan las frecuencias observadas con las frecuencias esperadas bajo la hipótesis de independencia, 
+ajustando además por la variabilidad de cada celda. Estos se calculan mediante
+
+$$
+r_{ij}=
+\frac{n_{ij}-E_{ij}}
+{\sqrt{E_{ij}(1-p_{i+})(1-p_{+j})}},
+$$
+
+donde $n_{ij}$ corresponde a la frecuencia observada en la celda
+$(i,j)$, $E_{ij}$ representa la frecuencia esperada bajo 
+independencia, $p_{i+}$ corresponde a la proporción marginal de 
+la fila $i$ y $p_{+j}$ a la proporción marginal de la columna $j$.
+
+Para interpretar los resultados, se analizará el signo y la magnitud de los residuos estandarizados obtenidos para cada celda de la tabla de contingencia.
+De acuerdo con \textcite{Agresti2002}, valores absolutos mayores a 2 o 3 $(\mid r_{ij}\mid>2$ o $\mid r_{ij}\mid>3)$ indican que la frecuencia observada
+difiere de manera importante de la frecuencia esperada bajo la hipótesis de independencia. Los residuos positivos indican combinaciones de categorías que ocurren con una 
+frecuencia mayor a la esperada, mientras que los negativos representan combinaciones menos frecuentes de lo esperado. 
+
+Las combinaciones asociadas a residuos estandarizados positivos de una magnitud mayor a 2 o 3 $(r_{ij}>2$ o $ r_{ij}>3)$ serán considerados como los patrones más relevantes 
+dentro de los datos, ya que representan asociaciones que suceden con una frecuencia significativamente mayor a la esperada bajo independencia.
+ De esta manera, el análisis de residuos permitirá identificar cuáles combinaciones específicas de factores explican con mayor fuerza los accidentes
+ de tránsito del Reino Unido durante el período del 2010-2017.
+
+
 \subsubsection{Análisis fallido}
 Como parte del proceso para identificar qué patrones o combinaciones de factores ocurren con mayor frecuencia en los accidentes de tránsito del Reino Unido (2010-2017), se evaluó inicialmente la implementación de pruebas de Chi-cuadrado de homogeneidad. El objetivo era determinar si la distribución de ciertos factores de riesgo se mantenía constante a través de diferentes entornos viales. Sin embargo, este enfoque metodológico resultó fallido.
 En primer lugar, se determinó que los resultados de las pruebas de homogeneidad no aportaban información útil para responder a la pregunta de investigación. La prueba de homogeneidad está diseñada para analizar cómo se comporta una única variable categórica a lo largo de diferentes poblaciones independientes. Dado que nuestro objetivo principal es descubrir combinaciones de factores concurrentes, este método era incapaz de capturar relaciones complejas.
 Por otro lado, en prueba de independencia al enfrentarse al volumen masivo de datos y p-valores extremadamente pequeños, para intentar identificar una tendencia general sin la distorsión del peso muestral, se intentó reducir la escala de los datos dividiendo las frecuencias de las tablas de contingencia entre 100 y 1000, además de intentar una transformación logarítmica sobre los conteos.
 Se comprobó que este procedimiento era metodológicamente inválido al observar el comportamiento del p-valor. Las pruebas de independencia Chi-cuadrado exigen estrictamente el uso de frecuencias absolutas observadas. Al alterar la escala y aplicar logaritmos, se distorsionó por completo el estadístico. Esto causó que los p-valores se desviaran drásticamente hacia el rango de $[0.8, 1.0]$, forzando una aceptación artificial de la hipótesis nula que contradecía por completo los resultados obtenidos con los datos brutos y sin transformar.
 Este análisis fallido dejó tres aprendizajes fundamentales para el desarrollo de la bitácora. Antes que nada, se internalizó que las pruebas basadas en la distribución Chi-cuadrado no admiten transformaciones lineales ni cambios de escala en sus tablas de datos, ya que el tamaño muestral absoluto es un componente esencial de la potencia y consistencia del modelo. De igual forma, marcó el aprendizaje de la importancia de validar las propiedades matemáticas de un estimador antes de intentar transformaciones sobre los datos con el único fin de ajustar el volumen de la muestra. Por último, fue evidente que para responder a una pregunta orientada a patrones y combinaciones, era necesario descartar los métodos que analizaban una variable de forma aislada pues la naturaleza del objeto de estudio requiere la interacción de al menos dos o más variables simultáneamente para poder formar una combinación real. 
-
-
-
 
 \subsection{Resultados}
 \subsubsection{Residuos de condición superficie y luz}
@@ -1510,7 +1558,8 @@ maniobras para incorporarse a las carreteras.
 Para organizar la literatura del proyecto se siguió una estrategia basada 
 en la identificación de elementos primarios y secundarios. 
 
-\begin{table}[]
+\begin{table}[H]
+\centering
 \begin{tabular}{ll}
 \hline
 \multicolumn{2}{c}{Elementos del reporte}                       \\ \hline
@@ -1536,7 +1585,8 @@ se jerarquizaron las fichas de resultados según su relevancia para responder la
 pregunta de investigación, distinguiendo entre hallazgos principales y resultados complementarios.
 
 
-\begin{table}[]
+\begin{table}[H]
+\centering
 \begin{tabular}{ll}
 \hline
 Sección      & Temas a tratar                                                                                                                                                                                                                                                                                                                                           \\ \hline
@@ -1802,10 +1852,7 @@ Apoyo en la redacción del informe. \par
 Desarrollo del código para las pruebas estadísticas. \par
 Limpieza y corrección de la base de datos.
 \\ \hline
-
 \end{tabular}
-\caption{Log de contribuciones de los integrantes del equipo.}
-\end{table} 
 
 \newpage
 \printbibliography
