@@ -552,8 +552,8 @@ heatmap_sup_vel <- ggplot(residuos_superficie_velocidad, aes(x = Velocidad, y = 
   ) +
   labs(
     title = "Residuos estandarizados: \nCondición de superficie y límite de velocidad de la carretera",
-    x = "Condición de superficie de la carretera",
-    y = "Límite de velocidad",
+    x = "Límite de velocidad",
+    y = "Condición de superficie de la carretera" ,
     fill = "Residuo"
   ) +
   estilo_bayesianos() +
