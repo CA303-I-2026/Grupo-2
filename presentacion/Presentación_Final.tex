@@ -373,7 +373,7 @@
   \frameheader{04}{Resultados}
   \myfooter
   \begin{center}
-    \textbf{Detalles de intersección y condiciones especiales}
+    \textbf{Zona (urbana o rural) y momento del día}
   \end{center}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
@@ -382,10 +382,9 @@
 
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-\item Rural: pico en la mañana (neblina, sol fuerte, lluvia matutina, rutina agrícola/laboral temprana).
+\item Rural: pico en la mañana (rutina agrícola temprana).
 \item Urbano: pico en la noche (ocio, salida laboral, poca visibilidad).
-\item Hosseinian y Torghabeh (2012): los picos de siniestralidad se alinean con las rutinas sociales, no con el clima o infraestructura.
-\item Limitación de la fuente: bloques horarios grandes no capturan picos finos de congestión (horas pico exactas).
+\item Los picos de siniestralidad se alinean con las rutinas sociales, no con el clima o infraestructura \parencite{HOSSEINIAN2012}.
         \end{itemize}
     \end{column}
 \end{columns}
@@ -399,6 +398,85 @@
   \centering
   \includegraphics[width=0.65\textwidth]{../bitacoras/bitacora_2/figuras/frecuencia_condicion_calle.png}
 \end{frame}
+
+
+\begin{frame}[plain]
+  \frameheader{04}{Resultados}
+  \myfooter
+  \begin{center}
+    \textbf{Condición de la superficie de la vía y condición de luz}
+  \end{center}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{Figuras/Residuos_superficie_luz.png}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+\item \textbf{Mayor frecuencia:} día + superficie seca (mayor flujo vehicular).
+\item \textbf{Patrones:} mojado/inundado → oscuridad con o sin luz artificial y hielo/escarcha → oscuridad sin alumbrado.
+\item  Pérdida de fricción + menor agudeza visual del conductor = mayor riesgo \parencite{KARZAN2017}.
+        \end{itemize}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[plain]
+  \frameheader{04}{Resultados}
+  \myfooter
+  \begin{center}
+    \textbf{Superficie y tipo de carretera}
+  \end{center}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{Figuras/Residuos_superficie_tipodevia.png}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+\item \textbf{Mayor riesgo:} hielo, nieve o inundaciones localizadas.
+\item El problema no es solo la superficie, sino la falta de ajuste por parte 
+del conductor (velocidad sostenida sin anticipar el cambio de fricción) \parencite{KARZAN2017}.
+      \end{itemize}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[plain]
+  \frameheader{04}{Resultados}
+  \myfooter
+  \begin{center}
+    \textbf{Condición de luz y tipo de carretera}
+  \end{center}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{Figuras/Residuos_ilum_via.png}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+\item Vías dobles en oscuridad total → accidentes muy superiores a lo esperado.
+\item A alta velocidad sin alumbrado, la distancia de frenado excede el alcance 
+visible de los faros, reduciendo el tiempo de reacción \parencite{TAYLOR2000}.
+      \end{itemize}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \myfooter
+   \frameheader{02}{Datos -- Resultados Exploratorios}\\[1.8pt]
+  \textbf{Condición de carretera}
+
+  \centering
+  \includegraphics[width=0.65\textwidth]{../bitacoras/bitacora_2/figuras/frecuencia_condicion_calle.png}
+\end{frame}
+
+
+
+
 %% ── REFERENCIAS ──────────────────────────────────────────────
 \begin{frame}[plain, allowframebreaks]
   \frameheader{}{Referencias}
