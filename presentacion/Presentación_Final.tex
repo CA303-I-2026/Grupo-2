@@ -244,9 +244,9 @@
       \begin{tcolorbox}[bloqueverde, title=Contexto]
         \small
         \begin{itemize}
-          \item jkdks
-          \item kffjjdk
-          \item kdkkd
+        \item \textbf{Siniestralidad vial:} Desafío crítico de salud pública.
+        \item \textbf{Diferenciador:} Análisis de coocurrencia y combinación de factores específicos.
+        \item \textbf{Objetivo:} Identificar patrones concurrentes de alto riesgo.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
@@ -294,27 +294,27 @@
 %% ── Gráficos (2×2) ───────────────────────────────────────────
 
 %% ============================================================
-\section{Metodolog\'ia Propuesta}
+\section{Metodolog\'ia}
 %% ============================================================
 
 \begin{frame}[plain]
-  \frameheader{03}{Metodología propuesta}
+  \frameheader{03}{Metodología}
   \myfooter
       \begin{tcolorbox}[bloqueverde, title=Pruebas de independencia $\chi^2$]
         \small
         \begin{itemize}
-      \item \textbf{Chi-cuadrado:} evalúa la independencia entre variables.
+      \item \textbf{Chi-cuadrado:} evalúa la independencia entre variables \parencite{LASTRE2019}.
         \[
         \chi^2=\sum_i\sum_j
         \frac{(n_{ij}-E_{ij})^2}{E_{ij}}
         \]
           $$ H_0: \text{Las variables son independientes vs } H_1: \text{ Las variables se relacionan}$$
-        \item \textbf{V de Crámer:} mide la fuerza de la asociación.
+        \item \textbf{V de Crámer:} mide la fuerza de la asociación \parencite{McHugh2013}.
         \[
         V=\sqrt{\frac{\chi^2}{N\min(I-1,J-1)}}
         \]
 
-        \item \textbf{Residuos estandarizados:} identifican las combinaciones responsables de la asociación.
+        \item \textbf{Residuos estandarizados:} identifican las combinaciones responsables de la asociación \parencite{Agresti2002}.
         \[
         r_{ij}=
         \frac{n_{ij}-E_{ij}}
@@ -475,6 +475,28 @@ visible de los faros, reduciendo el tiempo de reacción \parencite{TAYLOR2000}.
 \end{frame}
 
 
+%% ============================================================
+\section{Conclusiones}
+%% ============================================================
+
+\begin{frame}[plain]
+  \frameheader{03}{Conclusiones}
+  \myfooter
+      \begin{tcolorbox}[bloqueverde, title= Conclusiones]
+        \small
+        \begin{itemize}
+    \item Se identificaron las combinaciones de factores asociadas a una mayor frecuencia de 
+    accidentes.
+    \item Mayor número de colisiones en condiciones favorables por alta exposición vehicular.
+    \item Los residuos estandarizados revelaron patrones de riesgo específicos (alta velocidad, 
+    superficies mojadas y oscuridad).
+    \item La gran muestra produjo asociaciones débiles, aunque estadísticamente significativas.
+    \item Se recomienda el uso de modelos multivariados en estudios futuros.
+    \item El estudio amplía la evidencia a nivel nacional y aporta información para mejorar la 
+    seguridad vial.
+        \end{itemize}
+      \end{tcolorbox}
+\end{frame}
 
 
 %% ── REFERENCIAS ──────────────────────────────────────────────
